@@ -1,5 +1,7 @@
 package buyer.pageObjects.Android;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,7 +21,7 @@ public class HomePage {
 
 	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
 	private WebElement notipermission;
-	
+
 	@AndroidFindBy(id = "com.sot.bizup:id/mbSearch")
 	private WebElement searchBar;
 
@@ -46,9 +48,15 @@ public class HomePage {
 
 	@AndroidFindBy(id = "com.sot.bizup:id/ivCoachmarkText")
 	private WebElement coachmark;
+	
+	@AndroidFindBy(id = "com.sot.bizup:id/mbCategory")
+	private WebElement productFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivSelected\"])[3]")
-	private WebElement productSelect;
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivSelected\"])")
+	private List<WebElement> productSelect;
+
+	@AndroidFindBy(id = "com.sot.bizup:id/mbDone")
+	private WebElement productApply;
 
 	@AndroidFindBy(id = "com.sot.bizup:id/ivFilter1")
 	private WebElement directProductSelect;
@@ -62,8 +70,8 @@ public class HomePage {
 	@AndroidFindBy(id = "com.sot.bizup:id/mbCity")
 	private WebElement cityFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivThumbnail\"])[1]")
-	private WebElement videoPlay;
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivThumbnail\"])")
+	private List<WebElement> videoPlay;
 
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/navigation_bar_item_icon_view\"])[1]")
 	private WebElement homeTab;
@@ -82,11 +90,13 @@ public class HomePage {
 	}
 
 	public void CoachMark() {
-		coachmark.click();
+		save.click();
 	}
 
-	public void ProductSelect() {
-		productSelect.click();
+	public void ProductSelect(int index) {
+		productFilter.click();
+		productSelect.get(index).click();
+		productApply.click();
 	}
 
 	public void PriceSelect() {
@@ -94,8 +104,8 @@ public class HomePage {
 		priceSelect.click();
 	}
 
-	public void HomeVideoPlay() {
-		videoPlay.click();
+	public void HomeVideoPlay(int index) {
+		videoPlay.get(index).click();
 	}
 
 	public void Save() {
@@ -145,7 +155,5 @@ public class HomePage {
 	{
 		searchBar.click();
 	}
-	
-	
 
 }

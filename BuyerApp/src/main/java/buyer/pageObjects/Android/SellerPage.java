@@ -23,6 +23,9 @@ public class SellerPage{
 	}
 
 	Chat chat = new Chat(driver);
+	
+	@AndroidFindBy(id = "com.sot.bizup:id/mbSaveTitle")
+	private WebElement coachmark;
 
 	@AndroidFindBy(id = "com.sot.bizup:id/mbSaveTitle")
 	private WebElement SaveButton;
@@ -53,6 +56,10 @@ public class SellerPage{
 
 	@AndroidFindBy(xpath = "(//android.widget.Image[@text=\\\"Vector\\\"])[2]")
 	private WebElement whatsEnableClick;
+	
+	public void Coachmark() {
+		coachmark.click();
+	}
 
 	public void SaveButtonClick() {
 		SaveButton.click();
@@ -76,12 +83,13 @@ public class SellerPage{
 				.click();
 	}
 
-	public void VideoBaatKareButtonClick() {
+	public void VideoBaatKare() {
 		VideoBaatKareButton.click();
 	}
 
-	public void BaatKareButtonClick() {
+	public void BaatKareButton() throws InterruptedException {
 		BaatKareButton.click();
+		Thread.sleep(3000);
 	}
 
 	public void CatalogSelect() {
@@ -112,41 +120,6 @@ public class SellerPage{
 		Thread.sleep(2000);
 	}
 	
-	public void shortSellerEnquiry() throws InterruptedException
-	{
-		//Click on Baat Kare button
-		driver.findElement(By.id("com.sot.bizup:id/mbPlaceOrder")).click();
-		Thread.sleep(3000);
-		
-		//Enter the text on the Chat box
-		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Hello");
-		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
-		Thread.sleep(4000);
-		
-		//Back from Chat
-		driver.pressKey (new KeyEvent (AndroidKey.BACK));
-		Thread.sleep(2000);
-		
-		//Video Tab Change
-		driver.findElement(By.id("com.sot.bizup:id/mtSellerVideos")).click();
-		driver.findElement(By.id("com.sot.bizup:id/mtSellerVideos")).click();
-		//Thread.sleep(2000);
-		
-		//Play video
-		driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivThumbnail\"])[1]")).click();
-						
-		//Seller video baat kare button click
-		driver.findElement(By.id("com.sot.bizup:id/mbChat")).click();
-		Thread.sleep(3000);
-		
-		//Enter the text on the Chat box
-		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Catalog Dekhiye");
-		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
-		Thread.sleep(4000);
-		
-		//Back from Chat
-		driver.pressKey (new KeyEvent (AndroidKey.BACK));
-	}
 	
 
 }

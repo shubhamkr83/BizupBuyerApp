@@ -85,12 +85,7 @@ public class Chat {
 		send.click();
 	}
 
-	public void WhatsAppEnable() {
-		whatsAppEnableTop.click();
-	}
+	
 
-	public void WhatsAppEnableBottom() {
-		whatsAppEnableBottom.click();
-	}
 
 }

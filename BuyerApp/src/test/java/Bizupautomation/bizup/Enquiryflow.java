@@ -6,21 +6,23 @@ import org.testng.annotations.Test;
 
 import buyer.pageObjects.Android.EnquiryTab;
 import buyer.pageObjects.Android.HomePage;
+import buyer.pageObjects.Android.Login;
 import buyer.pageObjects.Android.PlayStore;
 import buyer.pageObjects.Android.Search;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class Enquiryflow extends Base {
 
 	@Test
-	public void Enquiryvideoflow() throws InterruptedException {
+	public void EnquiryFlow() throws InterruptedException {
 
 		PlayStore playStore = new PlayStore(driver);
+		Login login = new Login(driver);
 		HomePage homePage = new HomePage(driver);
 		Search search = new Search(driver);
 		EnquiryTab enquiryTab = new EnquiryTab(driver);
+
 
 		// ----------------------------------------------------------------------
 		// ------------- Install from Playstore --------------
@@ -57,10 +59,10 @@ public class Enquiryflow extends Base {
 		// ----------------------------------------------------------------------
 
 		// Answer the TrueCaller
-		driver.findElement(By.id("com.truecaller:id/tv_continueWithDifferentNumber")).click();
+		// login.TrueCaller();
 
 		// Enter Number
-		driver.findElement(By.id("com.sot.bizup:id/etMobileNo")).sendKeys("1111100000");
+		login.MobileNumber("1111100000");
 		Thread.sleep(5000);
 
 		// ---------------HomePage---------------
@@ -72,25 +74,26 @@ public class Enquiryflow extends Base {
 		homePage.CoachMark();
 
 		// Selecting Product
-		homePage.ProductSelect();
-		// HomeWait();
+		homePage.ProductSelect(3);
+		homePage.ProductSelect(4);
 
 		// Select Price
 		homePage.PriceSelect();
 		HomeWait();
 
 		// Video Click
-		homePage.HomeVideoPlay();
+		homePage.HomeVideoPlay(1);
 		// Thread.sleep(2000);
 
 		// ------------------Video Page--------------------
-		// Answer activation question
-		driver.findElement(AppiumBy.androidUIAutomator(
-				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"आप किस के लिए कपड़े देख रहें हैं ?\"));"));
-		driver.findElement(By.xpath(
-				"//android.widget.Button[@resource-id=\"com.sot.bizup:id/mtOption\" and @text=\"दुकान के लिए\"]"))
-				.click();
-		// Thread.sleep(2000);
+		/*
+		 // Answer activation question driver.findElement(AppiumBy.androidUIAutomator(
+		 "new UiScrollable(new UiSelector()).scrollIntoView(text(\"आप किस के लिए कपड़े देख रहें हैं ?\"));"
+		  )); driver.findElement(By.xpath(
+		  "//android.widget.Button[@resource-id=\"com.sot.bizup:id/mtOption\" and @text=\"दुकान के लिए\"]"
+		  )) .click();
+		  */
+		 
 
 		// Go to seller page
 		driver.findElement(By.id("com.sot.bizup:id/mbGood")).click();

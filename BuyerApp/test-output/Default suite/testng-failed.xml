@@ -7,7 +7,7 @@
         <methods>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
-          <include name="Enquiryvideoflow"/>
+          <include name="EnquiryFlow"/>
         </methods>
       </class> <!-- Bizupautomation.bizup.Enquiryflow -->
     </classes>
