@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-17T17:15:40 IST" name="Default suite" finished-at="2024-04-17T17:21:26 IST" duration-ms="345706">
+  <suite started-at="2024-04-18T17:28:43 IST" name="Default suite" finished-at="2024-04-18T17:29:34 IST" duration-ms="50745">
     <groups>
     </groups>
-    <test started-at="2024-04-17T17:15:40 IST" name="Default test" finished-at="2024-04-17T17:21:26 IST" duration-ms="345706">
-      <class name="Bizupautomation.bizup.Enquiryflow">
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:Bizupautomation.bizup.Enquiryflow@661972b0]" started-at="2024-04-17T17:15:40 IST" name="ConfigureAppium" finished-at="2024-04-17T17:15:48 IST" duration-ms="7863" status="PASS">
+    <test started-at="2024-04-18T17:28:43 IST" name="Default test" finished-at="2024-04-18T17:29:34 IST" duration-ms="50745">
+      <class name="Bizupautomation.bizup.TestFlow">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:Bizupautomation.bizup.TestFlow@661972b0]" started-at="2024-04-18T17:28:43 IST" name="ConfigureAppium" finished-at="2024-04-18T17:28:51 IST" duration-ms="8102" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method signature="EnquiryFlow()[pri:0, instance:Bizupautomation.bizup.Enquiryflow@661972b0]" started-at="2024-04-17T17:15:48 IST" name="EnquiryFlow" finished-at="2024-04-17T17:21:26 IST" duration-ms="337420" status="PASS">
+        <test-method signature="SearchEnquiryFlow()[pri:0, instance:Bizupautomation.bizup.TestFlow@661972b0]" started-at="2024-04-18T17:28:51 IST" name="SearchEnquiryFlow" finished-at="2024-04-18T17:29:34 IST" duration-ms="42241" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EnquiryFlow -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:Bizupautomation.bizup.Enquiryflow@661972b0]" started-at="2024-04-17T17:21:26 IST" name="TearDown" finished-at="2024-04-17T17:21:26 IST" duration-ms="319" status="PASS">
+        </test-method> <!-- SearchEnquiryFlow -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:Bizupautomation.bizup.TestFlow@661972b0]" started-at="2024-04-18T17:29:34 IST" name="TearDown" finished-at="2024-04-18T17:29:34 IST" duration-ms="352" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-      </class> <!-- Bizupautomation.bizup.Enquiryflow -->
+      </class> <!-- Bizupautomation.bizup.TestFlow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

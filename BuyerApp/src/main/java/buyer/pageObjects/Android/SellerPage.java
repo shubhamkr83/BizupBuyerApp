@@ -6,8 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -54,9 +52,6 @@ public class SellerPage{
 	@AndroidFindBy(id = "com.sot.bizup:id/mbButton")
 	private WebElement SkipEnqVideo;
 
-	@AndroidFindBy(xpath = "(//android.widget.Image[@text=\\\"Vector\\\"])[2]")
-	private WebElement whatsEnableClick;
-	
 	public void Coachmark() {
 		coachmark.click();
 	}
@@ -107,10 +102,6 @@ public class SellerPage{
 
 	public void SkipEnquiryVideo() {
 		SkipEnqVideo.click();
-	}
-
-	public void WhatsAppEnableClick() {
-		whatsEnableClick.click();
 	}
 
 	public void FeedbackAnswer() throws InterruptedException {

@@ -1,9 +1,12 @@
 package buyer.pageObjects.Android;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -25,20 +28,19 @@ public class EnquiryTab {
 	private WebElement mereSellerTab;
 
 	@AndroidFindBy(id = "com.sot.bizup:id/ivDealsCoachmark")
-	private WebElement coachMark;
+	private By coachMark;
 
 	@AndroidFindBy(id = "com.sot.bizup:id/mbReplyNow")
 	private WebElement replyNow;
 
-	public void MereSellerTabClick() {
+	@AndroidFindBy(id = "com.sot.bizup:id/mbButton")
+	private By preEnquiryVideo;
+
+	public void MereSellerTabClick() throws InterruptedException {
 		mereSellerTab.click();
 	}
 
-	public void CoachMark() {
-		coachMark.click();
-	}
-
-	public void ReplyNowClick() {
+	public void ReplyNowClick() throws InterruptedException {
 		replyNow.click();
 	}
 
@@ -82,13 +84,17 @@ public class EnquiryTab {
 		claimButton.click();
 	}
 
-	public void AskNowButtonClick() {
+	public void AskNowButtonClick() throws InterruptedException{
 		askNowButton.click();
+		Thread.sleep(1500);
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 	}
 
 	public void SelectFeedbackQue() {
 		feedbackQue1.click();
 		feedbackQue2.click();
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 	}
 
 	// ----------------------------------------------------------------------

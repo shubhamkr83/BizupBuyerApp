@@ -78,20 +78,17 @@ public class Base {
 
 		// Click on Baat Kare button
 		driver.findElement(By.id("com.sot.bizup:id/mbPlaceOrder")).click();
-		Thread.sleep(2000);
-		
-		/*
-		 * ///Answer Enquiry activation question
-		 * //driver.findElement(By.id("com.sot.bizup:id/mbPositive")).click();
-		 */
-		
-		Thread.sleep(10000);
 
-		// Skip Enquiry video
-		driver.findElement(By.id("com.sot.bizup:id/mbButton")).click();
-		Thread.sleep(7000);
+		// Check for PreEnquiryVideo
+		By preEnquiryVideo = By.id("com.sot.bizup:id/mbButton");
+		if (driver.findElements(preEnquiryVideo).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			Thread.sleep(8000);
+			driver.findElement(preEnquiryVideo).click();
+		}
 
 		// Enter the text on the Chat box
+		Thread.sleep(7000);
 		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Hello");
 		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
 		Thread.sleep(4000);
@@ -152,17 +149,15 @@ public class Base {
 			}
 		}
 
-		Thread.sleep(10000);
-
-		// Skip Enquiry video
-		driver.findElement(By.id("com.sot.bizup:id/mbButton")).click();
-		Thread.sleep(4000);
-
-		// Send Kacha bill
-		// driver.findElement(By.id("com.whatsapp:id/send")).click();
-		// Thread.sleep(2000);
-
+		// Check for PreEnquiryVideo
+		if (driver.findElements(preEnquiryVideo).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			Thread.sleep(8000);
+			driver.findElement(preEnquiryVideo).click();
+		}
+		
 		// Back to Chat
+		Thread.sleep(3000);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
@@ -203,10 +198,11 @@ public class Base {
 		// Enter the text on the Chat box
 		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys("Catalog Dekhiye");
 		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
+		
+		//Back from Chat
+		driver.pressKey (new KeyEvent (AndroidKey.BACK));
 
-		// Back from Chat
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 	}
 
 }
