@@ -52,9 +52,11 @@ public class EnquiryFlows extends Base {
 		// Go to seller page
 		driver.findElement(By.id("com.sot.bizup:id/mbGood")).click();
 
-		// Seller Enquiry
-		SellerEnquiry();
+		//------ Seller Enquiry -------
+		homePage.DetailedEnquiry();
 		
+		
+
 		// Terminate the app
 		driver.terminateApp("com.sot.bizup");
 
@@ -72,15 +74,15 @@ public class EnquiryFlows extends Base {
 		search.SearchIconClick();
 
 		// Type text on the search icon
-		search.SearchInputType("jeans");
+		search.SearchInputType("jacket");
 		driver.pressKey(new KeyEvent(AndroidKey.ENTER));
 
 		// Check the Result
 		String resultsSearch = driver.findElement(By.id("com.sot.bizup:id/mtTitle")).getText();
-		Assert.assertEquals("Showing results for “jeans”", resultsSearch);
+		Assert.assertEquals("Showing results for “jacket”", resultsSearch);
 
 		// Video Tab
-		search.VideoTabClick();
+		search.SearchVideoTab();
 
 		// Play video
 		search.PlayVideo();
@@ -89,16 +91,16 @@ public class EnquiryFlows extends Base {
 		search.VideoLikeButton();
 
 		// Short Seller Enquiry
-		shortSellerEnquiry();
+		search.shortSellerEnquiry();
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
 		// Sample Tab Change
-		search.SampleTabClick();
+		search.SearchSampleTab();
 
 		// Sample Enquiry
-		search.SampleEnquiryClick();
+		search.SearchSampleEnquiry();
 		Thread.sleep(4000);
 
 		// Back from Chat
@@ -106,14 +108,14 @@ public class EnquiryFlows extends Base {
 		Thread.sleep(2000);
 
 		// Seller Tab Change
-		search.SellerTabClick();
+		search.SearchSellerTab();
 
 		// Select seller card
 		search.SellerCardSelect();
 
 		// Short Seller Enquiry
-		shortSellerEnquiry();
-		
+		search.shortSellerEnquiry();
+
 		// Terminate the app
 		driver.terminateApp("com.sot.bizup");
 
@@ -180,7 +182,6 @@ public class EnquiryFlows extends Base {
 
 		// Order Feedback question
 		enquiryTab.SelectFeedbackQue();
-		
 
 		// ----------------------------------------------------------------------
 		// ----------------- Claim Tab Flow --------------------
@@ -191,7 +192,7 @@ public class EnquiryFlows extends Base {
 
 		// Click on the Ask now button
 		enquiryTab.AskNowClick();
-		
+
 		if (driver.findElements(preEnquiryVideo).size() > 0) {
 			// If the first element exists, click it
 			Thread.sleep(8000);

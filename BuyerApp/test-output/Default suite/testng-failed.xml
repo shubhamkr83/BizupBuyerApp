@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Bizupautomation.bizup.TestFlow">
+      <class name="Bizupautomation.bizup.PSellerEnquiry">
         <methods>
+          <include name="preSetup"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
-          <include name="SearchEnquiryFlow"/>
+          <include name="PSellerFlow" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- Bizupautomation.bizup.TestFlow -->
+      </class> <!-- Bizupautomation.bizup.PSellerEnquiry -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

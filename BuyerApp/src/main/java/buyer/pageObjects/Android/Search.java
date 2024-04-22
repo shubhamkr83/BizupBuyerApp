@@ -2,17 +2,19 @@ package buyer.pageObjects.Android;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Search {
+public class Search extends SellerPage{
 
 	AndroidDriver driver;
 
 	public Search(AndroidDriver driver)
 
 	{
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
@@ -22,6 +24,9 @@ public class Search {
 	
 	@AndroidFindBy(id = "com.sot.bizup:id/search_src_text")
 	private WebElement searchInputType;
+	
+	@AndroidFindBy(id = "com.sot.bizup:id/mtClear")
+	private WebElement clearResult;
 	
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup:id/tabText\" and @text=\"Videos (99+)\"]")
 	private WebElement videoTab;
@@ -53,6 +58,10 @@ public class Search {
 		searchInputType.sendKeys(product);
 	}
 	
+	public void ClearResult() {
+		clearResult.click();
+	}
+	
 	public void PlayVideo() {
 		playVideo.click();
 	}
@@ -60,19 +69,19 @@ public class Search {
 	public void VideoLikeButton() {
 		videoLikeButton.click();
 	}
-	public void VideoTabClick() {
+	public void SearchVideoTab() {
 		videoTab.click();
 	}
 	
-	public void SampleEnquiryClick() {
-		sampleEnquiry.click();
-	}
-	
-	public void SampleTabClick() {
+	public void SearchSampleTab() {
 		sampleTab.click();
 	}
 	
-	public void SellerTabClick() {
+	public void SearchSampleEnquiry() {
+		sampleEnquiry.click();
+	}	
+	
+	public void SearchSellerTab() {
 		sellerTab.click();
 	}
 	

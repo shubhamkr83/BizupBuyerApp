@@ -1,5 +1,6 @@
 package Bizupautomation.bizup;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import buyer.pageObjects.Android.HomePage;
@@ -38,11 +39,12 @@ public class PlayStoreInstall extends Base {
 		playStore.Install();
 
 		// Waiting to installation
-		Thread.sleep(40000);
+		Thread.sleep(45000);
+		playStore.LaunchApp();
 
 		// Launch the app
 		driver.activateApp("com.sot.bizup");
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 	}
 
 	// ----------------------------------------------------------------------
@@ -54,11 +56,15 @@ public class PlayStoreInstall extends Base {
 		HomePage homePage = new HomePage(driver);
 
 		// Answer the TrueCaller
-		// login.TrueCaller();
+		By trueCaller = By.id("com.truecaller:id/tv_continueWithDifferentNumber");
+		if (driver.findElements(trueCaller).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			driver.findElement(trueCaller).click();
+		}
 
 		// Enter Number
 		login.MobileNumber("1111100000");
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 
 		// Answer the notification permission
 		homePage.NotificationPermission();

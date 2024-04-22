@@ -1,47 +1,96 @@
 package Bizupautomation.bizup;
 
 import org.openqa.selenium.By;
-import org.testng.Assert;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
 
-import buyer.pageObjects.Android.Search;
+import buyer.pageObjects.Android.SellerPage;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class TestFlow extends Base {
 
 	@Test
-	public void SearchEnquiryFlow() throws InterruptedException {
-		
-		Search search = new Search(driver);
+	public void Seller() throws InterruptedException {
 
-		// Click on the search icon
-		search.SearchIconClick();
+		SellerPage sellerPage = new SellerPage(driver);
 
-		// Type text on the search icon
-		search.SearchInputType("pant");
-		driver.pressKey(new KeyEvent(AndroidKey.ENTER));
+		// Coachmark
+		//sellerPage.Coachmark();
 
-		// Check the Result
-		String resultsSearch = driver.findElement(By.id("com.sot.bizup:id/mtTitle")).getText();
-		Assert.assertEquals("Showing results for “pant”", resultsSearch);
+		// ------Catalog Enquiry------
 
-		// Video Tab
-		search.VideoTabClick();
+		// Go to Catalog Tab
+		sellerPage.CatalogTabClick();
 
-		// Play video
-		search.PlayVideo();
+		// Selecting Catalog
+		sellerPage.CatalogSelect();
 
-		// Video Enquiry button click
-		search.VideoLikeButton();
+		// Click on Baat Kare button
+		sellerPage.BaatKareButton();
 
-		// Short Seller Enquiry
-		shortSellerEnquiry();
+		// Check for PreEnquiryVideo
+		By preEnquiryVideo = By.id("com.sot.bizup:id/mbButton");
+		if (driver.findElements(preEnquiryVideo).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			Thread.sleep(8000);
+			driver.findElement(preEnquiryVideo).click();
+		}
+
+		// Enter the text on the Chat box
+		Thread.sleep(4000);
+		sellerPage.LongChat1();
+
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+
+		// ------Video Enquiry------
+		// Search Video Tab Change
+		sellerPage.VideoTabClick();
+
+		// Click on the video
+		sellerPage.VideoPlay();
+
+		// Seller video baat kare button click
+		sellerPage.VideoBaatKare();
+
+		// Enter the text on the Chat box
+		sellerPage.LongChat2();
+
+		// WhatsApp Enable Click
+		By secondElement = By.xpath("//android.widget.TextView[@text=\"ओनर से बात करे\"]");
+		By firstElement = By.xpath("//android.widget.Button[@text=\"बात करे\"]");
+
+		// driver.findElement(By.xpath("(//android.widget.Image[@text=\"Vector\"])[2]")).click();
+
+		// Check if the first element exists
+		if (driver.findElements(firstElement).size() > 0) {
+			// If the first element exists, click it
+			driver.findElement(firstElement).click();
+		} else {
+			// If the first element doesn't exist, check if the second element exists
+			if (driver.findElements(secondElement).size() > 0) {
+				// If the second element exists, click it
+				driver.findElement(secondElement).click();
+			} else {
+				// If neither element exists, throw an exception or handle it in some other way
+				throw new NoSuchElementException("Neither the first nor the second element was found.");
+			}
+		}
+
+		// Check for PreEnquiryVideo
+		if (driver.findElements(preEnquiryVideo).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			Thread.sleep(8000);
+			driver.findElement(preEnquiryVideo).click();
+		}
+
+		// Back to Chat
+		Thread.sleep(3000);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 
-		// Sample Tab Change
-		search.SampleTabClick();
+		// Answer feedback
+		sellerPage.FeedbackAnswer();
 	}
+
 }

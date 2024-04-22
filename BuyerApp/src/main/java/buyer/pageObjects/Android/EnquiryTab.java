@@ -10,13 +10,14 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class EnquiryTab {
+public class EnquiryTab extends SellerPage {
 
 	AndroidDriver driver;
 
 	public EnquiryTab(AndroidDriver driver)
 
 	{
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
@@ -84,7 +85,7 @@ public class EnquiryTab {
 		claimButton.click();
 	}
 
-	public void AskNowButtonClick() throws InterruptedException{
+	public void AskNowButtonClick() throws InterruptedException {
 		askNowButton.click();
 		Thread.sleep(1500);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
