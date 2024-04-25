@@ -4,15 +4,23 @@
   <listeners>
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
-  <test thread-count="5" name="AppInstall(failed)">
+  <test thread-count="5" name="EnquiryFlow(failed)">
+    <groups>
+      <run>
+        <include name="Smoke"/>
+      </run>
+    </groups>
     <classes>
-      <class name="Bizupautomation.bizup.PlayStoreInstall">
+      <class name="Bizupautomation.bizup.EnquiryFlows">
         <methods>
-          <include name="LoginFlow"/>
+          <include name="EnquiryTabFlow"/>
+          <include name="SearchEnquiryFlow"/>
           <include name="ConfigureAppium"/>
+          <include name="preSetup"/>
           <include name="TearDown"/>
+          <include name="EnquiryVideoFlow"/>
         </methods>
-      </class> <!-- Bizupautomation.bizup.PlayStoreInstall -->
+      </class> <!-- Bizupautomation.bizup.EnquiryFlows -->
     </classes>
-  </test> <!-- AppInstall(failed) -->
+  </test> <!-- EnquiryFlow(failed) -->
 </suite> <!-- Failed suite [BizupBuyerApp] -->

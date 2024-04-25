@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -51,17 +51,17 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-BizupBuyerApp" class="navigator-link ">
-                    <span>C:\Users\lenovo\git\BizupBuyerApp\BuyerApp\testng.xml</span>
+                    <span>C:\Users\lenovo\git\BizupBuyerApp\BuyerApp\testng_Smoke.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" panel-name="testlist-BizupBuyerApp" class="navigator-link ">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">2 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" panel-name="group-BizupBuyerApp" class="navigator-link ">
-                    <span>0 groups</span>
+                    <span>1 group</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">3 methods, 3 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,24 +104,20 @@
                     <div class="method-list-content failed suite-BizupBuyerApp">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-BizupBuyerApp" title="Bizupautomation.bizup.PlayStoreInstall" class="method navigator-link" hash-for-method="LoginFlow">LoginFlow</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-BizupBuyerApp" title="Bizupautomation.bizup.EnquiryFlows" class="method navigator-link" hash-for-method="EnquiryTabFlow">EnquiryTabFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BizupBuyerApp" title="Bizupautomation.bizup.EnquiryFlows" class="method navigator-link" hash-for-method="EnquiryVideoFlow">EnquiryVideoFlow</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-BizupBuyerApp" title="Bizupautomation.bizup.EnquiryFlows" class="method navigator-link" hash-for-method="SearchEnquiryFlow">SearchEnquiryFlow</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-BizupBuyerApp -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-BizupBuyerApp" class="hide-methods passed suite-BizupBuyerApp"> (hide)</a> <!-- hide-methods passed suite-BizupBuyerApp -->
-                      <a href="#" panel-name="suite-BizupBuyerApp" class="show-methods passed suite-BizupBuyerApp"> (show)</a> <!-- show-methods passed suite-BizupBuyerApp -->
-                    </span>
-                    <div class="method-list-content passed suite-BizupBuyerApp">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-BizupBuyerApp" title="Bizupautomation.bizup.PlayStoreInstall" class="method navigator-link" hash-for-method="InstallFlow">InstallFlow</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-BizupBuyerApp -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -136,29 +132,103 @@
           <div class="suite-BizupBuyerApp-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">Bizupautomation.bizup.PlayStoreInstall</span>
+              <span class="class-name">Bizupautomation.bizup.EnquiryFlows</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="LoginFlow">
-                  </a> <!-- LoginFlow -->
-                  <span class="method-name">LoginFlow</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.id: com.android.permissioncontroller:id/permission_allow_button})
+                  <a name="EnquiryTabFlow">
+                  </a> <!-- EnquiryTabFlow -->
+                  <span class="method-name">EnquiryTabFlow</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({AppiumBy.id: com.sot.bizup:id/dealsFragment})
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
 	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:75)
 	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
-	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$eJJmvw2Q.click(Unknown Source)
-	at buyer.pageObjects.Android.HomePage.NotificationPermission(HomePage.java:90)
-	at Bizupautomation.bizup.PlayStoreInstall.LoginFlow(PlayStoreInstall.java:71)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$95KBGifL.click(Unknown Source)
+	at buyer.pageObjects.Android.EnquiryTab.MereSellerTabClick(EnquiryTab.java:41)
+	at Bizupautomation.bizup.EnquiryFlows.EnquiryTabFlow(EnquiryFlows.java:133)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@181e72d3 (tried for 1 second(s) with 500 milliseconds interval)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@f6de586 (tried for 1 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
 	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
 	... 31 more
-Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.id: com.android.permissioncontroller:id/permission_allow_button})
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.id: com.sot.bizup:id/dealsFragment})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.2&apos;
+Driver info: driver.version: RemoteWebDriver
+	at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:81)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+	at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 33 more
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EnquiryVideoFlow">
+                  </a> <!-- EnquiryVideoFlow -->
+                  <span class="method-name">EnquiryVideoFlow</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.2&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [297a3718-72a3-40e5-86a6-3636bb65f6b1, findElement {using=id, value=com.sot.bizup:id/mbPositive}]
+Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: &quot;samsung SM-E146B&quot;;, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 2408x1080, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 68, appium:takesScreenshot: true, appium:viewportRect: {height: 1012, left: 0, top: 68, width: 2408}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 297a3718-72a3-40e5-86a6-3636bb65f6b1
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+	at buyer.pageObjects.Android.SellerPage.FeedbackAnswer(SellerPage.java:109)
+	at buyer.pageObjects.Android.SellerPage.DetailedEnquiry(SellerPage.java:187)
+	at Bizupautomation.bizup.EnquiryFlows.EnquiryVideoFlow(EnquiryFlows.java:57)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SearchEnquiryFlow">
+                  </a> <!-- SearchEnquiryFlow -->
+                  <span class="method-name">SearchEnquiryFlow</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Can&apos;t locate an element by this strategy: By.chained({By.xpath: //android.widget.Button[@resource-id=&quot;com.sot.bizup:id/mbSearch&quot;]})
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
+	at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:75)
+	at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+	at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$95KBGifL.click(Unknown Source)
+	at buyer.pageObjects.Android.Search.SearchIconClick(Search.java:54)
+	at Bizupautomation.bizup.EnquiryFlows.SearchEnquiryFlow(EnquiryFlows.java:75)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@60e06f7d (tried for 1 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+	at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+	... 31 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.xpath: //android.widget.Button[@resource-id=&quot;com.sot.bizup:id/mbSearch&quot;]})
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.20.0&apos;, revision: &apos;866c76ca80&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;20.0.2&apos;
@@ -184,31 +254,26 @@ Driver info: driver.version: RemoteWebDriver
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-BizupBuyerApp-class-failed -->
-          <div class="suite-BizupBuyerApp-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Bizupautomation.bizup.PlayStoreInstall</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="InstallFlow">
-                  </a> <!-- InstallFlow -->
-                  <span class="method-name">InstallFlow</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-BizupBuyerApp-class-passed -->
         </div> <!-- panel BizupBuyerApp -->
         <div panel-name="test-xml-BizupBuyerApp" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\lenovo\git\BizupBuyerApp\BuyerApp\testng.xml</span>
+            <span class="header-content">C:\Users\lenovo\git\BizupBuyerApp\BuyerApp\testng_Smoke.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;BizupBuyerApp&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;groups&gt;
+    &lt;run&gt;
+      &lt;include name=&quot;Smoke&quot;/&gt;
+    &lt;/run&gt;
+  &lt;/groups&gt;
+  &lt;groups&gt;
+    &lt;run&gt;
+      &lt;include name=&quot;Smoke&quot;/&gt;
+    &lt;/run&gt;
+  &lt;/groups&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;Bizupautomation.testUtils.Listeners&quot;/&gt;
   &lt;/listeners&gt;
@@ -217,6 +282,11 @@ Driver info: driver.version: RemoteWebDriver
       &lt;class name=&quot;Bizupautomation.bizup.PlayStoreInstall&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- AppInstall --&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;EnquiryFlow&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Bizupautomation.bizup.EnquiryFlows&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- EnquiryFlow --&gt;
 &lt;/suite&gt; &lt;!-- BizupBuyerApp --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -230,6 +300,9 @@ Driver info: driver.version: RemoteWebDriver
               <li>
                 <span class="test-name">AppInstall (1 class)</span>
               </li>
+              <li>
+                <span class="test-name">EnquiryFlow (1 class)</span>
+              </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
@@ -238,6 +311,22 @@ Driver info: driver.version: RemoteWebDriver
             <span class="header-content">Groups for BizupBuyerApp</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="test-group">
+              <span class="test-group-name">Smoke</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">EnquiryTabFlow</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">EnquiryVideoFlow</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">SearchEnquiryFlow</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-BizupBuyerApp" class="panel">
@@ -254,15 +343,19 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'InstallFlow')
-data.setCell(0, 2, 'Bizupautomation.bizup.PlayStoreInstall')
-data.setCell(0, 3, 101629);
+data.setCell(0, 1, 'EnquiryVideoFlow')
+data.setCell(0, 2, 'Bizupautomation.bizup.EnquiryFlows')
+data.setCell(0, 3, 134336);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'LoginFlow')
-data.setCell(1, 2, 'Bizupautomation.bizup.PlayStoreInstall')
-data.setCell(1, 3, 25125);
+data.setCell(1, 1, 'EnquiryTabFlow')
+data.setCell(1, 2, 'Bizupautomation.bizup.EnquiryFlows')
+data.setCell(1, 3, 11284);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'SearchEnquiryFlow')
+data.setCell(2, 2, 'Bizupautomation.bizup.EnquiryFlows')
+data.setCell(2, 3, 10197);
 window.suiteTableData['BizupBuyerApp']= { tableData: data, tableDiv: 'times-div-BizupBuyerApp'}
 return data;
 }
@@ -282,9 +375,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-BizupBuyerApp" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">Bizupautomation.bizup.PlayStoreInstall</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">LoginFlow</span>
+                <br/>
+                <span class="ignored-method-name">InstallFlow</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-BizupBuyerApp" class="panel">
@@ -293,24 +395,44 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Bizupautomation.bizup.PlayStoreInstall</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Bizupautomation.bizup.EnquiryFlows</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">ConfigureAppium</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
-              <div class="test-method">
-                <span class="method-name">InstallFlow</span>
-                <span class="method-start">15906 ms</span>
-              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">preSetup</span>
+                <span class="method-start">8260 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">LoginFlow</span>
-                <span class="method-start">117557 ms</span>
+                <span class="method-name">EnquiryTabFlow</span>
+                <span class="method-start">11634 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">preSetup</span>
+                <span class="method-start">24388 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">EnquiryVideoFlow</span>
+                <span class="method-start">27785 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">preSetup</span>
+                <span class="method-start">163193 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">SearchEnquiryFlow</span>
+                <span class="method-start">166518 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">TearDown</span>
-                <span class="method-start">144231 ms</span>
+                <span class="method-start">177688 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

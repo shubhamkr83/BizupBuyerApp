@@ -16,7 +16,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class PSellerEnquiry extends Base {
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void preSetup() throws InterruptedException {
 		// Launch the app
 		driver.activateApp("com.sot.bizup");

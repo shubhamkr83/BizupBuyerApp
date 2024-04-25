@@ -24,7 +24,7 @@ public class Base extends AppiumUtils {
 	public AppiumDriverLocalService service;
 	public static String NodeJsMainPath = "C:\\\\Users\\\\lenovo\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\appium\\\\build\\\\lib\\\\main.js";
 	
-	@BeforeClass
+	@BeforeClass(alwaysRun=true)
 	public void ConfigureAppium() throws URISyntaxException, IOException {
 		// Run appium server automatically
 		Properties prop = new Properties();
@@ -49,7 +49,7 @@ public class Base extends AppiumUtils {
 
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void TearDown() {
 		driver.quit();
 		service.stop();

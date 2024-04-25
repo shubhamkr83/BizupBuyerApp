@@ -14,7 +14,7 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class EnquiryFlows extends Base {
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void preSetup() throws InterruptedException {
 		// Launch the app
 		driver.activateApp("com.sot.bizup");
@@ -24,7 +24,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ EnquiryVideoFlow --------------------
 	// ----------------------------------------------------------------------
-	@Test
+	@Test(groups=("Smoke"))
 	public void EnquiryVideoFlow() throws InterruptedException {
 		HomePage homePage = new HomePage(driver);
 
@@ -66,7 +66,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ SearchEnquiryFlow --------------------
 	// ----------------------------------------------------------------------
-	@Test
+	@Test(groups=("Smoke"))
 	public void SearchEnquiryFlow() throws InterruptedException {
 
 		Search search = new Search(driver);
@@ -125,7 +125,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ Enquiry Tab Flow ------------------
 	// ----------------------------------------------------------------------
-	@Test
+	@Test(groups=("Smoke"))
 	public void EnquiryTabFlow() throws InterruptedException {
 
 		EnquiryTab enquiryTab = new EnquiryTab(driver);
