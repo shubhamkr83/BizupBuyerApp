@@ -1,63 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-22T16:56:59 IST" name="Default suite" finished-at="2024-04-22T16:58:18 IST" duration-ms="78632">
+  <suite started-at="2024-04-25T22:53:54 IST" name="BizupBuyerApp" finished-at="2024-04-25T22:56:19 IST" duration-ms="144520">
     <groups>
     </groups>
-    <test started-at="2024-04-22T16:56:59 IST" name="Default test" finished-at="2024-04-22T16:58:18 IST" duration-ms="78632">
-      <class name="Bizupautomation.bizup.PSellerEnquiry">
-        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:56:59 IST" name="ConfigureAppium" finished-at="2024-04-22T16:57:06 IST" duration-ms="6902" status="PASS">
+    <test started-at="2024-04-25T22:53:54 IST" name="AppInstall" finished-at="2024-04-25T22:56:19 IST" duration-ms="144520">
+      <class name="Bizupautomation.bizup.PlayStoreInstall">
+        <test-method is-config="true" signature="ConfigureAppium()[pri:0, instance:Bizupautomation.bizup.PlayStoreInstall@65f8f5ae]" started-at="2024-04-25T22:53:54 IST" name="ConfigureAppium" finished-at="2024-04-25T22:54:10 IST" duration-ms="15886" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ConfigureAppium -->
-        <test-method is-config="true" signature="preSetup()[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:57:06 IST" name="preSetup" finished-at="2024-04-22T16:57:08 IST" duration-ms="2200" status="PASS">
+        <test-method signature="InstallFlow()[pri:0, instance:Bizupautomation.bizup.PlayStoreInstall@65f8f5ae]" started-at="2024-04-25T22:54:10 IST" name="InstallFlow" finished-at="2024-04-25T22:55:52 IST" duration-ms="101629" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- preSetup -->
-        <test-method signature="PSellerFlow(java.util.HashMap)[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:57:08 IST" name="PSellerFlow" data-provider="getData" finished-at="2024-04-22T16:57:43 IST" duration-ms="34557" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=Sk Shop}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.WebDriverException">
+        </test-method> <!-- InstallFlow -->
+        <test-method signature="LoginFlow()[pri:0, instance:Bizupautomation.bizup.PlayStoreInstall@65f8f5ae]" started-at="2024-04-25T22:55:52 IST" name="LoginFlow" finished-at="2024-04-25T22:56:17 IST" duration-ms="25125" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[An unknown server-side error occurred while processing the command. Original error: 'com.sot.bizup' is still running after 500ms timeout
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f3ee26d2-1608-42fa-827a-c48661f72254, executeScript {args=[{appId=com.sot.bizup, bundleId=com.sot.bizup}], script=mobile: terminateApp}]
-Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: samsung SM-E146B, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f3ee26d2-1608-42fa-827a-c48661f72254]]>
+              <![CDATA[Can't locate an element by this strategy: By.chained({AppiumBy.id: com.android.permissioncontroller:id/permission_allow_button})]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'com.sot.bizup' is still running after 500ms timeout
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f3ee26d2-1608-42fa-827a-c48661f72254, executeScript {args=[{appId=com.sot.bizup, bundleId=com.sot.bizup}], script=mobile: terminateApp}]
-Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: samsung SM-E146B, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f3ee26d2-1608-42fa-827a-c48661f72254
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
-at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:302)
-at io.appium.java_client.CommandExecutionHelper.execute(CommandExecutionHelper.java:36)
-at io.appium.java_client.CommandExecutionHelper.executeScript(CommandExecutionHelper.java:67)
-at io.appium.java_client.InteractsWithApps.terminateApp(InteractsWithApps.java:265)
-at io.appium.java_client.InteractsWithApps.terminateApp(InteractsWithApps.java:246)
-at buyer.pageObjects.Android.SellerPage.shortestEnquiry(SellerPage.java:250)
-at Bizupautomation.bizup.PSellerEnquiry.PSellerFlow(PSellerEnquiry.java:46)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({AppiumBy.id: com.android.permissioncontroller:id/permission_allow_button})
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:166)
+at io.appium.java_client.pagefactory.interceptors.InterceptorOfASingleElement.call(InterceptorOfASingleElement.java:75)
+at io.appium.java_client.proxy.Interceptor.intercept(Interceptor.java:78)
+at org.openqa.selenium.remote.RemoteWebElement$ByteBuddy$eJJmvw2Q.click(Unknown Source)
+at buyer.pageObjects.Android.HomePage.NotificationPermission(HomePage.java:90)
+at Bizupautomation.bizup.PlayStoreInstall.LoginFlow(PlayStoreInstall.java:71)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -84,96 +54,43 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@181e72d3 (tried for 1 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:265)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at io.appium.java_client.pagefactory.AppiumElementLocator.waitFor(AppiumElementLocator.java:135)
+at io.appium.java_client.pagefactory.AppiumElementLocator.findElement(AppiumElementLocator.java:160)
+... 31 more
+Caused by: org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({AppiumBy.id: com.android.permissioncontroller:id/permission_allow_button})
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
+Driver info: driver.version: RemoteWebDriver
+at io.appium.java_client.pagefactory.bys.builder.ByChained.findElement(ByChained.java:74)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at io.appium.java_client.pagefactory.bys.ContentMappedBy.findElement(ContentMappedBy.java:53)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$1.findElement(ElementLocation.java:139)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:355)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:349)
+at io.appium.java_client.pagefactory.AppiumElementLocator.lambda$findElement$1(AppiumElementLocator.java:160)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:217)
+at io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction.apply(AppiumElementLocator.java:210)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+... 33 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- PSellerFlow -->
-        <test-method is-config="true" signature="preSetup()[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:57:43 IST" name="preSetup" finished-at="2024-04-22T16:57:45 IST" duration-ms="2287" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- preSetup -->
-        <test-method signature="PSellerFlow(java.util.HashMap)[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:57:45 IST" name="PSellerFlow" data-provider="getData" finished-at="2024-04-22T16:58:17 IST" duration-ms="32060" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{name=Vasudev Sarees}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.WebDriverException">
-            <message>
-              <![CDATA[An unknown server-side error occurred while processing the command. Original error: 'com.sot.bizup' is still running after 500ms timeout
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f3ee26d2-1608-42fa-827a-c48661f72254, executeScript {args=[{appId=com.sot.bizup, bundleId=com.sot.bizup}], script=mobile: terminateApp}]
-Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: samsung SM-E146B, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f3ee26d2-1608-42fa-827a-c48661f72254]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: 'com.sot.bizup' is still running after 500ms timeout
-Build info: version: '4.19.1', revision: 'abe0ee07dc'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [f3ee26d2-1608-42fa-827a-c48661f72254, executeScript {args=[{appId=com.sot.bizup, bundleId=com.sot.bizup}], script=mobile: terminateApp}]
-Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: samsung SM-E146B, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: f3ee26d2-1608-42fa-827a-c48661f72254
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:484)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:237)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:591)
-at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:302)
-at io.appium.java_client.CommandExecutionHelper.execute(CommandExecutionHelper.java:36)
-at io.appium.java_client.CommandExecutionHelper.executeScript(CommandExecutionHelper.java:67)
-at io.appium.java_client.InteractsWithApps.terminateApp(InteractsWithApps.java:265)
-at io.appium.java_client.InteractsWithApps.terminateApp(InteractsWithApps.java:246)
-at buyer.pageObjects.Android.SellerPage.shortestEnquiry(SellerPage.java:250)
-at Bizupautomation.bizup.PSellerEnquiry.PSellerFlow(PSellerEnquiry.java:46)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PSellerFlow -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:Bizupautomation.bizup.PSellerEnquiry@9f116cc]" started-at="2024-04-22T16:58:17 IST" name="TearDown" finished-at="2024-04-22T16:58:18 IST" duration-ms="261" status="PASS">
+        </test-method> <!-- LoginFlow -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:Bizupautomation.bizup.PlayStoreInstall@65f8f5ae]" started-at="2024-04-25T22:56:19 IST" name="TearDown" finished-at="2024-04-25T22:56:19 IST" duration-ms="267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-      </class> <!-- Bizupautomation.bizup.PSellerEnquiry -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- Bizupautomation.bizup.PlayStoreInstall -->
+    </test> <!-- AppInstall -->
+  </suite> <!-- BizupBuyerApp -->
 </testng-results>

@@ -3,6 +3,7 @@ package Bizupautomation.bizup;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
+import Bizupautomation.testUtils.Base;
 import buyer.pageObjects.Android.HomePage;
 import buyer.pageObjects.Android.Login;
 import buyer.pageObjects.Android.PlayStore;
@@ -63,7 +64,7 @@ public class PlayStoreInstall extends Base {
 		}
 
 		// Enter Number
-		login.MobileNumber("1111100000");
+		login.MobileNumber("111110000");
 		Thread.sleep(4000);
 
 		// Answer the notification permission

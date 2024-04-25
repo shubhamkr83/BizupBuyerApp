@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [BizupBuyerApp]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="EnquiryFlow(failed)">
+  <listeners>
+    <listener class-name="Bizupautomation.testUtils.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="AppInstall(failed)">
     <classes>
-      <class name="Bizupautomation.bizup.EnquiryFlows">
+      <class name="Bizupautomation.bizup.PlayStoreInstall">
         <methods>
+          <include name="LoginFlow"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
-          <include name="SearchEnquiryFlow"/>
-          <include name="preSetup"/>
         </methods>
-      </class> <!-- Bizupautomation.bizup.EnquiryFlows -->
+      </class> <!-- Bizupautomation.bizup.PlayStoreInstall -->
     </classes>
-  </test> <!-- EnquiryFlow(failed) -->
+  </test> <!-- AppInstall(failed) -->
 </suite> <!-- Failed suite [BizupBuyerApp] -->
