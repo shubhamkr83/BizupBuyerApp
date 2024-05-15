@@ -5,11 +5,12 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
+import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePage extends SellerPage{
+public class HomePage extends AndroidUtils {
 	AndroidDriver driver;
 
 	public HomePage(AndroidDriver driver)
@@ -23,67 +24,67 @@ public class HomePage extends SellerPage{
 	@AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
 	private WebElement notipermission;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mbSearch")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbSearch")
 	private WebElement searchBar;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/ivSavedSeller")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivSavedSeller")
 	private WebElement save;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mtUserProfile")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtUserProfile")
 	private WebElement profle;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/ivBanner")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivBanner")
 	private WebElement banner;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mtTopAll")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopAll")
 	private WebElement genderAll;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mtTopMen")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopMen")
 	private WebElement genderMen;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mtTopMen")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopMen")
 	private WebElement genderWomen;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mtTopKids")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopKids")
 	private WebElement genderKids;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/ivCoachmarkText")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivCoachmarkText")
 	private WebElement coachmark;
-	
-	@AndroidFindBy(id = "com.sot.bizup:id/mbCategory")
+
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCategory")
 	private WebElement productFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivSelected\"])")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivSelected\"])")
 	private List<WebElement> productSelect;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mbDone")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDone")
 	private WebElement productApply;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/ivFilter1")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivFilter1")
 	private WebElement directProductSelect;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mbMainCategory")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbMainCategory")
 	private WebElement priceFilter;
 
 	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"400 तक\"]")
 	private WebElement priceSelect;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mbCity")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
 	private WebElement cityFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivThumbnail\"])")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])")
 	private List<WebElement> videoPlay;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/navigation_bar_item_icon_view\"])[1]")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[1]")
 	private WebElement homeTab;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/navigation_bar_item_icon_view\"])[2]")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[2]")
 	private WebElement searchTab;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/navigation_bar_item_icon_view\"])[3]")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[3]")
 	private WebElement mereSellerTab;
 
-	@AndroidFindBy(id = "com.sot.bizup:id/mbCity")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
 	private WebElement agent;
 
 	public void NotificationPermission() {
@@ -103,10 +104,12 @@ public class HomePage extends SellerPage{
 	public void PriceSelect() {
 		priceFilter.click();
 		priceSelect.click();
+		Wait(genderAll, "All");
 	}
 
-	public void HomeVideoPlay(int index) {
+	public void HomeFeedPlay(int index) throws InterruptedException {
 		videoPlay.get(index).click();
+		Thread.sleep(2000);
 	}
 
 	public void Save() {
@@ -155,6 +158,11 @@ public class HomePage extends SellerPage{
 
 	{
 		searchBar.click();
+	}
+	
+	public void SellerPage() throws InterruptedException {
+		ClickId("com.sot.bizup.debug:id/mbGood");
+		DetailedEnquiry();
 	}
 
 }

@@ -1,5 +1,6 @@
 package buyer.pageObjects.Android;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,19 +17,21 @@ public class Login {
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
-	
+
 	@AndroidFindBy(id = "com.truecaller:id/tv_continueWithDifferentNumber")
 	private WebElement trueCaller;
-	
-	@AndroidFindBy(id = "com.sot.bizup:id/etMobileNo")
+
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/etMobileNo")
 	private WebElement mobileNumber;
-	
-	public void TrueCaller() {
-		trueCaller.click();
+
+	public void MobileNumber(String number) throws InterruptedException {
+		By trueCaller = By.id("com.truecaller:id/tv_continueWithDifferentNumber");
+		if (driver.findElements(trueCaller).size() > 0) {
+			// If the PreEnquiryVideo exists, skip it
+			driver.findElement(trueCaller).click();
+		}
+		mobileNumber.sendKeys(number);
+		Thread.sleep(4000);
 	}
 
-	public void MobileNumber(String number) {
-		mobileNumber.sendKeys(number);
-	}
-	
 }

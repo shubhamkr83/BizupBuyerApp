@@ -1,13 +1,16 @@
 package buyer.pageObjects.Android;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
+import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Search extends SellerPage{
+public class Search extends AndroidUtils{
 
 	AndroidDriver driver;
 
@@ -19,43 +22,42 @@ public class Search extends SellerPage{
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.sot.bizup:id/mbSearch\"]")
+	@AndroidFindBy(xpath = "//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbSearch\"]")
 	private WebElement SearchIcon;
 	
-	@AndroidFindBy(id = "com.sot.bizup:id/search_src_text")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/search_src_text")
 	private WebElement searchInputType;
 	
-	@AndroidFindBy(id = "com.sot.bizup:id/mtClear")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtClear")
 	private WebElement clearResult;
 	
-	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup:id/tabText\" and @text=\"Videos (99+)\"]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Videos (99+)\"]")
 	private WebElement videoTab;
 	
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivThumbnail\"])[2]")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[2]")
 	private WebElement playVideo;
 	
-	@AndroidFindBy(id = "com.sot.bizup:id/mbGood")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbGood")
 	private WebElement videoLikeButton;
 	
-	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup:id/tabText\" and @text=\"Samples\"]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Samples\"]")
 	private WebElement sampleTab;
 	
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup:id/ivWhatsapp\"])[1]")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivWhatsapp\"])[2]")
 	private WebElement sampleEnquiry;
 	
-	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup:id/tabText\" and @text=\"Sellers\"]")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Sellers\"]")
 	private WebElement sellerTab;
 	
-	@AndroidFindBy(xpath = "(//android.widget.Button[@resource-id=\"com.sot.bizup:id/mbExploreCatalog\"])[1]")
+	@AndroidFindBy(xpath = "(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbExploreCatalog\"])[1]")
 	private WebElement sellerCard;
 	
 	
-	public void SearchIconClick() {
+	public void SearchProduct(String product) {
 		SearchIcon.click();
-	}
-
-	public void SearchInputType(String product) {
 		searchInputType.sendKeys(product);
+		String resultsSearch = driver.findElement(By.id("com.sot.bizup.debug:id/mtTitle")).getText();
+		Assert.assertEquals("Showing results for “jacket”", resultsSearch);
 	}
 	
 	public void ClearResult() {
@@ -69,25 +71,32 @@ public class Search extends SellerPage{
 	public void VideoLikeButton() {
 		videoLikeButton.click();
 	}
-	public void SearchVideoTab() {
+	public void VideoEnquiry() throws InterruptedException {
 		videoTab.click();
+		playVideo.click();
+		videoLikeButton.click();
+		shortSellerEnquiry();
+		Back();
+		Back();
+		Back();
+		Back();
 	}
 	
-	public void SearchSampleTab() {
+	public void SampleEnquiry() throws InterruptedException {
 		sampleTab.click();
-	}
-	
-	public void SearchSampleEnquiry() {
+		Thread.sleep(4000);
 		sampleEnquiry.click();
-	}	
+		Back();
+		Back();
+		Thread.sleep(2000);
+	}
 	
-	public void SearchSellerTab() {
+	public void SellerEnquiry() throws InterruptedException {
 		sellerTab.click();
+		sellerCard.click();
+		shortSellerEnquiry();
 	}
 	
-	public void SellerCardSelect() {
-		sellerCard.click();
-	}
 	
 	
 	

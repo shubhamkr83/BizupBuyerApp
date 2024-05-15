@@ -5,15 +5,9 @@
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
   <test thread-count="5" name="EnquiryFlow(failed)">
-    <groups>
-      <run>
-        <include name="Smoke"/>
-      </run>
-    </groups>
     <classes>
       <class name="Bizupautomation.bizup.EnquiryFlows">
         <methods>
-          <include name="EnquiryTabFlow"/>
           <include name="SearchEnquiryFlow"/>
           <include name="ConfigureAppium"/>
           <include name="preSetup"/>
