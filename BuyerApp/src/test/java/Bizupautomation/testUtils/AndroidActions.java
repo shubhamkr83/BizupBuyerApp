@@ -41,7 +41,7 @@ AndroidDriver driver;
 	
 	public void Launch(AndroidDriver driver) throws InterruptedException {
 		driver.activateApp("com.sot.bizup.debug");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 	}
 
 	public void Terminate(AndroidDriver driver) {

@@ -8,11 +8,11 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class PlayStore {
+public class PlayStoreObj {
 
 	AndroidDriver driver;
 
-	public PlayStore(AndroidDriver driver)
+	public PlayStoreObj(AndroidDriver driver)
 
 	{
 		this.driver = driver;

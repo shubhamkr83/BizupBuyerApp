@@ -10,11 +10,11 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Search extends AndroidUtils{
+public class SearchObj extends AndroidUtils{
 
 	AndroidDriver driver;
 
-	public Search(AndroidDriver driver)
+	public SearchObj(AndroidDriver driver)
 
 	{
 		super(driver);

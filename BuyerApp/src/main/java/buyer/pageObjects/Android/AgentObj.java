@@ -1,5 +1,5 @@
 package buyer.pageObjects.Android;
 
-public class Agent {
+public class AgentObj {
 
 }

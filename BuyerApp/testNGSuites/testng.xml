@@ -14,4 +14,9 @@
 			<class name="Bizupautomation.bizup.EnquiryFlows" />
 		</classes>
 	</test>
+	<test thread-count="5" name="SaveFlow">
+		<classes>
+			<class name="Bizupautomation.bizup.Save" />
+		</classes>
+	</test>
 </suite> 

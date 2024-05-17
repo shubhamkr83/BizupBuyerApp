@@ -7,11 +7,11 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Chat {
+public class ChatObj {
 
 	AndroidDriver driver;
 
-	public Chat(AndroidDriver driver)
+	public ChatObj(AndroidDriver driver)
 
 	{
 		this.driver = driver;

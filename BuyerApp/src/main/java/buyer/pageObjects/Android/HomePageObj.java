@@ -10,10 +10,10 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePage extends AndroidUtils {
+public class HomePageObj extends AndroidUtils {
 	AndroidDriver driver;
 
-	public HomePage(AndroidDriver driver)
+	public HomePageObj(AndroidDriver driver)
 
 	{
 		super(driver);
@@ -72,8 +72,9 @@ public class HomePage extends AndroidUtils {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
 	private WebElement cityFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])")
-	private List<WebElement> videoPlay;
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]")
+	private WebElement videoPlay;
+	//private List<WebElement> videoPlay;
 
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[1]")
 	private WebElement homeTab;
@@ -107,9 +108,16 @@ public class HomePage extends AndroidUtils {
 		Wait(genderAll, "All");
 	}
 
-	public void HomeFeedPlay(int index) throws InterruptedException {
-		videoPlay.get(index).click();
+	public void HomeToFeed() throws InterruptedException {
+		videoPlay.click();
+		//videoPlay.get(index).click();
 		Thread.sleep(2000);
+	}
+	
+	public void HomeToSeller() throws InterruptedException {
+		videoPlay.click();
+		Thread.sleep(2000);
+		ClickId("com.sot.bizup.debug:id/mbGood");
 	}
 
 	public void Save() {
@@ -164,5 +172,7 @@ public class HomePage extends AndroidUtils {
 		ClickId("com.sot.bizup.debug:id/mbGood");
 		DetailedEnquiry();
 	}
+
+
 
 }

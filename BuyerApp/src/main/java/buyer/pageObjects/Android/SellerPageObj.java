@@ -9,14 +9,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class SellerPage{
+public class SellerPageObj extends VideoFeedObj {
 
 	AndroidDriver driver;
 
-	public SellerPage(AndroidDriver driver)
+	public SellerPageObj(AndroidDriver driver)
 
 	{
-		
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
@@ -24,8 +24,14 @@ public class SellerPage{
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivDealsCoachmarkText")
 	private WebElement coachmark;
 
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbSaveTitle")
-	private WebElement SaveButton;
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbSave")
+	private WebElement saveButton;
+	
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDealKare")
+	private WebElement smallBaatKareBtn;
+
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerName")
+	private WebElement sellerName;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerVideos")
 	private WebElement VideoTab;
@@ -43,7 +49,7 @@ public class SellerPage{
 	private WebElement VideoBaatKareButton;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbPlaceOrder")
-	private WebElement BaatKareButton;
+	private WebElement baatKareButton;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbPositive")
 	private WebElement EnquiryActiQue;
@@ -54,9 +60,9 @@ public class SellerPage{
 	public void Coachmark() {
 		coachmark.click();
 	}
-
-	public void SaveButtonClick() {
-		SaveButton.click();
+	
+	public void SmallBaatKareBtn() {
+		smallBaatKareBtn.click();
 	}
 
 	public void VideoTabClick() {
@@ -73,7 +79,8 @@ public class SellerPage{
 	}
 
 	public void VideoPlay() {
-		driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[2]"))
+		driver.findElement(
+				By.xpath("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[2]"))
 				.click();
 	}
 
@@ -82,13 +89,13 @@ public class SellerPage{
 	}
 
 	public void BaatKareButton() throws InterruptedException {
-		BaatKareButton.click();
+		baatKareButton.click();
 		Thread.sleep(3000);
 	}
 
 	public void CatalogSelect() {
-		driver.findElement(By.xpath("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]"))
-				.click();
+		driver.findElement(
+				By.xpath("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]")).click();
 	}
 
 	public void ProdFilterSelect() {
@@ -108,6 +115,28 @@ public class SellerPage{
 		Thread.sleep(2000);
 		driver.findElement(By.id("com.sot.bizup.debug:id/mbMessage")).click();
 		Thread.sleep(2000);
+	}
+
+	// save Seller
+	public String SaveSeller() throws InterruptedException {
+
+		// Check the save seller in video
+		String videoSeller = VideoCheck();
+
+		String seller = sellerName.getText();
+
+		String saveText = saveButton.getText();
+
+		if (videoSeller.equals(seller) && saveText.equals("सेव करें")) {
+			System.out.println("Seller matched ✔" + seller);
+			saveButton.click();
+			Back();
+			Thread.sleep(2000);
+		} else {
+			System.out.println("Seller name not match ❌");
+		}
+		return seller;
+
 	}
 
 }

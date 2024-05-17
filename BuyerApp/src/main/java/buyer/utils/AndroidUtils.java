@@ -3,22 +3,24 @@ package buyer.utils;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.AppiumBy;
+import com.google.common.collect.ImmutableMap;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class AndroidUtils {
 
-AndroidDriver driver;
+	AndroidDriver driver;
 
-public AndroidUtils(AndroidDriver driver) {
-	this.driver = driver;
-}
+	public AndroidUtils(AndroidDriver driver) {
+		this.driver = driver;
+	}
 
 	public void Back() {
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
@@ -46,17 +48,14 @@ public AndroidUtils(AndroidDriver driver) {
 	}
 
 	public void Wait(WebElement element, String text) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 		wait.until(ExpectedConditions.attributeContains(((element)), "text", text));
 	}
 
 	public void Scroll() {
-		// Answer activation question
-		driver.findElement(AppiumBy.androidUIAutomator(
-				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"आप किस के लिए कपड़े देख रहें हैं ?\"));"));
-		driver.findElement(By.xpath(
-				"//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtOption\" and @text=\"दुकान के लिए\"]"))
-				.click();
+
+		((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of("left", 100, "top", 100,
+				"width", 200, "height", 600, "direction", "down", "percent", 3.0));
 	}
 
 	// Enquiry Methods

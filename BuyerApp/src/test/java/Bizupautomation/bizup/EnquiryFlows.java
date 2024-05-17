@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.EnquiryTab;
-import buyer.pageObjects.Android.HomePage;
-import buyer.pageObjects.Android.Search;
+import buyer.pageObjects.Android.EnquiryTabObj;
+import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.SearchObj;
 
 public class EnquiryFlows extends Base {
 
@@ -21,7 +21,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	@Test(groups = ("Smoke"))
 	public void EnquiryVideoFlow() throws InterruptedException {
-		HomePage homePage = new HomePage(driver);
+		HomePageObj homePage = new HomePageObj(driver);
 		// ---------------HomePage---------------
 		// Product Filter
 		homePage.ProductSelect(3);
@@ -30,7 +30,7 @@ public class EnquiryFlows extends Base {
 		homePage.PriceSelect();
 
 		// Video Feed
-		homePage.HomeFeedPlay(1);
+		homePage.HomeToFeed();
 
 		// ------------Seller Page-----------------
 		// Seller Enquiry
@@ -43,7 +43,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	@Test
 	public void SearchEnquiryFlow() throws InterruptedException {
-		Search search = new Search(driver);
+		SearchObj search = new SearchObj(driver);
 		// Click on the search icon
 		search.SearchProduct("jacket");
 
@@ -63,7 +63,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	@Test
 	public void EnquiryTabFlow() throws InterruptedException {
-		EnquiryTab enquiryTab = new EnquiryTab(driver);
+		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
 		// Enquiry Tab Enquiry
 		enquiryTab.EnquiryTabEnquiry();
 

@@ -11,11 +11,11 @@ import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class EnquiryTab extends AndroidUtils {
+public class EnquiryTabObj extends AndroidUtils {
 
 	AndroidDriver driver;
 
-	public EnquiryTab(AndroidDriver driver)
+	public EnquiryTabObj(AndroidDriver driver)
 
 	{
 		super(driver);
@@ -34,18 +34,6 @@ public class EnquiryTab extends AndroidUtils {
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbButton")
 	private By preEnquiryVideo;
-
-
-	public void EnquiryTabEnquiry() throws InterruptedException {
-		mereSellerTab.click();
-		Thread.sleep(1000);
-		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmark");
-		Thread.sleep(1000);
-		replyNow.click();
-		PreEnquiryVideoCheck();
-		ShortChat1();
-		Back();
-	}
 
 	// ----------------------------------------------------------------------
 	// ------------------- Claimming Flow -------------------
@@ -71,6 +59,30 @@ public class EnquiryTab extends AndroidUtils {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbMessage")
 	private WebElement feedbackQue2;
 
+	// ----------------------------------------------------------------------
+	// ----------------- Claim Tab Flow --------------------
+	// ----------------------------------------------------------------------
+	@AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Claims\"]")
+	private WebElement claimTab;
+
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbAskNow")
+	private WebElement askNow;
+
+	public void EnquiryTabEnquiry() throws InterruptedException {
+		mereSellerTab.click();
+		Wait( claimTab, "Claims");
+		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmark");
+		Wait(KB, "कच्चा बिल भेजें");
+		replyNow.click();
+		PreEnquiryVideoCheck();
+		ShortChat1();
+		Back();
+	}
+
+	// ----------------------------------------------------------------------
+	// ------------------- Claimming Flow -------------------
+	// ----------------------------------------------------------------------
+
 	public void Claimming() throws InterruptedException {
 		KB.click();
 		upload.click();
@@ -83,7 +95,6 @@ public class EnquiryTab extends AndroidUtils {
 		Back();
 	}
 
-
 	public void SelectFeedbackQue() {
 		feedbackQue1.click();
 		feedbackQue2.click();
@@ -93,11 +104,6 @@ public class EnquiryTab extends AndroidUtils {
 	// ----------------------------------------------------------------------
 	// ----------------- Claim Tab Flow --------------------
 	// ----------------------------------------------------------------------
-	@AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Claims\"]")
-	private WebElement claimTab;
-
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbAskNow")
-	private WebElement askNow;
 
 	public void ClaimTabClick() throws InterruptedException {
 		claimTab.click();
@@ -107,7 +113,5 @@ public class EnquiryTab extends AndroidUtils {
 		Back();
 		Back();
 	}
-
-	
 
 }
