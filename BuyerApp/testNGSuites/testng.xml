@@ -9,7 +9,7 @@
 			<class name="Bizupautomation.bizup.Install" />
 		</classes>
 	</test> 
-	<test thread-count="5" name="EnquiryFlow">
+	<test thread-count="5" name="EnquiryFlows">
 		<classes>
 			<class name="Bizupautomation.bizup.EnquiryFlows" />
 		</classes>
@@ -17,6 +17,11 @@
 	<test thread-count="5" name="SaveFlow">
 		<classes>
 			<class name="Bizupautomation.bizup.Save" />
+		</classes>
+	</test>
+	<test thread-count="5" name="SellerJourneyFlow">
+		<classes>
+			<class name="Bizupautomation.bizup.SellerJourney" />
 		</classes>
 	</test>
 </suite> 

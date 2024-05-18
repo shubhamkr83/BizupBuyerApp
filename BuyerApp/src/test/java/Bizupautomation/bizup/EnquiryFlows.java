@@ -12,8 +12,7 @@ public class EnquiryFlows extends Base {
 
 	@BeforeMethod(alwaysRun = true)
 	public void preSetup() throws InterruptedException {
-		Terminate(driver);
-		Launch(driver);
+		Restart(driver);
 	}
 
 	// ----------------------------------------------------------------------

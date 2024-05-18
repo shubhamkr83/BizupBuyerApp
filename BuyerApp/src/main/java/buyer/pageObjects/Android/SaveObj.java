@@ -59,7 +59,7 @@ public class SaveObj extends SellerPageObj {
 	public void SaveCheck(String seller) {
 		driver.findElement(AppiumBy
 				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + seller + "\"));"));
-		System.out.println(seller + "is present on the save page");
+		System.out.println("Seller is present on the save page ✔");
 		System.out.println("Save flow working sucessfully ✔");
 
 	}

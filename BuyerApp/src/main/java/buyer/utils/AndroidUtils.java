@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.collect.ImmutableMap;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -37,6 +38,12 @@ public class AndroidUtils {
 	public void ClickXp(String element) {
 		driver.findElement(By.xpath(element)).click();
 	}
+	
+	public void RestartApp() throws InterruptedException {
+		driver.terminateApp("com.sot.bizup.debug");
+		driver.activateApp("com.sot.bizup.debug");
+		Thread.sleep(3000);
+	}
 
 	public void Send() {
 		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
@@ -52,10 +59,23 @@ public class AndroidUtils {
 		wait.until(ExpectedConditions.attributeContains(((element)), "text", text));
 	}
 
+	public String SellerName()
+	{
+		String sellerName = driver.findElement(By.id("com.sot.bizup.debug:id/mtSellerName")).getText();
+		System.out.println("Seller name is :- " + sellerName);
+		return sellerName;
+	}
+	
 	public void Scroll() {
 
 		((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of("left", 100, "top", 100,
 				"width", 200, "height", 600, "direction", "down", "percent", 3.0));
+	}
+
+	public void ScrollEle(String ele) {
+
+		driver.findElement(AppiumBy
+				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + ele + "\"));"));
 	}
 
 	// Enquiry Methods
@@ -149,7 +169,7 @@ public class AndroidUtils {
 	public void shortSellerEnquiry() throws InterruptedException {
 
 		// Click on Baat Kare button
-		ClickId("com.sot.bizup.debug:id/mbPlaceOrder");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
 		Thread.sleep(3000);
 
 		// Check for PreEnquiryVideo
@@ -171,7 +191,6 @@ public class AndroidUtils {
 		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
 
 		// Play video
-
 		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
 
 		// Seller video baat kare button click
@@ -195,8 +214,8 @@ public class AndroidUtils {
 	public void shortestEnquiry() throws InterruptedException {
 
 		// Click on Baat Kare button
-		ClickId("com.sot.bizup.debug:id/mbPlaceOrder");
-		Thread.sleep(3000);
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
+		Thread.sleep(1000);
 
 		// Check for PreEnquiryVideo
 		By preEnquiryVideo = By.id("com.sot.bizup.debug:id/mbButton");

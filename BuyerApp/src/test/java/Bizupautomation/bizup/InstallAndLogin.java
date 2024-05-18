@@ -7,7 +7,7 @@ import Bizupautomation.testUtils.Base;
 import buyer.pageObjects.Android.HomePageObj;
 import buyer.pageObjects.Android.LoginObj;
 
-public class Install extends Base {
+public class InstallAndLogin extends Base {
 	
 	@BeforeMethod(alwaysRun = true)
 	public void preSetup() throws InterruptedException {

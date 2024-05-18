@@ -55,5 +55,11 @@ AndroidDriver driver;
 	public void RemoveApp(AndroidDriver driver) {
 		driver.removeApp("com.sot.bizup.debug");
 	}
+	
+	public void Restart(AndroidDriver driver) throws InterruptedException {
+		driver.terminateApp("com.sot.bizup.debug");
+		driver.activateApp("com.sot.bizup.debug");
+		Thread.sleep(3000);
+	}
 
 }
