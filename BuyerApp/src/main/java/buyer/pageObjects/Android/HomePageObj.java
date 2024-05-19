@@ -84,9 +84,6 @@ public class HomePageObj extends AndroidUtils {
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[3]")
 	private WebElement mereSellerTab;
 
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
-	private WebElement agent;
-
 	public void NotificationPermission() {
 		notipermission.click();
 	}
@@ -153,10 +150,6 @@ public class HomePageObj extends AndroidUtils {
 		homeTab.click();
 	}
 
-	public void Agent() {
-		agent.click();
-	}
-
 	public void SearchBar() {
 		searchBar.click();
 	}
@@ -198,7 +191,7 @@ public class HomePageObj extends AndroidUtils {
 	public void sellerRemoveCheck(String seller) {
 		// Scroll to the Seller Journey Section
 		ScrollEle("अपने सेलर्स देखना जारी रखें");
-		
+
 		// Target the seller
 		By FindSeller = By
 				.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
@@ -212,4 +205,7 @@ public class HomePageObj extends AndroidUtils {
 		}
 	}
 
+	
+	
+	
 }

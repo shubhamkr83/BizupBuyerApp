@@ -19,9 +19,19 @@
 			<class name="Bizupautomation.bizup.Save" />
 		</classes>
 	</test>
+	<test thread-count="5" name="Agent">
+		<classes>
+			<class name="Bizupautomation.bizup.Agent" />
+		</classes>
+	</test>
 	<test thread-count="5" name="SellerJourneyFlow">
 		<classes>
 			<class name="Bizupautomation.bizup.SellerJourney" />
+		</classes>
+	</test>
+	<test thread-count="5" name="SuperSeller">
+		<classes>
+			<class name="Bizupautomation.bizup.Super" />
 		</classes>
 	</test>
 </suite> 

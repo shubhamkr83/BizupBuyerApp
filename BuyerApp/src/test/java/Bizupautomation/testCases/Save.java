@@ -1,4 +1,4 @@
-package Bizupautomation.bizup;
+package Bizupautomation.testCases;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

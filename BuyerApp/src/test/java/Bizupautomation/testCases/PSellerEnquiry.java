@@ -1,4 +1,4 @@
-package Bizupautomation.bizup;
+package Bizupautomation.testCases;
 
 import java.io.IOException;
 import java.util.HashMap;

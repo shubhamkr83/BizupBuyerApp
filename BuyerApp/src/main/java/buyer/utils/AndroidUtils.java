@@ -38,7 +38,7 @@ public class AndroidUtils {
 	public void ClickXp(String element) {
 		driver.findElement(By.xpath(element)).click();
 	}
-	
+
 	public void RestartApp() throws InterruptedException {
 		driver.terminateApp("com.sot.bizup.debug");
 		driver.activateApp("com.sot.bizup.debug");
@@ -46,12 +46,13 @@ public class AndroidUtils {
 	}
 
 	public void Send() {
-		driver.findElement(By.xpath("//android.widget.Button[@text=\"\"]")).click();
+		ClickXp("//android.widget.Button[@text=\"\"]");
 	}
 
-	public void SendKey(String element, String message) {
-		driver.findElement(By.xpath(element)).sendKeys(message);
+	public void SendKey(String message) throws InterruptedException {
+		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys(message);
 		Send();
+		Thread.sleep(4000);
 	}
 
 	public void Wait(WebElement element, String text) {
@@ -59,17 +60,18 @@ public class AndroidUtils {
 		wait.until(ExpectedConditions.attributeContains(((element)), "text", text));
 	}
 
-	public String SellerName()
-	{
+	public String SellerName() {
 		String sellerName = driver.findElement(By.id("com.sot.bizup.debug:id/mtSellerName")).getText();
 		System.out.println("Seller name is :- " + sellerName);
 		return sellerName;
 	}
-	
-	public void Scroll() {
 
-		((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap.of("left", 100, "top", 100,
-				"width", 200, "height", 600, "direction", "down", "percent", 3.0));
+	public void Scroll() {
+		boolean canScrollMore;
+		do {
+			canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap
+					.of("left", 100, "top", 100, "width", 200, "height", 200, "direction", "down", "percent", 3.0));
+		} while (canScrollMore);
 	}
 
 	public void ScrollEle(String ele) {
@@ -232,43 +234,28 @@ public class AndroidUtils {
 
 	// Chat
 	public void ShortChat1() throws InterruptedException {
-		SendKey("//android.widget.EditText", "Hello");
-		Thread.sleep(4000);
+		SendKey("Hello");
 	}
 
 	public void ShortChat2() throws InterruptedException {
-
-		SendKey("//android.widget.EditText", "Catalog Dekhiye");
+		SendKey("Shirt chahiye");
 		Send();
-		Thread.sleep(4000);
 	}
 
 	public void LongChat1() throws InterruptedException {
-		SendKey("//android.widget.EditText", "Hello");
-		Send();
-		Thread.sleep(4000);
-
-		SendKey("//android.widget.EditText", "Pant chahiye");
-		Send();
-		Thread.sleep(4000);
-
-		SendKey("//android.widget.EditText", "aur dekhao");
-		Send();
-		Thread.sleep(4000);
+		SendKey("Hi");
+	
+		SendKey("Pant chahiye");
+		
+		SendKey("aur dekhao");
 	}
 
 	public void LongChat2() throws InterruptedException {
-		SendKey("//android.widget.EditText", "COD milega??");
-		Send();
-		Thread.sleep(4000);
+		SendKey("COD milega??");
 
-		SendKey("//android.widget.EditText", "Delivery charge kitna lagega??");
-		Send();
-		Thread.sleep(4000);
-
-		SendKey("//android.widget.EditText", "Delivery kab tak hogi??");
-		Send();
-		Thread.sleep(4000);
+		SendKey("Delivery charge kitna lagega??");
+		
+		SendKey("Delivery kab tak hogi??");
 	}
 
 	// CoachMark Check

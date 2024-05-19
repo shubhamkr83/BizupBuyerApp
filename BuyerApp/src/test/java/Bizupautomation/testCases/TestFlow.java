@@ -1,4 +1,4 @@
-package Bizupautomation.bizup;
+package Bizupautomation.testCases;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;

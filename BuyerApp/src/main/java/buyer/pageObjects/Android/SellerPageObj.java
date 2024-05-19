@@ -24,14 +24,20 @@ public class SellerPageObj extends VideoFeedObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivDealsCoachmarkText")
 	private WebElement coachmark;
 
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerName")
+	private WebElement sellerName;
+	
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbSave")
 	private WebElement saveButton;
 	
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDealKare")
 	private WebElement smallBaatKareBtn;
 
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerName")
-	private WebElement sellerName;
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivSuperProfileBadge")
+	private WebElement superSellerIcon;
+	
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivSuperSellerline")
+	private WebElement superSellerLine;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerVideos")
 	private WebElement VideoTab;
@@ -137,6 +143,23 @@ public class SellerPageObj extends VideoFeedObj {
 		}
 		return seller;
 
+	}
+	
+	public void SuperSeller(String SearchSeller) {
+		
+		String sellerProfile = sellerName.getText();
+		
+		if (SearchSeller.equals(sellerProfile)) {
+			System.out.println("Seller matched " + sellerProfile);
+			if(superSellerIcon.isDisplayed() && superSellerLine.isDisplayed()) {
+				System.out.println(sellerProfile + " is super seller ✔");
+			}else {
+				System.out.println(sellerProfile + " is not super seller ❌");
+			}
+		} else {
+			System.out.println("Seller name not match ❌");
+		}
+		
 	}
 
 }
