@@ -15,7 +15,7 @@ public class Super extends Base {
 	}
 
 	@Test
-	public void SuperFlow() throws InterruptedException {
+	public void SuperSeller() throws InterruptedException {
 		SellerPageObj sellerPage = new SellerPageObj(driver);
 		SearchObj search = new SearchObj(driver);
 
@@ -29,4 +29,6 @@ public class Super extends Base {
 		sellerPage.SuperSeller("Renuka Garment");
 
 	}
+	
+	
 }

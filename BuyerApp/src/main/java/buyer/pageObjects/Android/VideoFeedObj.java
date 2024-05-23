@@ -31,12 +31,22 @@ public class VideoFeedObj extends AndroidUtils {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbNotGood")
 	private WebElement nextVideo;
 
+	public void SampleDekhe() {
+		sampleDekhe.click();
+	}
+	
+	public void NexVideo() {
+		nextVideo.click();
+	}
+	
+	
+	
+	
 	// -------------- Save --------------
 	public String VideoCheck() {
 		String videoSeller = "";
 
 		By saveIcon = By.id("com.sot.bizup.debug:id/ivSavedSeller");
-		By sampleDekheLocator = By.id("com.sot.bizup.debug:id/mbGood");
 
 		boolean isSaveIconPresent = driver.findElements(saveIcon).size() > 0;
 
@@ -44,12 +54,12 @@ public class VideoFeedObj extends AndroidUtils {
 			nextVideo.click();
 		} else {
 			videoSeller = sellerName.getText();
-			WebElement sampleDekhe = driver.findElement(sampleDekheLocator);
 			sampleDekhe.click();
 			System.out.println("VideoFeed Save Icon Checked ✔");
 		}
 		return videoSeller;
 	}
+
 
 	public void VideoSaveCheck() {
 		By saveIcon = By.id("com.sot.bizup.debug:id/ivSavedSeller");

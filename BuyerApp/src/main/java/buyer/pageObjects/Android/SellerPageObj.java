@@ -3,6 +3,7 @@ package buyer.pageObjects.Android;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -26,16 +27,16 @@ public class SellerPageObj extends VideoFeedObj {
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtSellerName")
 	private WebElement sellerName;
-	
+
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbSave")
 	private WebElement saveButton;
-	
+
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDealKare")
 	private WebElement smallBaatKareBtn;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivSuperProfileBadge")
 	private WebElement superSellerIcon;
-	
+
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivSuperSellerline")
 	private WebElement superSellerLine;
 
@@ -63,12 +64,32 @@ public class SellerPageObj extends VideoFeedObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbButton")
 	private WebElement SkipEnqVideo;
 
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/gpSelectedItem")
+	private WebElement gpSelectedItems;
+
 	public void Coachmark() {
 		coachmark.click();
 	}
-	
+
+	public void SellerPage() throws InterruptedException {
+		try {
+			if (smallBaatKareBtn.isDisplayed()) {
+				DetailedEnquiry();
+				System.out.println("✨✨✨------------ Enquiry Video Flow working -----------✨✨✨");
+			}
+		} catch (Exception e) {
+			Assert.fail("Enquiry Video Flow failed ❌");
+		}
+	}
+
 	public void SmallBaatKareBtn() {
-		smallBaatKareBtn.click();
+		if (smallBaatKareBtn.isDisplayed()) {
+			smallBaatKareBtn.click();
+		} else {
+			System.out.println("Not redirect to seller page ❌");
+			Assert.fail("Condition failed, marking test as failed ❌");
+		}
+
 	}
 
 	public void VideoTabClick() {
@@ -101,7 +122,7 @@ public class SellerPageObj extends VideoFeedObj {
 
 	public void CatalogSelect() {
 		driver.findElement(
-				By.xpath("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]")).click();
+				By.xpath("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]")).click();
 	}
 
 	public void ProdFilterSelect() {
@@ -123,6 +144,18 @@ public class SellerPageObj extends VideoFeedObj {
 		Thread.sleep(2000);
 	}
 
+	public void HomeToSeller() throws InterruptedException {
+
+		String VSeller = HomeSeller();
+		String seller = sellerName.getText();
+
+		if (VSeller.equals(seller)) {
+			System.out.println("Seller matched " + seller + "✔");
+		} else {
+			System.out.println("Seller name not match ❌");
+		}
+	}
+
 	// save Seller
 	public String SaveSeller() throws InterruptedException {
 
@@ -134,7 +167,7 @@ public class SellerPageObj extends VideoFeedObj {
 		String saveText = saveButton.getText();
 
 		if (videoSeller.equals(seller) && saveText.equals("सेव करें")) {
-			System.out.println("Seller matched ✔" + seller);
+			System.out.println("Seller matched " + seller + "✔");
 			saveButton.click();
 			Back();
 			Thread.sleep(2000);
@@ -144,22 +177,36 @@ public class SellerPageObj extends VideoFeedObj {
 		return seller;
 
 	}
-	
+
 	public void SuperSeller(String SearchSeller) {
-		
-		String sellerProfile = sellerName.getText();
-		
-		if (SearchSeller.equals(sellerProfile)) {
-			System.out.println("Seller matched " + sellerProfile);
-			if(superSellerIcon.isDisplayed() && superSellerLine.isDisplayed()) {
-				System.out.println(sellerProfile + " is super seller ✔");
-			}else {
-				System.out.println(sellerProfile + " is not super seller ❌");
+		try {
+
+			String sellerProfile = sellerName.getText();
+
+			if (SearchSeller.equals(sellerProfile)) {
+				System.out.println("Seller matched " + sellerProfile);
+				if (superSellerIcon.isDisplayed() && superSellerLine.isDisplayed()) {
+					System.out.println(sellerProfile + " is super seller ✔");
+				} else {
+					System.out.println(sellerProfile + " is not super seller ❌");
+					Assert.fail("Condition failed, he is not super seller ❌");
+				}
+			} else {
+				System.out.println("Seller name not match ❌");
+				Assert.fail("Condition failed, Seller name not match ❌");
 			}
-		} else {
-			System.out.println("Seller name not match ❌");
+
+			System.out.println("✨✨✨------------ Super Seller Checked -----------✨✨✨");
+
+		} catch (Exception e) {
+			System.out.println("Super Seller error " + e);
 		}
-		
+	}
+
+	public void LastCatalogMsg() {
+		Back();
+		SampleDekhe();
+		gpSelectedItems.isDisplayed();
 	}
 
 }

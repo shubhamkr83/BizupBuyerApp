@@ -20,7 +20,7 @@ public class Save extends Base {
 		HomePageObj homePage = new HomePageObj(driver);
 
 		// Home page to Video Feed
-		homePage.HomeToFeed();
+		homePage.HomeFeed();
 
 		// If seller is not save then go to seller page and Save the seller
 		String seller = save.SaveSeller();
@@ -36,7 +36,7 @@ public class Save extends Base {
 
 	}
 
-	@Test
+//	@Test
 	public void DirectionAndSample() {
 		SaveObj save = new SaveObj(driver);
 

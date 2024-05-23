@@ -3,6 +3,7 @@ package buyer.pageObjects.Android;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -29,11 +30,11 @@ public class SaveObj extends SellerPageObj {
 	@AndroidFindBy(id = "com.google.android.apps.maps:id/custom_header_container")
 	private WebElement googleMap;
 
-	@AndroidFindBy(xpath = "(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbDealKare\"])[1]")
-	private WebElement sampleDekhe;
+//	@AndroidFindBy(xpath = "(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbDealKare\"])[1]")
+//	private WebElement sampleDekhe;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDealKare")
-	private WebElement smallBaatKareBtn;
+	private WebElement sampleDekhe;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/tvQuestion")
 	private WebElement marketVisit;
@@ -49,49 +50,72 @@ public class SaveObj extends SellerPageObj {
 		savepage.click();
 	}
 
-	//Market visit
+	// Market visit
 	public void MarketVisit() {
-		visitAnswer.click();
-		visitSend.click();
+		By marketVisit = By.id("com.sot.bizup.debug:id/tvQuestion");
+
+		if (driver.findElements(marketVisit).size() > 0) {
+			System.out.println("MarketVisit Open ✔");
+			visitAnswer.click();
+			visitSend.click();
+			if (googleMap.isDisplayed()) {
+				System.out.println("Map Open ✔");
+				Back();
+				Back();
+			}
+		} else if (googleMap.isDisplayed()) {
+			System.out.println("Map Open ✔");
+			Back();
+			Back();
+		} else {
+			Assert.fail("Market Visit failed ❌");
+		}
+
 	}
 
 	// Check the seller name
 	public void SaveCheck(String seller) {
-		driver.findElement(AppiumBy
-				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + seller + "\"));"));
-		System.out.println("Seller is present on the save page ✔");
-		System.out.println("Save flow working sucessfully ✔");
+		try {
+			if (sampleDekhe.isDisplayed()) {
+				driver.findElement(AppiumBy.androidUIAutomator(
+						"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + seller + "\"));"));
+				System.out.println("Seller is present on the save page ✔");
+				System.out.println("✨✨✨------------ Save flow working -----------✨✨✨");
+			}
+		} catch (Exception e) {
+			Assert.fail("Save flow failed " + e);
+		}
 
 	}
 
 	// Direction Check
 	public void Direction() {
-		By marketVisit = By.id("com.sot.bizup.debug:id/tvQuestion");
-		boolean ismarketVisit = driver.findElements(marketVisit).size() > 0;
-
-		direction.click();
-
-		//Check Market Visit
-		if (ismarketVisit) {
-			System.out.println("MarketVisit Open");
-			MarketVisit();
-			System.out.println("MarketVisit Answered");
-			
-		}else {
-			googleMap.isDisplayed();
-			System.out.println("Map Open");
-			Back();
-			Back();
+		try {
+			if (direction.isDisplayed()) {
+				direction.click();
+				MarketVisit();
+				System.out.println("Direction Check working sucessfully ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Direction Check failed " + e);
 		}
-		System.out.println("Direction Check working sucessfully ✔");
-		
+
 	}
 
 	// Sample Check
 	public void SampleDekhe() {
-		SmallBaatKareBtn();
-		smallBaatKareBtn.isDisplayed();
-		System.out.println("Sample dekhe button works ✔");
+		try {
+			if (sampleDekhe.isDisplayed()) {
+				sampleDekhe.click();
+				SmallBaatKareBtn();
+				System.out.println("Sample dekhe button works ✔");
+				System.out.println("✨✨✨------------ Direction And Sample Flow working -----------✨✨✨");
+			}
+
+		} catch (Exception e) {
+			Assert.fail("Sample dekhe button failed " + e);
+		}
+
 	}
 
 }

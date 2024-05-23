@@ -4,17 +4,28 @@
   <listeners>
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
-  <test thread-count="5" name="EnquiryFlow(failed)">
+  <test thread-count="5" name="SaveFlow(failed)">
     <classes>
-      <class name="Bizupautomation.bizup.EnquiryFlows">
+      <class name="Bizupautomation.testCases.Save">
         <methods>
-          <include name="SearchEnquiryFlow"/>
+          <include name="SaveFlow"/>
+          <include name="preSetup"/>
+          <include name="ConfigureAppium"/>
+          <include name="TearDown"/>
+        </methods>
+      </class> <!-- Bizupautomation.testCases.Save -->
+    </classes>
+  </test> <!-- SaveFlow(failed) -->
+  <test thread-count="5" name="LastCatalog(failed)">
+    <classes>
+      <class name="Bizupautomation.testCases.LastCatalog">
+        <methods>
+          <include name="LastCatalogFlow"/>
           <include name="ConfigureAppium"/>
           <include name="preSetup"/>
           <include name="TearDown"/>
-          <include name="EnquiryVideoFlow"/>
         </methods>
-      </class> <!-- Bizupautomation.bizup.EnquiryFlows -->
+      </class> <!-- Bizupautomation.testCases.LastCatalog -->
     </classes>
-  </test> <!-- EnquiryFlow(failed) -->
+  </test> <!-- LastCatalog(failed) -->
 </suite> <!-- Failed suite [BizupBuyerApp] -->

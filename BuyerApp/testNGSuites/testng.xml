@@ -6,32 +6,42 @@
 	</listeners>
 	<test thread-count="5" name="InstallAndLogin">
 		<classes>
-			<class name="Bizupautomation.bizup.Install" />
+			<class name="Bizupautomation.testCases.InstallAndLogin" />
 		</classes>
 	</test> 
 	<test thread-count="5" name="EnquiryFlows">
 		<classes>
-			<class name="Bizupautomation.bizup.EnquiryFlows" />
+			<class name="Bizupautomation.testCases.EnquiryFlows" />
 		</classes>
 	</test>
 	<test thread-count="5" name="SaveFlow">
 		<classes>
-			<class name="Bizupautomation.bizup.Save" />
+			<class name="Bizupautomation.testCases.Save" />
 		</classes>
 	</test>
 	<test thread-count="5" name="Agent">
 		<classes>
-			<class name="Bizupautomation.bizup.Agent" />
+			<class name="Bizupautomation.testCases.Agent" />
 		</classes>
 	</test>
 	<test thread-count="5" name="SellerJourneyFlow">
 		<classes>
-			<class name="Bizupautomation.bizup.SellerJourney" />
+			<class name="Bizupautomation.testCases.SellerJourney" />
 		</classes>
 	</test>
 	<test thread-count="5" name="SuperSeller">
 		<classes>
-			<class name="Bizupautomation.bizup.Super" />
+			<class name="Bizupautomation.testCases.Super" />
+		</classes>
+	</test>
+	<test thread-count="5" name="LastCatalog">
+		<classes>
+			<class name="Bizupautomation.testCases.LastCatalog" />
+		</classes>
+	</test>
+	<test thread-count="5" name="ProfileFlow">
+		<classes>
+			<class name="Bizupautomation.testCases.Profile" />
 		</classes>
 	</test>
 </suite> 

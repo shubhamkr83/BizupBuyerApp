@@ -18,7 +18,7 @@ public class SellerJourney extends Base {
 		HomePageObj homePage = new HomePageObj(driver);
 
 		// Navigate from Home page to Seller page
-		String seller = homePage.HomeToSeller();
+		String seller = homePage.HomeSeller();
 
 		// Check the seller present in the section and do Enquiry
 		homePage.SellerPresentCheck(seller);

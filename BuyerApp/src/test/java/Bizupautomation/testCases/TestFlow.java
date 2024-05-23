@@ -17,7 +17,7 @@ public class TestFlow extends Base {
 	
 		HomePageObj homePage = new HomePageObj(driver);
 
-		homePage.HomeToFeed();
+		homePage.HomeFeed();
 		Thread.sleep(2000);
 
 		// Go to seller page

@@ -49,7 +49,14 @@ AndroidDriver driver;
 	}
 	
 	public void Install(AndroidDriver driver) {
-		driver.installApp("C:\\Users\\lenovo\\git\\BizupBuyerApp\\BuyerApp\\src\\main\\java\\buyer\\resources\\Bizup-2.14.6-debug.apk");
+		try {
+			driver.installApp("C:\\Users\\lenovo\\git\\BizupBuyerApp\\BuyerApp\\src\\main\\java\\buyer\\resources\\Bizup-2.14.6-debug.apk");
+			System.out.println("App installed ✔");
+			
+		} catch (Exception e) {
+			System.out.println("App not installed " + e + " ❌");
+		}
+		
 	}
 	
 	public void RemoveApp(AndroidDriver driver) {

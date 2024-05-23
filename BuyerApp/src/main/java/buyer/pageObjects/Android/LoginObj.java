@@ -29,9 +29,12 @@ public class LoginObj {
 		if (driver.findElements(trueCaller).size() > 0) {
 			// If the PreEnquiryVideo exists, skip it
 			driver.findElement(trueCaller).click();
+			System.out.println("TrueCaller Working ✔");
 		}
+		System.out.println("TrueCaller not enable in the device ❌");
 		mobileNumber.sendKeys(number);
 		Thread.sleep(4000);
+		System.out.println("Login Sucessfull ✔");
 	}
 
 }

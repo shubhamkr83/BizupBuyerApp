@@ -19,7 +19,7 @@ public class Agent extends Base {
 		AgentObj agent = new AgentObj(driver);
 
 		// Agent scroll message check
-		agent.AgentScroll();
+		agent.Agent();
 
 		// Heading Check
 		agent.Heading();

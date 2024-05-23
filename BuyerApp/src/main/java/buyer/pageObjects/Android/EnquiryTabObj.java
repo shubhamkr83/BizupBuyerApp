@@ -3,6 +3,7 @@ package buyer.pageObjects.Android;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
@@ -69,14 +70,22 @@ public class EnquiryTabObj extends AndroidUtils {
 	private WebElement askNow;
 
 	public void EnquiryTabEnquiry() throws InterruptedException {
-		mereSellerTab.click();
-		Wait( claimTab, "Claims");
-		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmark");
-		Wait(KB, "कच्चा बिल भेजें");
-		replyNow.click();
-		PreEnquiryVideoCheck();
-		ShortChat1();
-		Back();
+		try {
+			if (mereSellerTab.isDisplayed()) {
+				mereSellerTab.click();
+				Wait(claimTab, "Claims");
+				CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmark");
+				Wait(KB, "कच्चा बिल भेजें");
+				replyNow.click();
+				PreEnquiryVideoCheck();
+				ShortChat1();
+				Back();
+
+				System.out.println("Enquiry Tab Enquires working ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Enquiry Tab Enquires error" + e);
+		}
 	}
 
 	// ----------------------------------------------------------------------
@@ -84,21 +93,40 @@ public class EnquiryTabObj extends AndroidUtils {
 	// ----------------------------------------------------------------------
 
 	public void Claimming() throws InterruptedException {
-		KB.click();
-		upload.click();
-		Invoice.click();
-		claimButton.click();
-		askNowButton.click();
-		PreEnquiryVideoCheck();
-		Thread.sleep(1500);
-		Back();
-		Back();
+		try {
+			if (KB.isDisplayed()) {
+				KB.click();
+				upload.click();
+				ClickXp("//android.widget.Button[@text=\"Images\"]");
+				// ClickXp("(//android.widget.ImageView[@resource-id=\"com.google.android.documentsui:id/icon_thumb\"])[1]");
+				Invoice.click();
+				claimButton.click();
+				askNowButton.click();
+				PreEnquiryVideoCheck();
+				Thread.sleep(1500);
+				Back();
+				Back();
+
+				System.out.println("Kacha bill claim working ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Kacha bill claim error" + e);
+		}
+
 	}
 
 	public void SelectFeedbackQue() {
-		feedbackQue1.click();
-		feedbackQue2.click();
-		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		try {
+			if (feedbackQue1.isDisplayed()) {
+				feedbackQue1.click();
+				feedbackQue2.click();
+				driver.pressKey(new KeyEvent(AndroidKey.BACK));
+				System.out.println("Feedback Question working ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Feedback Question error" + e);
+		}
+
 	}
 
 	// ----------------------------------------------------------------------
@@ -106,12 +134,21 @@ public class EnquiryTabObj extends AndroidUtils {
 	// ----------------------------------------------------------------------
 
 	public void ClaimTabClick() throws InterruptedException {
-		claimTab.click();
-		askNow.click();
-		PreEnquiryVideoCheck();
-		Thread.sleep(1500);
-		Back();
-		Back();
+		try {
+			if (claimTab.isDisplayed()) {
+				claimTab.click();
+				askNow.click();
+				PreEnquiryVideoCheck();
+				Thread.sleep(1500);
+				Back();
+				Back();
+				System.out.println("Claim Tab Enquires working ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Claim Tab Enquires error" + e);
+
+		}
+
 	}
 
 }

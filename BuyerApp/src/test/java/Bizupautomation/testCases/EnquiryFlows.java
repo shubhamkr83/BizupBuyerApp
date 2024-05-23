@@ -29,7 +29,7 @@ public class EnquiryFlows extends Base {
 		homePage.PriceSelect();
 
 		// Video Feed
-		homePage.HomeToFeed();
+		homePage.HomeSeller();
 
 		// ------------Seller Page-----------------
 		// Seller Enquiry

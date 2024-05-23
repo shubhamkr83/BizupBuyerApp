@@ -5,13 +5,13 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
-import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePageObj extends AndroidUtils {
+public class HomePageObj extends SellerPageObj {
 	AndroidDriver driver;
 
 	public HomePageObj(AndroidDriver driver) {
@@ -84,8 +84,11 @@ public class HomePageObj extends AndroidUtils {
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[3]")
 	private WebElement mereSellerTab;
 
-	public void NotificationPermission() {
+	public void NotificationPermission() throws InterruptedException {
 		notipermission.click();
+		Thread.sleep(3000);
+		System.out.println("Notification working ✔");
+		System.out.println("✨✨✨------------ Install and Login Working -----------✨✨✨");
 	}
 
 	public void CoachMark() {
@@ -93,29 +96,29 @@ public class HomePageObj extends AndroidUtils {
 	}
 
 	public void ProductSelect(int index) {
-		productFilter.click();
-		productSelect.get(index).click();
-		productApply.click();
+		try {
+			if (productFilter.isDisplayed()) {
+				productFilter.click();
+				productSelect.get(index).click();
+				productApply.click();
+				System.out.println("Product selected ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Product filter failed " + e);
+		}
 	}
 
 	public void PriceSelect() {
-		priceFilter.click();
-		priceSelect.click();
-		Wait(genderAll, "All");
-	}
-
-	public void HomeToFeed() throws InterruptedException {
-		videoPlay.click();
-		// videoPlay.get(index).click();
-		Thread.sleep(2000);
-	}
-
-	public String HomeToSeller() throws InterruptedException {
-		videoPlay.click();
-		Thread.sleep(2000);
-		ClickId("com.sot.bizup.debug:id/mbGood");
-		String seller = SellerName();
-		return seller;
+		try {
+			if (priceFilter.isDisplayed()) {
+				priceFilter.click();
+				priceSelect.click();
+				Wait(genderAll, "All");
+				System.out.println("Price selected ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Price filter failed ❌" + e);
+		}
 	}
 
 	public void Save() {
@@ -154,58 +157,58 @@ public class HomePageObj extends AndroidUtils {
 		searchBar.click();
 	}
 
-	public void SellerPage() throws InterruptedException {
-		ClickId("com.sot.bizup.debug:id/mbGood");
-		DetailedEnquiry();
-	}
-
 	public void SellerPresentCheck(String seller) throws InterruptedException {
-		// Restart the App
-		RestartApp();
-
-		// Scroll to the Seller Journey Section
-		ScrollEle("अपने सेलर्स देखना जारी रखें");
-
-		// Target the seller
-		By FindSeller = By
-				.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
-						+ seller + "\"]");
-
-		// Condition if seller present then do the Enquiry
-		if (driver.findElements(FindSeller).size() > 0) {
-			System.out.println("Seller " + seller + " is present in the Seller Journey section ✔");
-			ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
-					+ seller + "\"]");
-
-			// Enquiry
-			shortestEnquiry();
-
-			// Restart App
+		try {
+			// Restart the App
 			RestartApp();
 
-		} else {
-			System.out.println("Seller " + seller + " is not present in the Seller Journey section ❌");
+			// Scroll to the Seller Journey Section
+			ScrollEle("अपने सेलर्स देखना जारी रखें");
+
+			// Target the seller
+			By FindSeller = By
+					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
+							+ seller + "\"]");
+
+			// Condition if seller present then do the Enquiry
+			if (driver.findElements(FindSeller).size() > 0) {
+				System.out.println("Seller " + seller + " is present in the Seller Journey section ✔");
+				ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
+						+ seller + "\"]");
+
+				// Enquiry
+				shortestEnquiry();
+
+				// Restart App
+				RestartApp();
+			}
+		} catch (Exception e) {
+			Assert.fail("Seller Present Check " + e);
 		}
 	}
 
 	public void sellerRemoveCheck(String seller) {
-		// Scroll to the Seller Journey Section
-		ScrollEle("अपने सेलर्स देखना जारी रखें");
+		try {
 
-		// Target the seller
-		By FindSeller = By
-				.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
-						+ seller + "\"]");
+			// Scroll to the Seller Journey Section
+			ScrollEle("अपने सेलर्स देखना जारी रखें");
 
-		// Condition if seller is present after doing the Enquiry
-		if (driver.findElements(FindSeller).size() > 0) {
-			System.out.println("Seller " + seller + " is not removed from the section after doing Enquiry ❌");
-		} else {
-			System.out.println("Seller " + seller + " is remove from the section after doing Enquiry ✔");
+			// Target the seller
+			By FindSeller = By
+					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
+							+ seller + "\"]");
+
+			// Condition if seller is present after doing the Enquiry
+			if (driver.findElements(FindSeller).size() > 0) {
+				System.out.println("Seller " + seller + " is not removed from the section after doing Enquiry ❌");
+			} else {
+				System.out.println("Seller " + seller + " is remove from the section after doing Enquiry ✔");
+			}
+
+			System.out.println("✨✨✨------------ Seller Journey Flow working -----------✨✨✨");
+
+		} catch (Exception e) {
+			Assert.fail("seller Remove Check failed " + e);
 		}
 	}
-
-	
-	
-	
 }
