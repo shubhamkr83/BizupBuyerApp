@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.HomeObj;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -15,7 +15,7 @@ public class TestFlow extends Base {
 	@Test
 	public void Save() throws InterruptedException {
 	
-		HomePageObj homePage = new HomePageObj(driver);
+		HomeObj homePage = new HomeObj(driver);
 
 		homePage.HomeFeed();
 		Thread.sleep(2000);

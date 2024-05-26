@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
 import buyer.pageObjects.Android.EnquiryTabObj;
-import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.HomeObj;
 import buyer.pageObjects.Android.SearchObj;
 
 public class EnquiryFlows extends Base {
@@ -20,20 +20,21 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	@Test(groups = ("Smoke"))
 	public void EnquiryVideoFlow() throws InterruptedException {
-		HomePageObj homePage = new HomePageObj(driver);
+		HomeObj home = new HomeObj(driver);
+
 		// ---------------HomePage---------------
 		// Product Filter
-		homePage.ProductSelect(3);
+		home.ProductSelect("जीन्स");
 
 		// Price Filter
-		homePage.PriceSelect();
+		home.PriceSelect("300 तक");
 
 		// Video Feed
-		homePage.HomeSeller();
+		home.HomeSeller();
 
 		// ------------Seller Page-----------------
 		// Seller Enquiry
-		homePage.SellerPage();
+		home.SellerPage();
 
 	}
 
@@ -43,14 +44,24 @@ public class EnquiryFlows extends Base {
 	@Test
 	public void SearchEnquiryFlow() throws InterruptedException {
 		SearchObj search = new SearchObj(driver);
+
 		// Click on the search icon
 		search.SearchProduct("jacket");
 
+		//Video Tab
+		search.VideoTab();
+		
 		// Video Enquiry
 		search.VideoEnquiry();
+		
+		//Sample Tab
+		search.SampleTab();
 
 		// Sample Enquiry
-		search.SampleEnquiry();
+		search.SampleEnquiry(2);
+		
+		//Seller Tab
+		search.SellerTab();
 
 		// Seller Enquiry
 		search.SellerEnquiry();
@@ -63,6 +74,7 @@ public class EnquiryFlows extends Base {
 	@Test
 	public void EnquiryTabFlow() throws InterruptedException {
 		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
+
 		// Enquiry Tab Enquiry
 		enquiryTab.EnquiryTabEnquiry();
 
@@ -70,13 +82,13 @@ public class EnquiryFlows extends Base {
 		enquiryTab.Claimming();
 
 		// Order Feedback question
-		enquiryTab.SelectFeedbackQue();
+		enquiryTab.FeedbackQue();
 
 		// Claim Tab
 		enquiryTab.ClaimTabClick();
 
 		// Order Feedback question
-		enquiryTab.SelectFeedbackQue();
+		enquiryTab.FeedbackQue();
 	}
 
 }

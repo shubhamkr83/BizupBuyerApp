@@ -111,7 +111,6 @@ public class AndroidUtils {
 
 	// Scroll to find Element
 	public void ScrollEle(String ele) {
-
 		driver.findElement(AppiumBy
 				.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + ele + "\"));"));
 	}
@@ -138,33 +137,60 @@ public class AndroidUtils {
 
 	// Chat Methods
 	public void ShortChat1() throws InterruptedException {
-		SendKey("Hello");
+		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
+		By WhatsAppCheck = By.id("com.whatsapp:id/send");
 
+		if (driver.findElements(ChatCheck).size() > 0) {
+			ChatCheck();
+			SendKey("Hello");
+		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
+			WhatsAppCheck();
+		}
 	}
 
 	public void ShortChat2() throws InterruptedException {
-		SendKey("Shirt chahiye");
-		Send();
+		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
+		By WhatsAppCheck = By.id("com.whatsapp:id/send");
+
+		if (driver.findElements(ChatCheck).size() > 0) {
+			ChatCheck();
+			SendKey("Shirt chahiye");
+			Send();
+		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
+			WhatsAppCheck();
+		}
 	}
 
 	public void LongChat1() throws InterruptedException {
-		SendKey("Hi");
+		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
+		By WhatsAppCheck = By.id("com.whatsapp:id/send");
 
-		SendKey("Pant chahiye");
-
-		SendKey("aur dekhao");
+		if (driver.findElements(ChatCheck).size() > 0) {
+			ChatCheck();
+			SendKey("Hi");
+			SendKey("Pant chahiye");
+			SendKey("aur dekhao");
+		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
+			WhatsAppCheck();
+		}
 	}
 
 	public void LongChat2() throws InterruptedException {
-		SendKey("COD milega??");
+		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
+		By WhatsAppCheck = By.id("com.whatsapp:id/send");
 
-		SendKey("Delivery charge kitna lagega??");
-
-		SendKey("Delivery kab tak hogi??");
+		if (driver.findElements(ChatCheck).size() > 0) {
+			ChatCheck();
+			SendKey("COD milega??");
+			SendKey("Delivery charge kitna lagega??");
+			SendKey("Delivery kab tak hogi??");
+		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
+			WhatsAppCheck();
+		}
 	}
 
 	// Enquiry Methods
-	public void DetailedEnquiry() throws InterruptedException {
+	public void DetailedEnquiry() {
 		try {
 
 			// CoachMark Check
@@ -180,7 +206,7 @@ public class AndroidUtils {
 
 			// Check for PreEnquiryVideo
 			PreEnquiryVideoCheck();
-
+			
 			// Enter the text on the Chat box
 			LongChat1();
 			driver.hideKeyboard();
@@ -219,16 +245,11 @@ public class AndroidUtils {
 			// Check for PreEnquiryVideo
 			PreEnquiryVideoCheck();
 
-			// Back to Chat
-			Thread.sleep(3000);
-			Back();
-			Back();
+			// WhatsApp Check
+			WhatsAppCheck();
 
-			// Answer feedback
-			ClickId("com.sot.bizup.debug:id/mbPositive");
-			Thread.sleep(2000);
-			ClickId("com.sot.bizup.debug:id/mbMessage");
-			Thread.sleep(2000);
+			// Answer feedback question
+			FeedbackQue();
 
 		} catch (Exception e) {
 
@@ -238,7 +259,6 @@ public class AndroidUtils {
 
 	public void shortSellerEnquiry() throws InterruptedException {
 		try {
-
 			// Click on Baat Kare button
 			ClickId("com.sot.bizup.debug:id/mbDealKare");
 			Thread.sleep(3000);
@@ -274,7 +294,6 @@ public class AndroidUtils {
 		} catch (Exception e) {
 			System.out.println("Short Seller Enquiry error" + e + " ❌");
 		}
-
 	}
 
 	public void shortestEnquiry() throws InterruptedException {
@@ -313,7 +332,51 @@ public class AndroidUtils {
 			driver.findElement(preEnquiryVideo).click();
 			System.out.println("Pre-Enquiry Video Displayed ✔");
 		}
+	}
 
+	// Feedback Question
+	public void FeedbackQue() {
+		try {
+			By FeedbackQ = By.id("com.sot.bizup.debug:id/mtQuestion");
+
+			if (driver.findElements(FeedbackQ).size() > 0) {
+				ClickId("com.sot.bizup.debug:id/mbPositive");
+				ClickId("com.sot.bizup.debug:id/mbMessage");
+				driver.pressKey(new KeyEvent(AndroidKey.BACK));
+				System.out.println("Feedback Question working ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Feedback Question error" + e);
+		}
+	}
+
+	// WhatsApp Check
+	public void WhatsAppCheck() {
+		try {
+			By WhatsAppCheck = By.id("com.whatsapp:id/send");
+
+			if (driver.findElements(WhatsAppCheck).size() > 0) {
+				System.out.println("Landed on WhatsApp ✔");
+				Thread.sleep(2000);
+				Back();
+				Back();
+			}
+		} catch (Exception e) {
+			Assert.fail("WhatsApp Landing Failed" + e);
+		}
+	}
+
+	// Chat Check
+	public void ChatCheck() {
+		try {
+			By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
+
+			if (driver.findElements(ChatCheck).size() > 0) {
+				System.out.println("Landed on Chat ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Chat Landing Failed" + e);
+		}
 	}
 
 }

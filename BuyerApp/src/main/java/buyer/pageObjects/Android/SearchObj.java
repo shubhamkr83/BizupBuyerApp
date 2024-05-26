@@ -1,15 +1,16 @@
 package buyer.pageObjects.Android;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class SearchObj extends AndroidUtils {
+public class SearchObj extends HomeObj {
 
 	AndroidDriver driver;
 
@@ -42,8 +43,8 @@ public class SearchObj extends AndroidUtils {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Samples\"]")
 	private WebElement sampleTab;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivWhatsapp\"])[2]")
-	private WebElement sampleEnquiry;
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivWhatsapp\"])")
+	private List<WebElement> sampleEnquiry;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Sellers\"]")
 	private WebElement sellerTab;
@@ -78,56 +79,52 @@ public class SearchObj extends AndroidUtils {
 		videoLikeButton.click();
 	}
 
+	public void VideoTab() throws InterruptedException {
+		if (videoTab.isDisplayed()) {
+			videoTab.click();
+			Thread.sleep(2000);
+		}
+	}
+
+	public void SampleTab() throws InterruptedException {
+		if (sampleTab.isDisplayed()) {
+			sampleTab.click();
+			Thread.sleep(3000);
+		}
+	}
+
+	public void SellerTab() throws InterruptedException {
+		if (sellerTab.isDisplayed()) {
+			sellerTab.click();
+			Thread.sleep(3000);
+		}
+	}
+
 	public void VideoEnquiry() throws InterruptedException {
 		try {
-			if (videoTab.isDisplayed()) {
-				videoTab.click();
-				playVideo.click();
-				videoLikeButton.click();
-				shortSellerEnquiry();
-				Back();
-				Back();
-				Back();
-				Back();
-
-				System.out.println("Video Search Enquiry working ✔");
-			}
+			playVideo.click();
+			videoLikeButton.click();
+			shortSellerEnquiry();
+			Back();
+			Back();
+			Back();
+			Back();
+			System.out.println("Video Search Enquiry working ✔");
 		} catch (Exception e) {
 			System.out.println("Video Search Enquiry failed" + e);
 		}
 
 	}
 
-	public void SampleEnquiry() throws InterruptedException {
+	public void SampleEnquiry(int index) throws InterruptedException {
 		try {
-			if (sampleTab.isDisplayed()) {
-				sampleTab.click();
-				Thread.sleep(4000);
-				sampleEnquiry.click();
-				Back();
-				Back();
-				Thread.sleep(2000);
-
-				System.out.println("Sample  Search Enquiry working ✔");
-			}
+			sampleEnquiry.get(index).click();
+			Thread.sleep(3000);
+			Back();
+			Back();
+			System.out.println("Sample Search Enquiry working ✔");
 		} catch (Exception e) {
-			Assert.fail("Sample  Search Enquiry failed" + e);
-		}
-	}
-
-	public void SellerEnquiry() throws InterruptedException {
-		try {
-			if (sellerTab.isDisplayed()) {
-				sellerTab.click();
-				sellerCard.click();
-				shortSellerEnquiry();
-
-				System.out.println("Seller Search Enquiry working ✔");
-				System.out.println("✨✨✨------------ Search Enquiry Flow working -----------✨✨✨");
-				System.out.println("✨✨✨------------ All Enquiry Flow working -----------✨✨✨");
-			}
-		} catch (Exception e) {
-			Assert.fail("Seller Search Enquiry failed" + e);
+			Assert.fail("Sample Search Enquiry failed" + e);
 		}
 	}
 
@@ -143,8 +140,42 @@ public class SearchObj extends AndroidUtils {
 		}
 	}
 
+	public void SellerEnquiry() throws InterruptedException {
+		try {
+			sellerCard.click();
+			shortSellerEnquiry();
+			System.out.println("Seller Search Enquiry working ✔");
+			System.out.println("✨✨✨------------ Search Enquiry Flow working -----------✨✨✨");
+			System.out.println("✨✨✨------------ All Enquiry Flow working -----------✨✨✨");
+		} catch (Exception e) {
+			Assert.fail("Seller Search Enquiry failed" + e);
+		}
+	}
+
 	public void NavSeller() {
 		ClickId("com.sot.bizup.debug:id/tvViewCatalog");
 	}
 
+	// Seller recommendations
+	public void FirstProduct() {
+		try {
+			SampleEnquiry(1);
+			SampleEnquiry(2);
+			SampleEnquiry(3);
+			SampleEnquiry(4);
+		} catch (Exception e) {
+			Assert.fail("Sample Search Enquiry failed" + e);
+		}
+	}
+
+	public void SecondProduct() {
+		try {
+			SampleEnquiry(1);
+			SampleEnquiry(2);
+		} catch (Exception e) {
+			Assert.fail("Sample Search Enquiry failed" + e);
+		}
+	}
+	
+	
 }

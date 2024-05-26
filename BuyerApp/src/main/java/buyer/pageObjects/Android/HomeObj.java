@@ -11,10 +11,10 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class HomePageObj extends SellerPageObj {
+public class HomeObj extends SellerPageObj {
 	AndroidDriver driver;
 
-	public HomePageObj(AndroidDriver driver) {
+	public HomeObj(AndroidDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -38,29 +38,14 @@ public class HomePageObj extends SellerPageObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopAll")
 	private WebElement genderAll;
 
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopMen")
-	private WebElement genderMen;
-
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopMen")
-	private WebElement genderWomen;
-
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtTopKids")
-	private WebElement genderKids;
-
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivCoachmarkText")
 	private WebElement coachmark;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCategory")
 	private WebElement productFilter;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivSelected\"])")
-	private List<WebElement> productSelect;
-
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbDone")
 	private WebElement productApply;
-
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivFilter1")
-	private WebElement directProductSelect;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbMainCategory")
 	private WebElement priceFilter;
@@ -71,9 +56,14 @@ public class HomePageObj extends SellerPageObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
 	private WebElement cityFilter;
 
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivSelected\"])")
+	private List<WebElement> citySelect;
+
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/tvClear")
+	private WebElement clear;
+
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]")
 	private WebElement videoPlay;
-	// private List<WebElement> videoPlay;
 
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[1]")
 	private WebElement homeTab;
@@ -84,23 +74,34 @@ public class HomePageObj extends SellerPageObj {
 	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_icon_view\"])[3]")
 	private WebElement mereSellerTab;
 
-	public void NotificationPermission() throws InterruptedException {
-		notipermission.click();
-		Thread.sleep(3000);
-		System.out.println("Notification working ✔");
-		System.out.println("✨✨✨------------ Install and Login Working -----------✨✨✨");
-	}
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/tvNoResult")
+	private WebElement resetResult;
 
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtChangeFilter")
+	private WebElement resetBtn;
+
+	// Coachmark
 	public void CoachMark() {
 		save.click();
 	}
 
-	public void ProductSelect(int index) {
+	// Notification Permission
+	public void NotificationPermission() throws InterruptedException {
+		notipermission.click();
+		System.out.println("Notification working ✔");
+		System.out.println("✨✨✨------------ Install and Login Working -----------✨✨✨");
+		Thread.sleep(5000);
+	}
+
+	// Product Select
+	public void ProductSelect(String product) {
 		try {
 			if (productFilter.isDisplayed()) {
 				productFilter.click();
-				productSelect.get(index).click();
+				ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
+						+ product + "\"]");
 				productApply.click();
+				Wait(genderAll, "All");
 				System.out.println("Product selected ✔");
 			}
 		} catch (Exception e) {
@@ -108,11 +109,12 @@ public class HomePageObj extends SellerPageObj {
 		}
 	}
 
-	public void PriceSelect() {
+	// Price Select
+	public void PriceSelect(String price) {
 		try {
 			if (priceFilter.isDisplayed()) {
 				priceFilter.click();
-				priceSelect.click();
+				ClickXp("//android.widget.Button[@text=\"" + price + "\"]");
 				Wait(genderAll, "All");
 				System.out.println("Price selected ✔");
 			}
@@ -121,42 +123,70 @@ public class HomePageObj extends SellerPageObj {
 		}
 	}
 
+	// City Select
+	public void CitySelect(int index) {
+		try {
+			if (cityFilter.isDisplayed()) {
+				cityFilter.click();
+				citySelect.get(index).click();
+				Wait(genderAll, "All");
+				System.out.println("City selected ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("City filter failed ❌" + e);
+		}
+	}
+
+	// Clear Filter
+	public void ClearFilters() {
+		try {
+			productFilter.click();
+			clear.click();
+			priceFilter.click();
+			clear.click();
+			cityFilter.click();
+			clear.click();
+			System.out.println("All Filters are Clear ✔");
+		} catch (Exception e) {
+			System.out.println("Filters are not clear ❌");
+		}
+	}
+
+	// Save page
 	public void Save() {
 		save.click();
 	}
 
+	// Profile page
 	public void Profle() {
 		profle.click();
 	}
 
+	// Banner click
 	public void Banner() {
 		banner.click();
 	}
 
-	public void GenderFilter(String text) {
-		if (text == "All") {
-			genderAll.click();
-		} else if (text == "Men") {
-			genderAll.click();
-		} else if (text == "Women") {
-			genderWomen.click();
-		} else if (text == "Kids") {
-			genderKids.click();
+	// Gender filter
+	public void GenderFilter(String gender) {
+		try {
+			ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
+		} catch (Exception e) {
+			System.out.println("Gender filter not set " + e);
 		}
 	}
 
-	public void DirectProductSelect() {
-		directProductSelect.click();
-	}
-
+	// Home tab
 	public void HomeTab() {
 		homeTab.click();
 	}
 
+	// Search tab
 	public void SearchBar() {
 		searchBar.click();
 	}
 
+	// Seller Journey
 	public void SellerPresentCheck(String seller) throws InterruptedException {
 		try {
 			// Restart the App
@@ -187,6 +217,7 @@ public class HomePageObj extends SellerPageObj {
 		}
 	}
 
+	// Seller Journey
 	public void sellerRemoveCheck(String seller) {
 		try {
 
@@ -211,4 +242,22 @@ public class HomePageObj extends SellerPageObj {
 			Assert.fail("seller Remove Check failed " + e);
 		}
 	}
+
+	// Seller Recommendation
+	public void SellerRec() {
+		ScrollEle("सब देखें");
+
+	}
+
+	// Filter Reset message
+	public void ResetMsg() {
+		if (resetResult.isDisplayed()) {
+			String resetMsg = resetResult.getText();
+			String resetBtnMsg = resetBtn.getText();
+			System.out.println("Reset Message is " + resetMsg + " " + resetBtnMsg);
+		} else {
+			Assert.fail("Reset Message is not Displayed ❌");
+		}
+	}
+
 }

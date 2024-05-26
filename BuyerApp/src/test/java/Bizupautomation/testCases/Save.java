@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.HomeObj;
 import buyer.pageObjects.Android.SaveObj;
 
 public class Save extends Base {
@@ -17,7 +17,7 @@ public class Save extends Base {
 	@Test
 	public void SaveFlow() throws InterruptedException {
 		SaveObj save = new SaveObj(driver);
-		HomePageObj homePage = new HomePageObj(driver);
+		HomeObj homePage = new HomeObj(driver);
 
 		// Home page to Video Feed
 		homePage.HomeFeed();

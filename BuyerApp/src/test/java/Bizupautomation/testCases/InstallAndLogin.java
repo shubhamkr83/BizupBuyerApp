@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.HomeObj;
 import buyer.pageObjects.Android.LoginObj;
 
 public class InstallAndLogin extends Base {
@@ -17,7 +17,7 @@ public class InstallAndLogin extends Base {
 	@Test
 	public void LoginFlow() throws InterruptedException {
 		LoginObj login = new LoginObj(driver);
-		HomePageObj homePage = new HomePageObj(driver);
+		HomeObj homePage = new HomeObj(driver);
 
 		// App install
 		Install(driver);

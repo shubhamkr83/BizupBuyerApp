@@ -4,6 +4,20 @@
   <listeners>
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
+  <test thread-count="5" name="EnquiryFlows(failed)">
+    <classes>
+      <class name="Bizupautomation.testCases.EnquiryFlows">
+        <methods>
+          <include name="preSetup"/>
+          <include name="EnquiryTabFlow"/>
+          <include name="EnquiryVideoFlow"/>
+          <include name="ConfigureAppium"/>
+          <include name="SearchEnquiryFlow"/>
+          <include name="TearDown"/>
+        </methods>
+      </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
+    </classes>
+  </test> <!-- EnquiryFlows(failed) -->
   <test thread-count="5" name="SaveFlow(failed)">
     <classes>
       <class name="Bizupautomation.testCases.Save">

@@ -89,7 +89,7 @@ public class AgentObj extends AndroidUtils {
 		}
 	}
 
-	public void Chat() throws InterruptedException {
+	public void Chat(){
 		try {
 			LongChat1();
 			LongChat2();

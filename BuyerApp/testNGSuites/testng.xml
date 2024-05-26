@@ -14,11 +14,6 @@
 			<class name="Bizupautomation.testCases.EnquiryFlows" />
 		</classes>
 	</test>
-	<test thread-count="5" name="SaveFlow">
-		<classes>
-			<class name="Bizupautomation.testCases.Save" />
-		</classes>
-	</test>
 	<test thread-count="5" name="Agent">
 		<classes>
 			<class name="Bizupautomation.testCases.Agent" />
@@ -29,19 +24,24 @@
 			<class name="Bizupautomation.testCases.SellerJourney" />
 		</classes>
 	</test>
+	<test thread-count="5" name="SaveFlow">
+		<classes>
+			<class name="Bizupautomation.testCases.Save" />
+		</classes>
+	</test>
 	<test thread-count="5" name="SuperSeller">
 		<classes>
 			<class name="Bizupautomation.testCases.Super" />
 		</classes>
 	</test>
-	<test thread-count="5" name="LastCatalog">
-		<classes>
-			<class name="Bizupautomation.testCases.LastCatalog" />
-		</classes>
-	</test>
 	<test thread-count="5" name="ProfileFlow">
 		<classes>
 			<class name="Bizupautomation.testCases.Profile" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Rating">
+		<classes>
+			<class name="Bizupautomation.testCases.Rating" />
 		</classes>
 	</test>
 </suite> 

@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.HomePageObj;
+import buyer.pageObjects.Android.HomeObj;
 
 public class SellerJourney extends Base {
 
@@ -15,7 +15,7 @@ public class SellerJourney extends Base {
 
 	@Test
 	public void SellerJourneyFlow() throws InterruptedException {
-		HomePageObj homePage = new HomePageObj(driver);
+		HomeObj homePage = new HomeObj(driver);
 
 		// Navigate from Home page to Seller page
 		String seller = homePage.HomeSeller();

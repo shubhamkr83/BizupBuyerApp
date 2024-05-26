@@ -48,6 +48,7 @@ public class SaveObj extends SellerPageObj {
 	// Navigate to save page
 	public void SavePage() {
 		savepage.click();
+		System.out.println("Landed on save page");
 	}
 
 	// Market visit

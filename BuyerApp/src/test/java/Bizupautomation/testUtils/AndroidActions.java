@@ -2,11 +2,15 @@ package Bizupautomation.testUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -59,6 +63,11 @@ AndroidDriver driver;
 		
 	}
 	
+	public void HomeWait(AndroidDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.sot.bizup.debug:id/mtTopAll")), "text", "All"));
+	}
+	
 	public void RemoveApp(AndroidDriver driver) {
 		driver.removeApp("com.sot.bizup.debug");
 	}
@@ -66,7 +75,7 @@ AndroidDriver driver;
 	public void Restart(AndroidDriver driver) throws InterruptedException {
 		driver.terminateApp("com.sot.bizup.debug");
 		driver.activateApp("com.sot.bizup.debug");
-		Thread.sleep(3000);
+		HomeWait(driver);
 	}
 
 }
