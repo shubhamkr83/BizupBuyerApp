@@ -5,8 +5,7 @@
     <classes>
       <class name="Bizupautomation.testCases.EnquiryFlows">
         <methods>
-          <include name="preSetup"/>
-          <include name="SearchEnquiryFlow"/>
+          <include name="EnquiryTabFlow"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
         </methods>

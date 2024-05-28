@@ -18,7 +18,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ Video Enquiry Flow --------------------
 	// ----------------------------------------------------------------------
-	//@Test(groups = ("Smoke"))
+	@Test(groups = ("Smoke"))
 	public void EnquiryVideoFlow() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
 
@@ -77,7 +77,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ Enquiry Tab Flow ------------------
 	// ----------------------------------------------------------------------
-	//@Test
+	@Test
 	public void EnquiryTabFlow() throws InterruptedException {
 		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
 

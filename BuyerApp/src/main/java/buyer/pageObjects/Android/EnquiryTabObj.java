@@ -38,7 +38,7 @@ public class EnquiryTabObj extends SaveObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbInvoiceUpload")
 	private WebElement upload;
 
-	@AndroidFindBy(id = "com.google.android.documentsui:id/icon_thumb")
+	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.google.android.documentsui:id/icon_thumb\"])[1]")
 	private WebElement Invoice;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbClaimSuraksha")
@@ -107,8 +107,7 @@ public class EnquiryTabObj extends SaveObj {
 			if (KB.isDisplayed()) {
 				KB.click();
 				upload.click();
-				ClickXp("//android.widget.Button[@text=\"Images\"]");
-				// Invoice.click();
+				Invoice.click();
 				claimButton.click();
 				askNowButton.click();
 				PreEnquiryVideoCheck();
