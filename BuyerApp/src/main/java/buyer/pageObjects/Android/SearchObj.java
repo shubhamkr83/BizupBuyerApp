@@ -100,7 +100,7 @@ public class SearchObj extends HomeObj {
 		}
 	}
 
-	public void VideoEnquiry() throws InterruptedException {
+	public void VideoTabEnq() throws InterruptedException {
 		try {
 			playVideo.click();
 			videoLikeButton.click();
@@ -116,7 +116,7 @@ public class SearchObj extends HomeObj {
 
 	}
 
-	public void SampleEnquiry(int index) throws InterruptedException {
+	public void SampleTabEnq(int index) throws InterruptedException {
 		try {
 			sampleEnquiry.get(index).click();
 			Thread.sleep(3000);
@@ -159,10 +159,10 @@ public class SearchObj extends HomeObj {
 	// Seller recommendations
 	public void FirstProduct() {
 		try {
-			SampleEnquiry(1);
-			SampleEnquiry(2);
-			SampleEnquiry(3);
-			SampleEnquiry(4);
+			SampleTabEnq(1);
+			SampleTabEnq(2);
+			SampleTabEnq(3);
+			SampleTabEnq(4);
 		} catch (Exception e) {
 			Assert.fail("Sample Search Enquiry failed" + e);
 		}
@@ -170,8 +170,8 @@ public class SearchObj extends HomeObj {
 
 	public void SecondProduct() {
 		try {
-			SampleEnquiry(1);
-			SampleEnquiry(2);
+			SampleTabEnq(1);
+			SampleTabEnq(2);
 		} catch (Exception e) {
 			Assert.fail("Sample Search Enquiry failed" + e);
 		}

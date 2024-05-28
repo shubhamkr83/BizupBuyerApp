@@ -6,12 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class AgentObj extends AndroidUtils {
+public class AgentObj extends HomeObj {
 
 	AndroidDriver driver;
 
@@ -78,9 +77,8 @@ public class AgentObj extends AndroidUtils {
 	public void CatalogFullView() throws InterruptedException {
 		try {
 			if (catalogFullView.isDisplayed()) {
-				ShortChat2();
+				SendKey("Shirt chahiye");
 				catalogFullView.click();
-				Scroll();
 				fullViewClose.click();
 				System.out.println("Agent Catalog Full View Checked ✔");
 			}
@@ -89,9 +87,9 @@ public class AgentObj extends AndroidUtils {
 		}
 	}
 
-	public void Chat(){
+	public void AgentChat() {
 		try {
-			LongChat1();
+			Chat();
 			LongChat2();
 			driver.hideKeyboard();
 			System.out.println("Agent Chat Sucessfull ✔");

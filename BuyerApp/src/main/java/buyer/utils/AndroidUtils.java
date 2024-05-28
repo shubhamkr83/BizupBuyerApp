@@ -49,7 +49,7 @@ public class AndroidUtils {
 	public void RestartApp() throws InterruptedException {
 		driver.terminateApp("com.sot.bizup.debug");
 		driver.activateApp("com.sot.bizup.debug");
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 	}
 
 	// Send Method
@@ -61,7 +61,7 @@ public class AndroidUtils {
 	public void SendKey(String message) throws InterruptedException {
 		driver.findElement(By.xpath("//android.widget.EditText")).sendKeys(message);
 		Send();
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 	}
 
 	// Wait for element
@@ -189,72 +189,71 @@ public class AndroidUtils {
 		}
 	}
 
-	// Enquiry Methods
-	public void DetailedEnquiry() {
-		try {
+	public void CatalogEnquiry() throws InterruptedException {
+		// CoachMark Check
+		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
+		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
 
-			// CoachMark Check
-			CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
-			ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
+		// Full screen catalog enquiry
+		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+		ClickId("com.sot.bizup.debug:id/mbOrderDialog");
 
-			// Selecting Catalog
-			ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+		// Check for PreEnquiryVideo
+		PreEnquiryVideoCheck();
+		Thread.sleep(2000);
+		Back();
 
-			// Click on Baat Kare button
-			ClickId("com.sot.bizup.debug:id/mbPlaceOrder");
-			Thread.sleep(3000);
+		// Selecting Catalog
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
+		Thread.sleep(2000);
 
-			// Check for PreEnquiryVideo
-			PreEnquiryVideoCheck();
-			
-			// Enter the text on the Chat box
-			LongChat1();
-			driver.hideKeyboard();
-			Back();
+		// Enter the text on the Chat box
+		LongChat1();
+		driver.hideKeyboard();
+		Back();
+	}
 
-			// ------Video Enquiry------
-			// Video Tab Change
-			ClickId("com.sot.bizup.debug:id/mtSellerVideos");
-			ClickId("com.sot.bizup.debug:id/mtSellerVideos");
+	public void VideoEnquiry() throws InterruptedException {
+		// ------Video Enquiry------
+		// Video Tab Change
+		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
+		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
 
-			// Click on the video
-			ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
+		// Click on the video
+		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
 
-			// Seller video baat kare button click
-			ClickId("com.sot.bizup.debug:id/mbChat");
+		// Seller video baat kare button click
+		ClickId("com.sot.bizup.debug:id/mbChat");
 
-			// Check for PreEnquiryVideo
-			PreEnquiryVideoCheck();
+		// Check for PreEnquiryVideo
+		PreEnquiryVideoCheck();
 
-			// Enter the text on the Chat box
-			LongChat2();
+	}
 
-			// WhatsApp Enable Click
-			By secondElement = By.xpath("//android.widget.TextView[@text=\"ओनर से बात करे\"]");
-			By firstElement = By.xpath("//android.widget.Button[@text=\"बात करे\"]");
+	public void WhatsAppEnable() throws InterruptedException {
+		// WhatsApp Enable Click
+		By secondElement = By.xpath("//android.widget.TextView[@text=\"ओनर से बात करे\"]");
+		By firstElement = By.xpath("//android.widget.Button[@text=\"बात करे\"]");
 
-			// Check if the first element exists
-			if (driver.findElements(firstElement).size() > 0) {
-				// If the first element exists, click it
-				driver.findElement(firstElement).click();
-			} else {
-				// If the first element doesn't exist, check if the second element exists
-				driver.findElement(secondElement).click();
-			}
-
-			// Check for PreEnquiryVideo
-			PreEnquiryVideoCheck();
-
-			// WhatsApp Check
-			WhatsAppCheck();
-
-			// Answer feedback question
-			FeedbackQue();
-
-		} catch (Exception e) {
-
-			System.out.println("Detail Enquiry error " + e + " ❌");
+		// Check if the first element exists
+		if (driver.findElements(firstElement).size() > 0) {
+			// If the first element exists, click it
+			driver.findElement(firstElement).click();
+		} else {
+			// If the first element doesn't exist, check if the second element exists
+			driver.findElement(secondElement).click();
 		}
+
+		// Check for PreEnquiryVideo
+		PreEnquiryVideoCheck();
+
+		// WhatsApp Check
+		WhatsAppCheck();
+
+		// Answer feedback question
+		FeedbackQue();
 	}
 
 	public void shortSellerEnquiry() throws InterruptedException {
@@ -272,18 +271,8 @@ public class AndroidUtils {
 			// Back from Chat
 			Back();
 
-			// Video Tab Change
-			ClickId("com.sot.bizup.debug:id/mtSellerVideos");
-			ClickId("com.sot.bizup.debug:id/mtSellerVideos");
-
-			// Play video
-			ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
-
-			// Seller video baat kare button click
-			ClickId("com.sot.bizup.debug:id/mbChat");
-
-			// Check for PreEnquiryVideo
-			PreEnquiryVideoCheck();
+			// Video Enquiry
+			VideoEnquiry();
 
 			// Enter the text on the Chat box
 			ShortChat2();
@@ -376,6 +365,30 @@ public class AndroidUtils {
 			}
 		} catch (Exception e) {
 			Assert.fail("Chat Landing Failed" + e);
+		}
+	}
+
+	public void Agent() {
+		try {
+			By agent = By.id("com.sot.bizup.debug:id/fab");
+
+			if (driver.findElements(agent).size() > 0) {
+				ClickId("com.sot.bizup.debug:id/fab");
+				System.out.println("Agent Clicked ✔");
+			}
+		} catch (Exception e) {
+			Assert.fail("Agent failed " + e);
+		}
+
+	}
+
+	public void Chat() {
+		try {
+			ShortChat1();
+			driver.hideKeyboard();
+			System.out.println("Chat Sucessfull ✔");
+		} catch (Exception e) {
+			Assert.fail("Chat error" + e);
 		}
 	}
 

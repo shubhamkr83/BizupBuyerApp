@@ -3,15 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Bizupautomation.testCases.Filters">
+      <class name="Bizupautomation.testCases.EnquiryFlows">
         <methods>
-          <include name="VideoReset"/>
-          <include name="HomeReset"/>
+          <include name="preSetup"/>
+          <include name="SearchEnquiryFlow"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
-          <include name="preSetup"/>
         </methods>
-      </class> <!-- Bizupautomation.testCases.Filters -->
+      </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

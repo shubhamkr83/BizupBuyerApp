@@ -20,8 +20,10 @@ public class Filters extends Base {
 
 		// ---------- Product reset message check
 		home.ClearFilters();
+		
+		home.GenderFilter("Men");
 
-		home.ProductSelect("ब्लेजर्स");
+		home.ProductSelect("साड़ी");
 
 		home.ResetMsg();
 
@@ -53,17 +55,21 @@ public class Filters extends Base {
 
 		// ---------- Product reset message check
 		video.ClearFilters();
+		
+		video.PriceSelect("100 तक");
 
-		video.ProductSelect("दस्ताने");
+		video.ProductSelect("मैन सूट");
 
 		video.ResetMsg();
 
 		// ---------- Price reset mesage check
+		video.ClearFilters();
+		
 		video.ProductSelect("फ़राक");
 
 		video.CitySelect(2);
 
-		video.PriceSelect("400 से ज़ादा");
+		video.PriceSelect("100 तक");
 
 		video.ResetMsg();
 

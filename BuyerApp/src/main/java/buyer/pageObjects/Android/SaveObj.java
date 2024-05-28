@@ -46,8 +46,9 @@ public class SaveObj extends SellerPageObj {
 	private WebElement visitSend;
 
 	// Navigate to save page
-	public void SavePage() {
+	public void SavePage() throws InterruptedException {
 		savepage.click();
+		Thread.sleep(2000);
 		System.out.println("Landed on save page");
 	}
 

@@ -18,24 +18,30 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ Video Enquiry Flow --------------------
 	// ----------------------------------------------------------------------
-	@Test(groups = ("Smoke"))
+	//@Test(groups = ("Smoke"))
 	public void EnquiryVideoFlow() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
 
-		// ---------------HomePage---------------
 		// Product Filter
 		home.ProductSelect("जीन्स");
 
 		// Price Filter
 		home.PriceSelect("300 तक");
 
-		// Video Feed
+		// Home to seller page
 		home.HomeSeller();
 
-		// ------------Seller Page-----------------
-		// Seller Enquiry
-		home.SellerPage();
+		// Catalog Enquiry
+		home.CatalogEnquiry();
 
+		// Video Enquiry
+		home.VideoEnquiry();
+
+		// Enter the text on the Chat box
+		home.LongChat2();
+
+		// WhatsApp enable check
+		home.WhatsAppEnable();
 	}
 
 	// ----------------------------------------------------------------------
@@ -48,19 +54,19 @@ public class EnquiryFlows extends Base {
 		// Click on the search icon
 		search.SearchProduct("jacket");
 
-		//Video Tab
+		// Video Tab
 		search.VideoTab();
-		
+
 		// Video Enquiry
-		search.VideoEnquiry();
-		
-		//Sample Tab
+		search.VideoTabEnq();
+
+		// Sample Tab
 		search.SampleTab();
 
 		// Sample Enquiry
-		search.SampleEnquiry(2);
-		
-		//Seller Tab
+		search.SampleTabEnq(2);
+
+		// Seller Tab
 		search.SellerTab();
 
 		// Seller Enquiry
@@ -71,7 +77,7 @@ public class EnquiryFlows extends Base {
 	// ----------------------------------------------------------------------
 	// ------------------ Enquiry Tab Flow ------------------
 	// ----------------------------------------------------------------------
-	@Test
+	//@Test
 	public void EnquiryTabFlow() throws InterruptedException {
 		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
 

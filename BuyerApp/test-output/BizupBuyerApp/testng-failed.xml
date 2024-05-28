@@ -9,8 +9,6 @@
       <class name="Bizupautomation.testCases.EnquiryFlows">
         <methods>
           <include name="preSetup"/>
-          <include name="EnquiryTabFlow"/>
-          <include name="EnquiryVideoFlow"/>
           <include name="ConfigureAppium"/>
           <include name="SearchEnquiryFlow"/>
           <include name="TearDown"/>
@@ -18,28 +16,17 @@
       </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
     </classes>
   </test> <!-- EnquiryFlows(failed) -->
-  <test thread-count="5" name="SaveFlow(failed)">
+  <test thread-count="5" name="Filters(failed)">
     <classes>
-      <class name="Bizupautomation.testCases.Save">
+      <class name="Bizupautomation.testCases.Filters">
         <methods>
-          <include name="SaveFlow"/>
-          <include name="preSetup"/>
+          <include name="VideoReset"/>
+          <include name="HomeReset"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
-        </methods>
-      </class> <!-- Bizupautomation.testCases.Save -->
-    </classes>
-  </test> <!-- SaveFlow(failed) -->
-  <test thread-count="5" name="LastCatalog(failed)">
-    <classes>
-      <class name="Bizupautomation.testCases.LastCatalog">
-        <methods>
-          <include name="LastCatalogFlow"/>
-          <include name="ConfigureAppium"/>
           <include name="preSetup"/>
-          <include name="TearDown"/>
         </methods>
-      </class> <!-- Bizupautomation.testCases.LastCatalog -->
+      </class> <!-- Bizupautomation.testCases.Filters -->
     </classes>
-  </test> <!-- LastCatalog(failed) -->
+  </test> <!-- Filters(failed) -->
 </suite> <!-- Failed suite [BizupBuyerApp] -->

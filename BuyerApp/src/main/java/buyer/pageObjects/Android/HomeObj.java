@@ -93,6 +93,15 @@ public class HomeObj extends SellerPageObj {
 		Thread.sleep(5000);
 	}
 
+	// Gender filter
+	public void GenderFilter(String gender) {
+		try {
+			ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
+		} catch (Exception e) {
+			System.out.println("Gender filter not set " + e);
+		}
+	}
+
 	// Product Select
 	public void ProductSelect(String product) {
 		try {
@@ -165,15 +174,6 @@ public class HomeObj extends SellerPageObj {
 	// Banner click
 	public void Banner() {
 		banner.click();
-	}
-
-	// Gender filter
-	public void GenderFilter(String gender) {
-		try {
-			ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
-		} catch (Exception e) {
-			System.out.println("Gender filter not set " + e);
-		}
 	}
 
 	// Home tab

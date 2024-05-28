@@ -76,8 +76,9 @@ public class EnquiryTabObj extends SaveObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mtBusinessName")
 	private WebElement ratingSeller;
 
-	public void EnquiryTab() {
+	public void EnquiryTab() throws InterruptedException {
 		mereSellerTab.click();
+		Thread.sleep(2000);
 	}
 
 	public void EnquiryTabEnquiry() {

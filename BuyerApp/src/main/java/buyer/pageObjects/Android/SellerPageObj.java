@@ -71,17 +71,6 @@ public class SellerPageObj extends VideoFeedObj {
 		coachmark.click();
 	}
 
-	public void SellerPage() throws InterruptedException {
-		try {
-			if (smallBaatKareBtn.isDisplayed()) {
-				DetailedEnquiry();
-				System.out.println("✨✨✨------------ Enquiry Video Flow working -----------✨✨✨");
-			}
-		} catch (Exception e) {
-			Assert.fail("Enquiry Video Flow failed ❌");
-		}
-	}
-
 	public void SmallBaatKareBtn() {
 		if (smallBaatKareBtn.isDisplayed()) {
 			smallBaatKareBtn.click();
@@ -178,6 +167,7 @@ public class SellerPageObj extends VideoFeedObj {
 
 	}
 
+	// Super Seller
 	public void SuperSeller(String SearchSeller) {
 		try {
 
@@ -203,6 +193,7 @@ public class SellerPageObj extends VideoFeedObj {
 		}
 	}
 
+	// Last catalog select message
 	public void LastCatalogMsg() {
 		Back();
 		SampleDekhe();

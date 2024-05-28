@@ -37,7 +37,7 @@ public class Save extends Base {
 	}
 
 //	@Test
-	public void DirectionAndSample() {
+	public void DirectionAndSample() throws InterruptedException {
 		SaveObj save = new SaveObj(driver);
 
 		// Navigate to save page
