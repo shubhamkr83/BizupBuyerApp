@@ -62,7 +62,7 @@ public class VideoFeedObj extends AndroidUtils {
 		sampleDekhe.click();
 	}
 
-	public void NexVideo() {
+	public void NextVideo() {
 		nextVideo.click();
 	}
 
@@ -74,7 +74,7 @@ public class VideoFeedObj extends AndroidUtils {
 				ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
 						+ product + "\"]");
 				productApply.click();
-				Wait(sampleDekhe, "सैंपल देंखे");
+				Wait(sampleDekhe, "View Catalog");
 				System.out.println("Product selected ✔");
 			}
 		} catch (Exception e) {
@@ -88,7 +88,7 @@ public class VideoFeedObj extends AndroidUtils {
 			if (priceFilter.isDisplayed()) {
 				priceFilter.click();
 				ClickXp("//android.widget.Button[@text=\"" + price + "\"]");
-				Wait(sampleDekhe, "सैंपल देंखे");
+				Wait(sampleDekhe, "View Catalog");
 				System.out.println("Price selected ✔");
 			}
 		} catch (Exception e) {
@@ -102,7 +102,7 @@ public class VideoFeedObj extends AndroidUtils {
 			if (cityFilter.isDisplayed()) {
 				cityFilter.click();
 				citySelect.get(index).click();
-				Wait(sampleDekhe, "सैंपल देंखे");
+				Wait(sampleDekhe, "View Catalog");
 				System.out.println("City selected ✔");
 			}
 		} catch (Exception e) {
@@ -164,6 +164,18 @@ public class VideoFeedObj extends AndroidUtils {
 		} else {
 			Assert.fail("Reset Message is not Displayed ❌");
 		}
+	}
+	
+	//Seller Recommendation 
+	public void RecomProdEnq(int num) throws InterruptedException {
+		for (int i = 0; i <= num; i++) {
+		    SampleDekhe();
+		    CatalogEnquiry();
+		    Back();
+		    Back();
+		    NextVideo();
+		}
+		
 	}
 
 }

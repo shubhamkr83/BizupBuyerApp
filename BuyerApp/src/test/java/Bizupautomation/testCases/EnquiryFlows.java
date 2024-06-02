@@ -22,17 +22,19 @@ public class EnquiryFlows extends Base {
 	public void EnquiryVideoFlow() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
 
+		System.out.println("✨✨✨------------ Video Enquiry Flow start -----------✨✨✨");
+
 		// Product Filter
-		home.ProductSelect("जीन्स");
+		home.ProductSelect("Jeans");
 
 		// Price Filter
-		home.PriceSelect("300 तक");
+		home.PriceSelect("300 and below");
 
 		// Home to seller page
 		home.HomeSeller();
 
 		// Catalog Enquiry
-		home.CatalogEnquiry();
+		home.FullCatalogEnq();
 
 		// Video Enquiry
 		home.VideoEnquiry();
@@ -42,6 +44,8 @@ public class EnquiryFlows extends Base {
 
 		// WhatsApp enable check
 		home.WhatsAppEnable();
+
+		System.out.println("✨✨✨------------ Video Enquiry Flow working -----------✨✨✨");
 	}
 
 	// ----------------------------------------------------------------------
@@ -51,8 +55,10 @@ public class EnquiryFlows extends Base {
 	public void SearchEnquiryFlow() throws InterruptedException {
 		SearchObj search = new SearchObj(driver);
 
+		System.out.println("✨✨✨------------ Search Enquiry Flow start -----------✨✨✨");
+
 		// Click on the search icon
-		search.SearchProduct("jacket");
+		search.SearchProduct("Jackets");
 
 		// Video Tab
 		search.VideoTab();
@@ -64,13 +70,15 @@ public class EnquiryFlows extends Base {
 		search.SampleTab();
 
 		// Sample Enquiry
-		search.SampleTabEnq(2);
+		search.SampleTabEnq();
 
 		// Seller Tab
 		search.SellerTab();
 
 		// Seller Enquiry
 		search.SellerEnquiry();
+
+		System.out.println("✨✨✨------------ Search Enquiry Flow working -----------✨✨✨");
 
 	}
 
@@ -80,6 +88,8 @@ public class EnquiryFlows extends Base {
 	@Test
 	public void EnquiryTabFlow() throws InterruptedException {
 		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
+
+		System.out.println("✨✨✨------------ Enquiry Tab Enquiry Flow start -----------✨✨✨");
 
 		// Enquiry Tab Enquiry
 		enquiryTab.EnquiryTabEnquiry();
@@ -95,6 +105,8 @@ public class EnquiryFlows extends Base {
 
 		// Order Feedback question
 		enquiryTab.FeedbackQue();
+
+		System.out.println("✨✨✨------------ Enquiry Tab Enquiry Flow working -----------✨✨✨");
 	}
 
 }

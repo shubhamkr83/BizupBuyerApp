@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="BizupBuyerApp">
+
 	<listeners>
 		<listener class-name="Bizupautomation.testUtils.Listeners" />
 	</listeners>
 
-	<test thread-count="5" name="InstallAndLogin">
+	<test thread-count="5" name="LoginFlow">
 		<classes>
 			<class name="Bizupautomation.testCases.InstallAndLogin" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="EnquiryFlows">
 		<classes>
 			<class name="Bizupautomation.testCases.EnquiryFlows" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="SaveFlow">
 		<classes>
 			<class name="Bizupautomation.testCases.Save" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="Agent">
 		<classes>
 			<class name="Bizupautomation.testCases.AgentFlow" />
 		</classes>
 	</test>
+
 	<test thread-count="5" name="SellerJourneyFlow">
 		<classes>
 			<class name="Bizupautomation.testCases.SellerJourney" />
@@ -39,19 +41,19 @@
 			<class name="Bizupautomation.testCases.Super" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="ProfileFlow">
 		<classes>
 			<class name="Bizupautomation.testCases.Profile" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="Rating">
 		<classes>
 			<class name="Bizupautomation.testCases.Rating" />
 		</classes>
 	</test>
-	
+
 	<test thread-count="5" name="Filters">
 		<classes>
 			<class name="Bizupautomation.testCases.Filters" />

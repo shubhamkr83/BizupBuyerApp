@@ -19,12 +19,14 @@ public class Save extends Base {
 		SaveObj save = new SaveObj(driver);
 		HomeObj homePage = new HomeObj(driver);
 
+		System.out.println("✨✨✨------------ Save Flow start -----------✨✨✨");
+
 		// Home page to Video Feed
 		homePage.HomeFeed();
 
 		// If seller is not save then go to seller page and Save the seller
 		String seller = save.SaveSeller();
-		
+
 		// Save Check on video
 		save.VideoSaveCheck();
 
@@ -36,20 +38,23 @@ public class Save extends Base {
 
 	}
 
-//	@Test
+	@Test
 	public void DirectionAndSample() throws InterruptedException {
 		SaveObj save = new SaveObj(driver);
 
+		System.out.println("✨✨✨-------- Direction And Sample Flow starts ---------✨✨✨");
+
 		// Navigate to save page
 		save.SavePage();
-		
+
 		// Check the direction
 		save.Direction();
-		
-		//Sample Dekhe Check
+
+		// Sample Dekhe Check
 		save.SampleDekhe();
 
-	}
+		System.out.println("✨✨✨------------ Save Flow working -----------✨✨✨");
 
+	}
 
 }

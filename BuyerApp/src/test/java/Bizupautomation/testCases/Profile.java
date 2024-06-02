@@ -17,17 +17,24 @@ public class Profile extends Base {
 	public void ProfileFlow() throws InterruptedException {
 		ProfileObj profilePage = new ProfileObj(driver); 
 		
+		System.out.println("✨✨✨------------ Profile Flow start -----------✨✨✨");
+		
+		// Navgate to profile page
 		profilePage.Profile();
 		
+		// Edit profile
 		profilePage.EditProfile("Demo Test", "Test Seller", "Delhi");	
 		
+		// Refer
 		profilePage.Refer();
 		
+		// Setting
 		profilePage.Setting();
 		
+		// My Video
 		profilePage.MyVideo();
 		
-		
+		System.out.println("✨✨✨------------ Profile Flow checked ✅ -----------✨✨✨");
 		
 	}
 }

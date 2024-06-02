@@ -101,7 +101,7 @@ public class ProfileObj extends AndroidUtils {
 				editBussName.sendKeys(bizname);
 				editCity.sendKeys(city);
 				nextBtn.click();
-				
+
 				CategoryEdit();
 
 				String Name = cName.getText();

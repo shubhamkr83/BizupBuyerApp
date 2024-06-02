@@ -4,27 +4,39 @@
   <listeners>
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
-  <test thread-count="5" name="EnquiryFlows(failed)">
+  <test thread-count="5" name="SaveFlow(failed)">
     <classes>
-      <class name="Bizupautomation.testCases.EnquiryFlows">
+      <class name="Bizupautomation.testCases.Save">
         <methods>
+          <include name="SaveFlow"/>
           <include name="preSetup"/>
+          <include name="DirectionAndSample"/>
           <include name="ConfigureAppium"/>
-          <include name="SearchEnquiryFlow"/>
           <include name="TearDown"/>
         </methods>
-      </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
+      </class> <!-- Bizupautomation.testCases.Save -->
     </classes>
-  </test> <!-- EnquiryFlows(failed) -->
+  </test> <!-- SaveFlow(failed) -->
+  <test thread-count="5" name="SellerJourneyFlow(failed)">
+    <classes>
+      <class name="Bizupautomation.testCases.SellerJourney">
+        <methods>
+          <include name="SellerJourneyFlow"/>
+          <include name="preSetup"/>
+          <include name="ConfigureAppium"/>
+          <include name="TearDown"/>
+        </methods>
+      </class> <!-- Bizupautomation.testCases.SellerJourney -->
+    </classes>
+  </test> <!-- SellerJourneyFlow(failed) -->
   <test thread-count="5" name="Filters(failed)">
     <classes>
       <class name="Bizupautomation.testCases.Filters">
         <methods>
           <include name="VideoReset"/>
-          <include name="HomeReset"/>
           <include name="ConfigureAppium"/>
-          <include name="TearDown"/>
           <include name="preSetup"/>
+          <include name="TearDown"/>
         </methods>
       </class> <!-- Bizupautomation.testCases.Filters -->
     </classes>

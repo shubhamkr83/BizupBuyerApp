@@ -16,6 +16,8 @@ public class Rating extends Base {
 	@Test
 	public void RatingFlow() throws InterruptedException {
 		EnquiryTabObj enquiryPage = new EnquiryTabObj(driver);
+		
+		System.out.println("✨✨✨------------ Rating Flow start -----------✨✨✨");
 
 		// Navigate to enquiry tab
 		enquiryPage.EnquiryTab();
@@ -28,6 +30,8 @@ public class Rating extends Base {
 
 		// Rating
 		enquiryPage.RatingCheck();
+		
+		System.out.println("✨✨✨------------ Rating Flow checked ✅ -----------✨✨✨");
 
 	}
 }

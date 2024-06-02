@@ -22,7 +22,7 @@ public class EnquiryTabObj extends SaveObj {
 	}
 
 	// Enquiry Tab Flow
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/dealsFragment")
+	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/navigation_bar_item_small_label_view\" and @text=\"Enquiry\"]")
 	private WebElement mereSellerTab;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbReplyNow")
@@ -87,8 +87,9 @@ public class EnquiryTabObj extends SaveObj {
 				mereSellerTab.click();
 				Wait(claimTab, "Claims");
 				CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmark");
-				Wait(KB, "कच्चा बिल भेजें");
+				Wait(KB, "Upload Raw Bill");
 				replyNow.click();
+//				PreEnquiryQue();
 				PreEnquiryVideoCheck();
 				ShortChat1();
 				Back();
@@ -130,6 +131,7 @@ public class EnquiryTabObj extends SaveObj {
 				PreEnquiryVideoCheck();
 				WhatsAppCheck();
 				System.out.println("Claim Tab Enquires working ✔");
+				
 			}
 		} catch (Exception e) {
 			Assert.fail("Claim Tab Enquires error" + e);

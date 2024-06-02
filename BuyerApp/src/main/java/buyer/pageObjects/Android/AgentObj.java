@@ -6,11 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import buyer.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class AgentObj extends HomeObj {
+public class AgentObj extends AndroidUtils {
 
 	AndroidDriver driver;
 
@@ -76,8 +77,10 @@ public class AgentObj extends HomeObj {
 
 	public void CatalogFullView() throws InterruptedException {
 		try {
-			if (catalogFullView.isDisplayed()) {
+			if (agentName.isDisplayed()) {
 				SendKey("Shirt chahiye");
+				Send();
+				Wait(catalogFullView, "View All");
 				catalogFullView.click();
 				fullViewClose.click();
 				System.out.println("Agent Catalog Full View Checked ✔");
@@ -89,7 +92,6 @@ public class AgentObj extends HomeObj {
 
 	public void AgentChat() {
 		try {
-			Chat();
 			LongChat2();
 			driver.hideKeyboard();
 			System.out.println("Agent Chat Sucessfull ✔");
@@ -103,12 +105,12 @@ public class AgentObj extends HomeObj {
 		Back();
 		if (feedbackMsg.isDisplayed()) {
 			String Feedback = feedbackMsg.getText();
-			assertEquals(Feedback, "आपका सुरेश सिंह से बात करने का अनुभव कैसा रहा ?");
+			assertEquals(Feedback, "How was your experience talking to Suresh Singh?");
 
 			feedbackYes.click();
 
 			String PositiveMsg = feedbackYesMsg.getText();
-			assertEquals(PositiveMsg, "हमे खुशी है की आपका अनुभव अच्छा रहा .");
+			assertEquals(PositiveMsg, "We are glad that your experience was good.");
 
 			feedbackClose.click();
 
@@ -123,21 +125,22 @@ public class AgentObj extends HomeObj {
 
 		RestartApp();
 		agent.click();
+		Wait(catalogFullView, "View All");
 		Back();
 
 		if (feedbackMsg.isDisplayed()) {
 			String Feedback = feedbackMsg.getText();
-			assertEquals(Feedback, "आपका सुरेश सिंह से बात करने का अनुभव कैसा रहा ?");
+			assertEquals(Feedback, "How was your experience talking to Suresh Singh?");
 
 			feedbackNo.click();
 
 			String NegativeMsg = feedbackNoMsg.getText();
-			assertEquals(NegativeMsg, "हमे खेद है की आपका अनुभव अच्छा नहीं रहा ");
+			assertEquals(NegativeMsg, "We are sorry that your experience was not good.");
 
 			feedbackClose.click();
 
 			System.out.println("Agent Negative feedback Checked ✔");
-			System.out.println("✨✨✨------------ Agent working -----------✨✨✨");
+
 		} else {
 			Assert.fail("Agent Negative feedback failed ❌");
 		}

@@ -50,7 +50,7 @@ public class HomeObj extends SellerPageObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbMainCategory")
 	private WebElement priceFilter;
 
-	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"400 तक\"]")
+	@AndroidFindBy(xpath = "//android.widget.Button[@text=\"400 and below\"]")
 	private WebElement priceSelect;
 
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbCity")
@@ -91,14 +91,18 @@ public class HomeObj extends SellerPageObj {
 		System.out.println("Notification working ✔");
 		System.out.println("✨✨✨------------ Install and Login Working -----------✨✨✨");
 		Thread.sleep(5000);
+
 	}
 
 	// Gender filter
 	public void GenderFilter(String gender) {
 		try {
-			ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
+			if (genderAll.isDisplayed()) { 
+				ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
+				System.out.println("Gender filter set ✔");
+			}
 		} catch (Exception e) {
-			System.out.println("Gender filter not set " + e);
+			Assert.fail("Gender filter failed " + e);
 		}
 	}
 
@@ -151,13 +155,16 @@ public class HomeObj extends SellerPageObj {
 		try {
 			productFilter.click();
 			clear.click();
+			Wait(genderAll, "All");
 			priceFilter.click();
 			clear.click();
+			Wait(genderAll, "All");
 			cityFilter.click();
 			clear.click();
+			Wait(genderAll, "All");
 			System.out.println("All Filters are Clear ✔");
 		} catch (Exception e) {
-			System.out.println("Filters are not clear ❌");
+			Assert.fail("Filters are not clear ❌");
 		}
 	}
 
@@ -193,7 +200,7 @@ public class HomeObj extends SellerPageObj {
 			RestartApp();
 
 			// Scroll to the Seller Journey Section
-			ScrollEle("अपने सेलर्स देखना जारी रखें");
+			ScrollEle("Keep watching your sellers");
 
 			// Target the seller
 			By FindSeller = By
@@ -222,7 +229,7 @@ public class HomeObj extends SellerPageObj {
 		try {
 
 			// Scroll to the Seller Journey Section
-			ScrollEle("अपने सेलर्स देखना जारी रखें");
+			ScrollEle("Keep watching your sellers");
 
 			// Target the seller
 			By FindSeller = By
@@ -231,21 +238,19 @@ public class HomeObj extends SellerPageObj {
 
 			// Condition if seller is present after doing the Enquiry
 			if (driver.findElements(FindSeller).size() > 0) {
-				System.out.println("Seller " + seller + " is not removed from the section after doing Enquiry ❌");
+				Assert.fail("Seller " + seller + " is not removed from the section after doing Enquiry ❌");
 			} else {
 				System.out.println("Seller " + seller + " is remove from the section after doing Enquiry ✔");
 			}
 
-			System.out.println("✨✨✨------------ Seller Journey Flow working -----------✨✨✨");
-
 		} catch (Exception e) {
-			Assert.fail("seller Remove Check failed " + e);
+			Assert.fail("seller Remove failed " + e);
 		}
 	}
 
 	// Seller Recommendation
 	public void SellerRec() {
-		ScrollEle("सब देखें");
+		ScrollEle("VIEW ALL");
 
 	}
 

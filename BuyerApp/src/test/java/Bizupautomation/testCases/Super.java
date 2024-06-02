@@ -18,6 +18,8 @@ public class Super extends Base {
 	public void SuperSeller() throws InterruptedException {
 		SellerPageObj sellerPage = new SellerPageObj(driver);
 		SearchObj search = new SearchObj(driver);
+		
+		System.out.println("✨✨✨------------ Super Seller Checking -----------✨✨✨");
 
 		// Click on the search icon
 		search.SearchProduct("Renuka Garment");
@@ -27,6 +29,8 @@ public class Super extends Base {
 
 		// Go to the seller page
 		sellerPage.SuperSeller("Renuka Garment");
+		
+		System.out.println("✨✨✨------------ Super Seller Checked successfully -----------✨✨✨");
 
 	}
 	

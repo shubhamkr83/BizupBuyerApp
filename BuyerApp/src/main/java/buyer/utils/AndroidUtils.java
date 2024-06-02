@@ -25,6 +25,12 @@ public class AndroidUtils {
 		this.driver = driver;
 	}
 
+	public void LaunchApp() throws InterruptedException {
+		driver.activateApp("com.sot.bizup.debug");
+		System.out.println("App Launched ✔");
+		Thread.sleep(5000);
+	}
+
 	// Back Method
 	public void Back() {
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
@@ -35,6 +41,28 @@ public class AndroidUtils {
 		driver.pressKey(new KeyEvent(AndroidKey.ENTER));
 	}
 
+	// Restart App Method
+	public void RestartApp() throws InterruptedException {
+		driver.terminateApp("com.sot.bizup.debug");
+		driver.activateApp("com.sot.bizup.debug");
+		Thread.sleep(4000);
+	}
+
+	// Clear App Data Method
+	public void clearAppData() {
+		try {
+			driver.executeScript("mobile: clearAppData", ImmutableMap.of("bundleId", "com.your.app.bundleId"));
+			System.out.println("App Data Cleared ✔");
+		} catch (Exception e) {
+			System.out.println("App Data Not Cleared ❌");
+		}
+	}
+
+	// Send Method
+	public void Send() {
+		ClickXp("//android.widget.Button[@text=\"\"]");
+	}
+
 	// Click method for ID
 	public void ClickId(String element) {
 		driver.findElement(By.id(element)).click();
@@ -43,18 +71,6 @@ public class AndroidUtils {
 	// Click method for xpath
 	public void ClickXp(String element) {
 		driver.findElement(By.xpath(element)).click();
-	}
-
-	// Restart App Method
-	public void RestartApp() throws InterruptedException {
-		driver.terminateApp("com.sot.bizup.debug");
-		driver.activateApp("com.sot.bizup.debug");
-		Thread.sleep(4000);
-	}
-
-	// Send Method
-	public void Send() {
-		ClickXp("//android.widget.Button[@text=\"\"]");
 	}
 
 	// Send message in the chat
@@ -189,7 +205,7 @@ public class AndroidUtils {
 		}
 	}
 
-	public void CatalogEnquiry() throws InterruptedException {
+	public void FullCatalogEnq() throws InterruptedException {
 		// CoachMark Check
 		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
 		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
@@ -198,6 +214,9 @@ public class AndroidUtils {
 		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
 		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
 		ClickId("com.sot.bizup.debug:id/mbOrderDialog");
+
+		// PreEnquiryQuestion Check
+		PreEnquiryQue();
 
 		// Check for PreEnquiryVideo
 		PreEnquiryVideoCheck();
@@ -213,6 +232,18 @@ public class AndroidUtils {
 		LongChat1();
 		driver.hideKeyboard();
 		Back();
+	}
+
+	public void CatalogEnquiry() throws InterruptedException {
+		// CoachMark Check
+		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
+		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
+
+		// Selecting Catalog
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
+		Thread.sleep(2000);
 	}
 
 	public void VideoEnquiry() throws InterruptedException {
@@ -262,6 +293,9 @@ public class AndroidUtils {
 			ClickId("com.sot.bizup.debug:id/mbDealKare");
 			Thread.sleep(3000);
 
+			// PreEnquiryQuestion Check
+			PreEnquiryQue();
+
 			// Check for PreEnquiryVideo
 			PreEnquiryVideoCheck();
 
@@ -290,6 +324,9 @@ public class AndroidUtils {
 		// Click on Baat Kare button
 		ClickId("com.sot.bizup.debug:id/mbDealKare");
 		Thread.sleep(1000);
+
+		// PreEnquiryQuestion Check
+		PreEnquiryQue();
 
 		// Check for PreEnquiryVideo
 		PreEnquiryVideoCheck();
@@ -339,6 +376,18 @@ public class AndroidUtils {
 		}
 	}
 
+	// Feedback Question
+	public void PreEnquiryQue() {
+
+		By PreEnqQ = By.id("com.sot.bizup.debug:id/mtQuestion");
+
+		if (driver.findElements(PreEnqQ).size() > 0) {
+			ClickId("com.sot.bizup.debug:id/mbPositive");
+			System.out.println("PreEnquiry Question working ✔");
+		}
+
+	}
+
 	// WhatsApp Check
 	public void WhatsAppCheck() {
 		try {
@@ -386,6 +435,7 @@ public class AndroidUtils {
 		try {
 			ShortChat1();
 			driver.hideKeyboard();
+			Thread.sleep(2000);
 			System.out.println("Chat Sucessfull ✔");
 		} catch (Exception e) {
 			Assert.fail("Chat error" + e);

@@ -16,6 +16,8 @@ public class LastCatalog extends Base {
 	@Test
 	public void LastCatalogFlow() throws InterruptedException {
 		SellerPageObj sellerPage = new SellerPageObj(driver);
+		
+		System.out.println("✨✨✨------------ Last Catalog Flow start -----------✨✨✨");
 
 		// Navgate to seller page
 		sellerPage.HomeToSeller();
@@ -25,6 +27,8 @@ public class LastCatalog extends Base {
 
 		// Check the Toast message
 		sellerPage.LastCatalogMsg();
+		
+		System.out.println("✨✨✨------------ Last Catalog Flow checked successfully -----------✨✨✨");
 
 	}
 }

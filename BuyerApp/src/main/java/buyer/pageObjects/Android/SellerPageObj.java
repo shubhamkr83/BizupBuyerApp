@@ -64,7 +64,7 @@ public class SellerPageObj extends VideoFeedObj {
 	@AndroidFindBy(id = "com.sot.bizup.debug:id/mbButton")
 	private WebElement SkipEnqVideo;
 
-	@AndroidFindBy(id = "com.sot.bizup.debug:id/gpSelectedItem")
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/gpSelectedItems")
 	private WebElement gpSelectedItems;
 
 	public void Coachmark() {
@@ -148,22 +148,35 @@ public class SellerPageObj extends VideoFeedObj {
 	// save Seller
 	public String SaveSeller() throws InterruptedException {
 
-		// Check the save seller in video
-		String videoSeller = VideoCheck();
+		try {
 
-		String seller = sellerName.getText();
+			// Check the save seller in video
+			String videoSeller = VideoCheck();
 
-		String saveText = saveButton.getText();
+			String seller = sellerName.getText();
 
-		if (videoSeller.equals(seller) && saveText.equals("सेव करें")) {
-			System.out.println("Seller matched " + seller + "✔");
-			saveButton.click();
-			Back();
-			Thread.sleep(2000);
-		} else {
-			System.out.println("Seller name not match ❌");
+			String saveText = saveButton.getText();
+
+			By sampleDekheBtn = By.id("com.sot.bizup.debug:id/mbGood");
+
+			if (videoSeller.equals(seller) && saveText.equals("Save")) {
+				System.out.println("Seller matched " + seller + "✔");
+				saveButton.click();
+				Back();
+				Thread.sleep(2000);
+				if (driver.findElements(sampleDekheBtn).size() > 0) {
+					System.out.println("Landed on Video Feed ✔");
+				} else {
+					Back();
+				}
+			} else {
+				Assert.fail("Seller name not match ❌");
+			}
+			return seller;
+		} catch (Exception e) {
+			System.out.println("Save seller error " + e);
+			return null;
 		}
-		return seller;
 
 	}
 
@@ -185,8 +198,6 @@ public class SellerPageObj extends VideoFeedObj {
 				System.out.println("Seller name not match ❌");
 				Assert.fail("Condition failed, Seller name not match ❌");
 			}
-
-			System.out.println("✨✨✨------------ Super Seller Checked -----------✨✨✨");
 
 		} catch (Exception e) {
 			System.out.println("Super Seller error " + e);

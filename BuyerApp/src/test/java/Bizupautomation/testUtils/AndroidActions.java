@@ -1,4 +1,5 @@
 package Bizupautomation.testUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -17,9 +18,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class AndroidActions{
+public class AndroidActions {
 
-AndroidDriver driver;
+	AndroidDriver driver;
 
 	public List<HashMap<String, String>> getJsonData(String jsonFilePath) throws IOException {
 
@@ -33,49 +34,41 @@ AndroidDriver driver;
 		return data;
 	}
 
+//	public String getScreenshotPath(String testCaseName, AndroidDriver driver) throws IOException {
+//		File source = driver.getScreenshotAs(OutputType.FILE);
+//		String destinationFile = System.getProperty("user.dir") + "\\reports" + testCaseName + ".png";
+//		FileUtils.copyFile(source, new File(destinationFile));
+//		return destinationFile;
+//
+//	}
+
 	public String getScreenshotPath(String testCaseName, AndroidDriver driver) throws IOException {
 		File source = driver.getScreenshotAs(OutputType.FILE);
-		String destinationFile = System.getProperty("user.dir") + "\\reports" + testCaseName + ".png";
+		String destinationFile = System.getProperty("user.dir") + "/reports/" + testCaseName + ".png";
 		FileUtils.copyFile(source, new File(destinationFile));
 		return destinationFile;
-		// 1. capture and place in folder //2. extent report pick file and attach to
-		// report
-
-	}
-	
-	public void Launch(AndroidDriver driver) throws InterruptedException {
-		driver.activateApp("com.sot.bizup.debug");
-		Thread.sleep(5000);
+		// 1. capture and place in folder
+		// 2. extent report pick file and attach to report
 	}
 
 	public void Terminate(AndroidDriver driver) {
 		driver.terminateApp("com.sot.bizup.debug");
 	}
-	
-	public void Install(AndroidDriver driver) {
-		try {
-			driver.installApp("C:\\Users\\lenovo\\git\\BizupBuyerApp\\BuyerApp\\src\\main\\java\\buyer\\resources\\Bizup-2.14.6-debug.apk");
-			System.out.println("App installed ✔");
-			
-		} catch (Exception e) {
-			System.out.println("App not installed " + e + " ❌");
-		}
-		
-	}
-	
+
 	public void HomeWait(AndroidDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-		wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.sot.bizup.debug:id/mtTopAll")), "text", "All"));
+		wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.sot.bizup.debug:id/mtTopAll")),
+				"text", "All"));
 	}
-	
+
 	public void RemoveApp(AndroidDriver driver) {
 		driver.removeApp("com.sot.bizup.debug");
 	}
-	
+
 	public void Restart(AndroidDriver driver) throws InterruptedException {
 		driver.terminateApp("com.sot.bizup.debug");
 		driver.activateApp("com.sot.bizup.debug");
-		HomeWait(driver);
+		Thread.sleep(5000);
 	}
 
 }

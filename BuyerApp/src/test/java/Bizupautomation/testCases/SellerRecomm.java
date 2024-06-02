@@ -1,38 +1,50 @@
 package Bizupautomation.testCases;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import Bizupautomation.testUtils.Base;
-import buyer.pageObjects.Android.SearchObj;
+import buyer.pageObjects.Android.HomeObj;
+import buyer.pageObjects.Android.LoginObj;
+import buyer.pageObjects.Android.VideoFeedObj;
 
 public class SellerRecomm extends Base {
 
-	@BeforeMethod(alwaysRun = true)
-	public void preSetup() throws InterruptedException {
-		Restart(driver);
-	}
-
 	@Test
 	public void SellerRecommFlow() throws InterruptedException {
-		SearchObj search = new SearchObj(driver);
+		HomeObj home = new HomeObj(driver);
+		VideoFeedObj video = new VideoFeedObj(driver);
+		LoginObj login = new LoginObj(driver);
 
-		// Click on the search icon
-		search.SearchProduct("Saree");
+		System.out.println("✨✨✨------------ Seller Recommendation Flow start -----------✨✨✨");
 
-		// Sample Tab select
-		search.SampleTab();
+		// Clear App data
+		login.clearAppData();
 
-		// First product enquiry
-		search.FirstProduct();
+		// Launch App
+		login.LaunchApp();
 
-		// Second product enquiry
-		search.SecondProduct();
+		// Enter Number
+		login.MobileNumber("1223334444");
 
-		Restart(driver);
+		// Product select
+		home.ProductSelect("Baba suit");
 
-		// Reach to Seller recommendations section
-		search.SellerRec();
+		// Navigation to video feed
+		home.HomeFeed();
+
+		// Seller Recommendation Enquiry
+		video.RecomProdEnq(3);
+
+		// Clear Filters
+		video.ClearFilters();
+
+		// Product select
+		video.ProductSelect("Shirts");
+
+		// Seller Recommendation Enquiry
+		video.RecomProdEnq(2);
+
+		System.out.println("✨✨✨------------ Seller Recommendation Flow checked successfully -----------✨✨✨");
 
 	}
 }

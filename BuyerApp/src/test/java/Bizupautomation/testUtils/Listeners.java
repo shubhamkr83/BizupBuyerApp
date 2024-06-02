@@ -27,21 +27,38 @@ public class Listeners extends AndroidActions implements ITestListener{
 		test.log(Status.PASS, "Test Passed");
 	}
 	
+//	@Override
+//	public void onTestFailure(ITestResult result) {
+//		test.fail(result.getThrowable());
+//		try {
+//			driver = (AndroidDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//		try {
+//			test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//	}
+	
 	@Override
 	public void onTestFailure(ITestResult result) {
-		test.fail(result.getThrowable());
-		try {
-			driver = (AndroidDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		try {
-			test.addScreenCaptureFromPath(getScreenshotPath(result.getMethod().getMethodName(), driver), result.getMethod().getMethodName());
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+	    test.fail(result.getThrowable());
+	    try {
+	        driver = (AndroidDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    try {
+	        String screenshotPath = getScreenshotPath(result.getMethod().getMethodName(), driver);
+	        String screenshotDescription = result.getMethod().getMethodName() + " failed";
+	        test.addScreenCaptureFromPath(screenshotPath, screenshotDescription);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 	
 	@Override

@@ -17,70 +17,77 @@ public class Filters extends Base {
 	@Test
 	public void HomeReset() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
+		
+		System.out.println("✨✨✨------- Home Reset Flow start ------✨✨✨");
 
 		// ---------- Product reset message check
 		home.ClearFilters();
 		
 		home.GenderFilter("Men");
 
-		home.ProductSelect("साड़ी");
+		home.ProductSelect("Saree");
 
 		home.ResetMsg();
 
 		// ---------- Price reset mesage check
-		home.ProductSelect("बाबा सूटस");
+		home.ProductSelect("Baba suit");
 
 		home.CitySelect(2);
 
-		home.PriceSelect("400 से ज़ादा");
+		home.PriceSelect("400 and above");
 
 		home.ResetMsg();
 
 		// ----------- City reset message check
 		home.ClearFilters();
 
-		home.ProductSelect("साड़ी");
+		home.ProductSelect("Saree");
 
 		home.CitySelect(2);
 
 		home.ResetMsg();
 
+		System.out.println("✨✨✨-------- Home Reset Flow checked ✅ ------✨✨✨");
 	}
 
 	@Test
 	public void VideoReset() throws InterruptedException {
 		VideoFeedObj video = new VideoFeedObj(driver);
 
+		System.out.println("✨✨✨------- Video Reset Flow start -------✨✨✨");
+		
 		video.HomeFeed();
 
 		// ---------- Product reset message check
 		video.ClearFilters();
 		
-		video.PriceSelect("100 तक");
+		video.PriceSelect("100 and below");
 
-		video.ProductSelect("मैन सूट");
+		video.ProductSelect("Men suits");
 
 		video.ResetMsg();
 
 		// ---------- Price reset mesage check
 		video.ClearFilters();
 		
-		video.ProductSelect("फ़राक");
+		video.ProductSelect("Lehenga ");
 
 		video.CitySelect(2);
 
-		video.PriceSelect("100 तक");
+		video.PriceSelect("100 and below");
 
 		video.ResetMsg();
 
 		// ----------- City reset message check
 		video.ClearFilters();
 
-		video.ProductSelect("साड़ी");
+		video.ProductSelect("Saree");
 
 		video.CitySelect(2);
 
 		video.ResetMsg();
+		
+		System.out.println("✨✨✨------- Video Reset Flow checked ✅ ------✨✨✨");
 
 	}
 

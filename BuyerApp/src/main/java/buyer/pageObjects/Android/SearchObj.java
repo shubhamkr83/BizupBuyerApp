@@ -1,7 +1,5 @@
 package buyer.pageObjects.Android;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -43,8 +41,8 @@ public class SearchObj extends HomeObj {
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Samples\"]")
 	private WebElement sampleTab;
 
-	@AndroidFindBy(xpath = "(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivWhatsapp\"])")
-	private List<WebElement> sampleEnquiry;
+	@AndroidFindBy(id = "com.sot.bizup.debug:id/ivWhatsapp")
+	private WebElement sampleEnquiry;
 
 	@AndroidFindBy(xpath = "//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/tabText\" and @text=\"Sellers\"]")
 	private WebElement sellerTab;
@@ -57,6 +55,7 @@ public class SearchObj extends HomeObj {
 			if (SearchIcon.isDisplayed()) {
 				SearchIcon.click();
 				searchInputType.sendKeys(product);
+				driver.hideKeyboard();
 				System.out.println("Sucessfully Searched " + product + " ✔");
 			}
 		} catch (Exception e) {
@@ -89,6 +88,7 @@ public class SearchObj extends HomeObj {
 	public void SampleTab() throws InterruptedException {
 		if (sampleTab.isDisplayed()) {
 			sampleTab.click();
+			
 			Thread.sleep(3000);
 		}
 	}
@@ -116,9 +116,9 @@ public class SearchObj extends HomeObj {
 
 	}
 
-	public void SampleTabEnq(int index) throws InterruptedException {
+	public void SampleTabEnq() throws InterruptedException {
 		try {
-			sampleEnquiry.get(index).click();
+			sampleEnquiry.click();
 			Thread.sleep(3000);
 			Back();
 			Back();
@@ -145,8 +145,6 @@ public class SearchObj extends HomeObj {
 			sellerCard.click();
 			shortSellerEnquiry();
 			System.out.println("Seller Search Enquiry working ✔");
-			System.out.println("✨✨✨------------ Search Enquiry Flow working -----------✨✨✨");
-			System.out.println("✨✨✨------------ All Enquiry Flow working -----------✨✨✨");
 		} catch (Exception e) {
 			Assert.fail("Seller Search Enquiry failed" + e);
 		}
@@ -156,26 +154,6 @@ public class SearchObj extends HomeObj {
 		ClickId("com.sot.bizup.debug:id/tvViewCatalog");
 	}
 
-	// Seller recommendations
-	public void FirstProduct() {
-		try {
-			SampleTabEnq(1);
-			SampleTabEnq(2);
-			SampleTabEnq(3);
-			SampleTabEnq(4);
-		} catch (Exception e) {
-			Assert.fail("Sample Search Enquiry failed" + e);
-		}
-	}
-
-	public void SecondProduct() {
-		try {
-			SampleTabEnq(1);
-			SampleTabEnq(2);
-		} catch (Exception e) {
-			Assert.fail("Sample Search Enquiry failed" + e);
-		}
-	}
 	
 	
 }
