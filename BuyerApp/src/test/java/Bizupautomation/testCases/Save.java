@@ -35,6 +35,8 @@ public class Save extends Base {
 
 		// Check the seller name on the save page
 		save.SaveCheck(seller);
+		
+		System.out.println("✨✨✨------------ Save Flow checked -----------✨✨✨");
 
 	}
 
@@ -53,7 +55,7 @@ public class Save extends Base {
 		// Sample Dekhe Check
 		save.SampleDekhe();
 
-		System.out.println("✨✨✨------------ Save Flow working -----------✨✨✨");
+		System.out.println("✨✨✨------------ Direction And Sample Flow checked -----------✨✨✨");
 
 	}
 

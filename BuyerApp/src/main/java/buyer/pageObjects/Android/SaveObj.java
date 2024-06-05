@@ -82,7 +82,6 @@ public class SaveObj extends SellerPageObj {
 				driver.findElement(AppiumBy.androidUIAutomator(
 						"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + seller + "\"));"));
 				System.out.println("Seller is present on the save page ✔");
-				System.out.println("✨✨✨------------ Save flow working -----------✨✨✨");
 			}
 		} catch (Exception e) {
 			Assert.fail("Save flow failed " + e);
@@ -96,7 +95,7 @@ public class SaveObj extends SellerPageObj {
 			if (direction.isDisplayed()) {
 				direction.click();
 				MarketVisit();
-				System.out.println("Direction Check working sucessfully ✔");
+				System.out.println("Direction Check working ✔");
 			}
 		} catch (Exception e) {
 			Assert.fail("Direction Check failed " + e);
@@ -111,7 +110,6 @@ public class SaveObj extends SellerPageObj {
 				sampleDekhe.click();
 				SmallBaatKareBtn();
 				System.out.println("Sample dekhe button works ✔");
-				System.out.println("✨✨✨------------ Direction And Sample Flow working -----------✨✨✨");
 			}
 
 		} catch (Exception e) {

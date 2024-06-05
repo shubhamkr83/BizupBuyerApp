@@ -70,7 +70,7 @@ public class Filters extends Base {
 		// ---------- Price reset mesage check
 		video.ClearFilters();
 		
-		video.ProductSelect("Lehenga ");
+		video.ProductSelect("Gowns");
 
 		video.CitySelect(2);
 

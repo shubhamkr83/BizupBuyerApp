@@ -122,6 +122,7 @@ public class SearchObj extends HomeObj {
 			Thread.sleep(3000);
 			Back();
 			Back();
+			Wait(sellerTab, "Sellers");
 			System.out.println("Sample Search Enquiry working ✔");
 		} catch (Exception e) {
 			Assert.fail("Sample Search Enquiry failed" + e);

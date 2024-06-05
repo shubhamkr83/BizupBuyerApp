@@ -205,28 +205,25 @@ public class AndroidUtils {
 		}
 	}
 
-	public void FullCatalogEnq() throws InterruptedException {
+	public void CatalogEnq() throws InterruptedException {
 		// CoachMark Check
 		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
 		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
 
 		// Full screen catalog enquiry
-		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
-		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
-		ClickId("com.sot.bizup.debug:id/mbOrderDialog");
+//		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
+//		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+//		ClickId("com.sot.bizup.debug:id/mbOrderDialog");
+
+		// Selecting Catalog
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
 
 		// PreEnquiryQuestion Check
 		PreEnquiryQue();
 
 		// Check for PreEnquiryVideo
 		PreEnquiryVideoCheck();
-		Thread.sleep(2000);
-		Back();
-
-		// Selecting Catalog
-		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
-		ClickId("com.sot.bizup.debug:id/mbDealKare");
-		Thread.sleep(2000);
 
 		// Enter the text on the Chat box
 		LongChat1();

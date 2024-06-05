@@ -94,10 +94,10 @@ public class EnquiryTabObj extends SaveObj {
 				ShortChat1();
 				Back();
 
-				System.out.println("Enquiry Tab Enquires working ✔");
+				System.out.println("Enquires working ✔");
 			}
 		} catch (Exception e) {
-			Assert.fail("Enquiry Tab Enquires error" + e);
+			Assert.fail("Enquires error" + e);
 		}
 	}
 

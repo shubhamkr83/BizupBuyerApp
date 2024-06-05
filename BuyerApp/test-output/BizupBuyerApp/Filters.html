@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>1/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Jun 02 12:48:34 IST 2024</td>
+<td>Started on:</td><td>Wed Jun 05 14:09:49 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>243 seconds (243153 ms)</td>
+<tr><td>Total time:</td><td>137 seconds (137948 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -77,25 +77,29 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Bizupautomation.testCases.Filters.VideoReset()'><b>VideoReset</b><br>Test class: Bizupautomation.testCases.Filters</td>
-<td><div><pre>java.lang.AssertionError: City filter failed ❌org.openqa.selenium.TimeoutException: Expected condition failed: waiting for value to contain &quot;सैंपल देंखे&quot;. (tried for 40 second(s) with 500 milliseconds interval)
+<td><div><pre>java.lang.AssertionError: Product filter failed org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
+Command: [c976ba82-24c9-418a-8383-b70fa6b9fb37, findElement {using=xpath, value=//android.widget.TextView[@resource-id=&quot;com.sot.bizup.debug:id/mtFilterName&quot; and @text=&quot;Men suits&quot;]}]
 Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: &quot;samsung SM-E146B&quot;;, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: c78d27cf-6611-4d23-9f4e-c2ccb6b4c9da
-	at buyer.pageObjects.Android.VideoFeedObj.CitySelect(VideoFeedObj.java:109)
-	at Bizupautomation.testCases.Filters.VideoReset(Filters.java:75)
+Session ID: c976ba82-24c9-418a-8383-b70fa6b9fb37
+	at buyer.pageObjects.Android.VideoFeedObj.ProductSelect(VideoFeedObj.java:81)
+	at Bizupautomation.testCases.Filters.VideoReset(Filters.java:66)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace916585760", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace916585760'><pre>java.lang.AssertionError: City filter failed ❌org.openqa.selenium.TimeoutException: Expected condition failed: waiting for value to contain &quot;सैंपल देंखे&quot;. (tried for 40 second(s) with 500 milliseconds interval)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1589606252", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1589606252'><pre>java.lang.AssertionError: Product filter failed org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.21.0&apos;, revision: &apos;79ed462ef4&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.3&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
+Command: [c976ba82-24c9-418a-8383-b70fa6b9fb37, findElement {using=xpath, value=//android.widget.TextView[@resource-id=&quot;com.sot.bizup.debug:id/mtFilterName&quot; and @text=&quot;Men suits&quot;]}]
 Capabilities {appium:automationName: UIAutomator2, appium:databaseEnabled: false, appium:desired: {automationName: UIAutomator2, deviceName: &quot;samsung SM-E146B&quot;;, platformName: ANDROID}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-E146B, appium:deviceName: RZCW92L7VQW, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2408, appium:deviceUDID: RZCW92L7VQW, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 64, appium:takesScreenshot: true, appium:viewportRect: {height: 2344, left: 0, top: 64, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: c78d27cf-6611-4d23-9f4e-c2ccb6b4c9da
+Session ID: c976ba82-24c9-418a-8383-b70fa6b9fb37
 	at org.testng.Assert.fail(Assert.java:111)
-	at buyer.pageObjects.Android.VideoFeedObj.CitySelect(VideoFeedObj.java:109)
-	at Bizupautomation.testCases.Filters.VideoReset(Filters.java:75)
+	at buyer.pageObjects.Android.VideoFeedObj.ProductSelect(VideoFeedObj.java:81)
+	at Bizupautomation.testCases.Filters.VideoReset(Filters.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -123,8 +127,8 @@ Session ID: c78d27cf-6611-4d23-9f4e-c2ccb6b4c9da
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>109</td>
-<td>Bizupautomation.testCases.Filters@1787bc24</td></tr>
+<td>36</td>
+<td>Bizupautomation.testCases.Filters@13b3d178</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -137,8 +141,8 @@ Session ID: c78d27cf-6611-4d23-9f4e-c2ccb6b4c9da
 <tr>
 <td title='Bizupautomation.testCases.Filters.HomeReset()'><b>HomeReset</b><br>Test class: Bizupautomation.testCases.Filters</td>
 <td></td>
-<td>112</td>
-<td>Bizupautomation.testCases.Filters@1787bc24</td></tr>
+<td>83</td>
+<td>Bizupautomation.testCases.Filters@13b3d178</td></tr>
 </table><p>
 </body>
 </html>

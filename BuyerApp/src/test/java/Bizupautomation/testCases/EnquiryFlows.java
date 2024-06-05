@@ -15,11 +15,8 @@ public class EnquiryFlows extends Base {
 		Restart(driver);
 	}
 
-	// ----------------------------------------------------------------------
-	// ------------------ Video Enquiry Flow --------------------
-	// ----------------------------------------------------------------------
 	@Test(groups = ("Smoke"))
-	public void EnquiryVideoFlow() throws InterruptedException {
+	public void VideoEnquiryFlow() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
 
 		System.out.println("✨✨✨------------ Video Enquiry Flow start -----------✨✨✨");
@@ -34,7 +31,7 @@ public class EnquiryFlows extends Base {
 		home.HomeSeller();
 
 		// Catalog Enquiry
-		home.FullCatalogEnq();
+		home.CatalogEnq();
 
 		// Video Enquiry
 		home.VideoEnquiry();
@@ -48,9 +45,6 @@ public class EnquiryFlows extends Base {
 		System.out.println("✨✨✨------------ Video Enquiry Flow working -----------✨✨✨");
 	}
 
-	// ----------------------------------------------------------------------
-	// ------------------ Search Enquiry Flow --------------------
-	// ----------------------------------------------------------------------
 	@Test
 	public void SearchEnquiryFlow() throws InterruptedException {
 		SearchObj search = new SearchObj(driver);
@@ -82,9 +76,6 @@ public class EnquiryFlows extends Base {
 
 	}
 
-	// ----------------------------------------------------------------------
-	// ------------------ Enquiry Tab Flow ------------------
-	// ----------------------------------------------------------------------
 	@Test
 	public void EnquiryTabFlow() throws InterruptedException {
 		EnquiryTabObj enquiryTab = new EnquiryTabObj(driver);
