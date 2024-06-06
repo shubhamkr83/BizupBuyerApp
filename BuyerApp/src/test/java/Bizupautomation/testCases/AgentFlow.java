@@ -75,22 +75,4 @@ public class AgentFlow extends Base {
 		System.out.println("✨✨✨------------Save Agent checked ✅-----------✨✨✨");
 	}
 
-	// @Test
-//	public void SellerPageAgent() throws InterruptedException {
-//		SellerPageObj seller = new SellerPageObj(driver);
-//		
-//		System.out.println("✨✨✨------------ Seller Page Agent start -----------✨✨✨");
-//		
-//		//home to seller page
-//		seller.HomeSeller();
-//
-//		// Agent scroll message check
-//		seller.Agent();
-//
-//		// Chat with agent
-//		seller.Chat();
-//		
-//		System.out.println("✨✨✨------------Seller Page Agent checked ✅ -----------✨✨✨");
-//		
-//	}
 }

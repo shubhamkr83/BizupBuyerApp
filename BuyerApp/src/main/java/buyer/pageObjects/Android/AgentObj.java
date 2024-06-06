@@ -78,7 +78,7 @@ public class AgentObj extends AndroidUtils {
 	public void CatalogFullView() throws InterruptedException {
 		try {
 			if (agentName.isDisplayed()) {
-				SendKey("Shirt chahiye");
+				ShortChat2();
 				Send();
 				Wait(catalogFullView, "View All");
 				catalogFullView.click();

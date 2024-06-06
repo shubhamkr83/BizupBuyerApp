@@ -4,18 +4,18 @@
   <listeners>
     <listener class-name="Bizupautomation.testUtils.Listeners"/>
   </listeners>
-  <test thread-count="5" name="EnquiryFlows(failed)">
+  <test thread-count="5" name="SellerJourneyFlow(failed)">
     <classes>
-      <class name="Bizupautomation.testCases.EnquiryFlows">
+      <class name="Bizupautomation.testCases.SellerJourney">
         <methods>
+          <include name="SellerJourneyFlow"/>
           <include name="preSetup"/>
-          <include name="EnquiryVideoFlow"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
         </methods>
-      </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
+      </class> <!-- Bizupautomation.testCases.SellerJourney -->
     </classes>
-  </test> <!-- EnquiryFlows(failed) -->
+  </test> <!-- SellerJourneyFlow(failed) -->
   <test thread-count="5" name="Filters(failed)">
     <classes>
       <class name="Bizupautomation.testCases.Filters">

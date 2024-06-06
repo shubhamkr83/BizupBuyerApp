@@ -97,7 +97,7 @@ public class HomeObj extends SellerPageObj {
 	// Gender filter
 	public void GenderFilter(String gender) {
 		try {
-			if (genderAll.isDisplayed()) { 
+			if (genderAll.isDisplayed()) {
 				ClickXp("//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mtTop" + gender + "\"]");
 				System.out.println("Gender filter set ✔");
 			}
@@ -196,27 +196,16 @@ public class HomeObj extends SellerPageObj {
 	// Seller Journey
 	public void SellerPresentCheck(String seller) throws InterruptedException {
 		try {
-			// Restart the App
 			RestartApp();
-
-			// Scroll to the Seller Journey Section
 			ScrollEle("Keep watching your sellers");
-
-			// Target the seller
 			By FindSeller = By
 					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
 							+ seller + "\"]");
-
-			// Condition if seller present then do the Enquiry
 			if (driver.findElements(FindSeller).size() > 0) {
 				System.out.println("Seller " + seller + " is present in the Seller Journey section ✔");
 				ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
 						+ seller + "\"]");
-
-				// Enquiry
 				shortestEnquiry();
-
-				// Restart App
 				RestartApp();
 			}
 		} catch (Exception e) {
@@ -227,22 +216,15 @@ public class HomeObj extends SellerPageObj {
 	// Seller Journey
 	public void sellerRemoveCheck(String seller) {
 		try {
-
-			// Scroll to the Seller Journey Section
 			ScrollEle("Keep watching your sellers");
-
-			// Target the seller
 			By FindSeller = By
 					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtSellerName\" and @text=\""
 							+ seller + "\"]");
-
-			// Condition if seller is present after doing the Enquiry
 			if (driver.findElements(FindSeller).size() > 0) {
 				Assert.fail("Seller " + seller + " is not removed from the section after doing Enquiry ❌");
 			} else {
 				System.out.println("Seller " + seller + " is remove from the section after doing Enquiry ✔");
 			}
-
 		} catch (Exception e) {
 			Assert.fail("seller Remove failed " + e);
 		}

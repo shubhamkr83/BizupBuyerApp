@@ -51,10 +51,10 @@ public class AndroidUtils {
 	// Clear App Data Method
 	public void clearAppData() {
 		try {
-			driver.executeScript("mobile: clearAppData", ImmutableMap.of("bundleId", "com.your.app.bundleId"));
+			 driver.executeScript("mobile: clearAppData", ImmutableMap.of("package", "com.sot.bizup.debug"));
 			System.out.println("App Data Cleared ✔");
 		} catch (Exception e) {
-			System.out.println("App Data Not Cleared ❌");
+			Assert.fail("App Data Not Cleared ❌");
 		}
 	}
 
@@ -112,8 +112,7 @@ public class AndroidUtils {
 		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
 		Thread.sleep(2000);
 		ClickId("com.sot.bizup.debug:id/mbGood");
-		String Sseller = SpSellerName();
-		return Sseller;
+		return SpSellerName();
 	}
 
 	// Scroll without element
@@ -153,114 +152,42 @@ public class AndroidUtils {
 
 	// Chat Methods
 	public void ShortChat1() throws InterruptedException {
-		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
-		By WhatsAppCheck = By.id("com.whatsapp:id/send");
-
-		if (driver.findElements(ChatCheck).size() > 0) {
-			ChatCheck();
-			SendKey("Hello");
-		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
-			WhatsAppCheck();
-		}
+		checkAndSend("Hello");
 	}
 
 	public void ShortChat2() throws InterruptedException {
-		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
-		By WhatsAppCheck = By.id("com.whatsapp:id/send");
-
-		if (driver.findElements(ChatCheck).size() > 0) {
-			ChatCheck();
-			SendKey("Shirt chahiye");
-			Send();
-		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
-			WhatsAppCheck();
-		}
+		checkAndSend("Shirt chahiye");
 	}
 
 	public void LongChat1() throws InterruptedException {
-		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
-		By WhatsAppCheck = By.id("com.whatsapp:id/send");
-
-		if (driver.findElements(ChatCheck).size() > 0) {
-			ChatCheck();
-			SendKey("Hi");
-			SendKey("Pant chahiye");
-			SendKey("aur dekhao");
-		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
-			WhatsAppCheck();
-		}
+		checkAndSend("Hi", "Pant chahiye", "aur dekhao");
 	}
 
 	public void LongChat2() throws InterruptedException {
-		By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
-		By WhatsAppCheck = By.id("com.whatsapp:id/send");
+		checkAndSend("COD milega??", "Delivery charge kitna lagega??", "Delivery kab tak hogi??");
+	}
 
-		if (driver.findElements(ChatCheck).size() > 0) {
-			ChatCheck();
-			SendKey("COD milega??");
-			SendKey("Delivery charge kitna lagega??");
-			SendKey("Delivery kab tak hogi??");
-		} else if (driver.findElements(WhatsAppCheck).size() > 0) {
-			WhatsAppCheck();
+	private void checkAndSend(String... messages) throws InterruptedException {
+		By chatButton = By.xpath("//android.widget.Button[@text=\"\"]");
+		By sendButton = By.id("com.whatsapp:id/send");
+
+		if (driver.findElements(chatButton).size() > 0) {
+			ClickXp("//android.widget.Button[@text=\"\"]");
+			System.out.println("Landed on Chat ✔");
+			for (String message : messages) {
+				SendKey(message);
+				Thread.sleep(2000);
+			}
+		} else if (driver.findElements(sendButton).size() > 0) {
+			System.out.println("Landed on WhatsApp ✔");
+			Thread.sleep(2000);
+			Back();
+			Back();
 		}
 	}
 
-	public void CatalogEnq() throws InterruptedException {
-		// CoachMark Check
-		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
-		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
-
-		// Full screen catalog enquiry
-//		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
-//		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
-//		ClickId("com.sot.bizup.debug:id/mbOrderDialog");
-
-		// Selecting Catalog
-		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
-		ClickId("com.sot.bizup.debug:id/mbDealKare");
-
-		// PreEnquiryQuestion Check
-		PreEnquiryQue();
-
-		// Check for PreEnquiryVideo
-		PreEnquiryVideoCheck();
-
-		// Enter the text on the Chat box
-		LongChat1();
-		driver.hideKeyboard();
-		Back();
-	}
-
-	public void CatalogEnquiry() throws InterruptedException {
-		// CoachMark Check
-		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
-		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
-
-		// Selecting Catalog
-		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
-		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
-		ClickId("com.sot.bizup.debug:id/mbDealKare");
-		Thread.sleep(2000);
-	}
-
-	public void VideoEnquiry() throws InterruptedException {
-		// ------Video Enquiry------
-		// Video Tab Change
-		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
-		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
-
-		// Click on the video
-		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
-
-		// Seller video baat kare button click
-		ClickId("com.sot.bizup.debug:id/mbChat");
-
-		// Check for PreEnquiryVideo
-		PreEnquiryVideoCheck();
-
-	}
-
 	public void WhatsAppEnable() throws InterruptedException {
+
 		// WhatsApp Enable Click
 		By secondElement = By.xpath("//android.widget.TextView[@text=\"ओनर से बात करे\"]");
 		By firstElement = By.xpath("//android.widget.Button[@text=\"बात करे\"]");
@@ -284,11 +211,68 @@ public class AndroidUtils {
 		FeedbackQue();
 	}
 
+	public void CatalogEnq() throws InterruptedException {
+
+		// CoachMark Check
+		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
+		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
+
+		// Full screen catalog enquiry
+		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivItem\"])[1]");
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+		ClickId("com.sot.bizup.debug:id/ivCross");
+
+		// Selecting Catalog
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
+
+		// PreEnquiryQuestion Check
+		PreEnquiryQue();
+
+		// Check for PreEnquiryVideo
+		PreEnquiryVideoCheck();
+
+		// Enter the text on the Chat box
+		LongChat1();
+		driver.hideKeyboard();
+		Back();
+	}
+
+	public void CatalogEnquiry() throws InterruptedException {
+
+		// CoachMark Check
+		CoachMarkCheck("com.sot.bizup.debug:id/ivDealsCoachmarkText");
+		ClickId("com.sot.bizup.debug:id/mtSellerCatalog");
+
+		// Selecting Catalog
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[1]");
+		ClickXp("(//android.widget.Button[@resource-id=\"com.sot.bizup.debug:id/mbShortlist\"])[2]");
+		ClickId("com.sot.bizup.debug:id/mbDealKare");
+		Thread.sleep(2000);
+	}
+
+	public void VideoEnquiry() throws InterruptedException {
+
+		// ------Video Enquiry------
+		// Video Tab Change
+		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
+		ClickId("com.sot.bizup.debug:id/mtSellerVideos");
+
+		// Click on the video
+		ClickXp("(//android.widget.ImageView[@resource-id=\"com.sot.bizup.debug:id/ivThumbnail\"])[1]");
+
+		// Seller video baat kare button click
+		ClickId("com.sot.bizup.debug:id/mbChat");
+
+		// Check for PreEnquiryVideo
+		PreEnquiryVideoCheck();
+
+	}
+
 	public void shortSellerEnquiry() throws InterruptedException {
 		try {
 			// Click on Baat Kare button
 			ClickId("com.sot.bizup.debug:id/mbDealKare");
-			Thread.sleep(3000);
 
 			// PreEnquiryQuestion Check
 			PreEnquiryQue();
@@ -320,7 +304,6 @@ public class AndroidUtils {
 
 		// Click on Baat Kare button
 		ClickId("com.sot.bizup.debug:id/mbDealKare");
-		Thread.sleep(1000);
 
 		// PreEnquiryQuestion Check
 		PreEnquiryQue();
@@ -398,19 +381,6 @@ public class AndroidUtils {
 			}
 		} catch (Exception e) {
 			Assert.fail("WhatsApp Landing Failed" + e);
-		}
-	}
-
-	// Chat Check
-	public void ChatCheck() {
-		try {
-			By ChatCheck = By.xpath("//android.widget.Button[@text=\"\"]");
-
-			if (driver.findElements(ChatCheck).size() > 0) {
-				System.out.println("Landed on Chat ✔");
-			}
-		} catch (Exception e) {
-			Assert.fail("Chat Landing Failed" + e);
 		}
 	}
 

@@ -39,7 +39,7 @@ public class SellerRecomm extends Base {
 		video.ClearFilters();
 
 		// Product select
-		video.ProductSelect("Shirts");
+		video.ProductSelect("Shirts", "शर्ट्स");
 
 		// Seller Recommendation Enquiry
 		video.RecomProdEnq(2);

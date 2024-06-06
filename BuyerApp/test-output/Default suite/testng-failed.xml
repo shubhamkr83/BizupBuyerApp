@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Bizupautomation.testCases.EnquiryFlows">
+      <class name="Bizupautomation.testCases.SellerRecomm">
         <methods>
-          <include name="preSetup"/>
-          <include name="VideoEnquiryFlow"/>
           <include name="ConfigureAppium"/>
           <include name="TearDown"/>
+          <include name="SellerRecommFlow"/>
         </methods>
-      </class> <!-- Bizupautomation.testCases.EnquiryFlows -->
+      </class> <!-- Bizupautomation.testCases.SellerRecomm -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

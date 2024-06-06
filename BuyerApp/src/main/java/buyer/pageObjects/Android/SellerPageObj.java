@@ -78,7 +78,6 @@ public class SellerPageObj extends VideoFeedObj {
 			System.out.println("Not redirect to seller page ❌");
 			Assert.fail("Condition failed, marking test as failed ❌");
 		}
-
 	}
 
 	public void VideoTabClick() {
@@ -149,7 +148,6 @@ public class SellerPageObj extends VideoFeedObj {
 	public String SaveSeller() throws InterruptedException {
 
 		try {
-
 			// Check the save seller in video
 			String videoSeller = VideoCheck();
 
@@ -157,18 +155,11 @@ public class SellerPageObj extends VideoFeedObj {
 
 			String saveText = saveButton.getText();
 
-			By sampleDekheBtn = By.id("com.sot.bizup.debug:id/mbGood");
-
 			if (videoSeller.equals(seller) && saveText.equals("Save")) {
 				System.out.println("Seller matched " + seller + "✔");
 				saveButton.click();
 				Back();
 				Thread.sleep(2000);
-				if (driver.findElements(sampleDekheBtn).size() > 0) {
-					System.out.println("Landed on Video Feed ✔");
-				} else {
-					Back();
-				}
 			} else {
 				Assert.fail("Seller name not match ❌");
 			}

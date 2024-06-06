@@ -67,15 +67,31 @@ public class VideoFeedObj extends AndroidUtils {
 	}
 
 	// Product Select
-	public void ProductSelect(String product) {
+	public void ProductSelect(String prod1, String prod2) {
 		try {
+
+			By ProdEng = By
+					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
+							+ prod1 + "\"]");
+			By ProdHin = By
+					.xpath("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
+							+ prod2 + "\"]");
+
 			if (productFilter.isDisplayed()) {
 				productFilter.click();
-				ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
-						+ product + "\"]");
-				productApply.click();
-				Wait(sampleDekhe, "View Catalog");
-				System.out.println("Product selected ✔");
+				if (driver.findElements(ProdEng).size() > 0) {
+					ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
+							+ prod1 + "\"]");
+					productApply.click();
+					Wait(sampleDekhe, "View Catalog");
+					System.out.println("Product selected ✔");
+				} else if (driver.findElements(ProdHin).size() > 0) {
+					ClickXp("//android.widget.TextView[@resource-id=\"com.sot.bizup.debug:id/mtFilterName\" and @text=\""
+							+ prod2 + "\"]");
+					productApply.click();
+					Wait(sampleDekhe, "View Catalog");
+					System.out.println("Product selected ✔");
+				}
 			}
 		} catch (Exception e) {
 			Assert.fail("Product filter failed " + e);
@@ -125,7 +141,7 @@ public class VideoFeedObj extends AndroidUtils {
 		}
 	}
 
-	// -------------- Save --------------
+	// -------------- Old video check --------------
 	public String VideoCheck() {
 		String videoSeller = "";
 
@@ -133,25 +149,34 @@ public class VideoFeedObj extends AndroidUtils {
 
 		boolean isSaveIconPresent = driver.findElements(saveIcon).size() > 0;
 
-		if (isSaveIconPresent) {
-			nextVideo.click();
-		} else {
-			videoSeller = sellerName.getText();
-			sampleDekhe.click();
-			System.out.println("VideoFeed Save Icon Checked ✔");
+		while (isSaveIconPresent) {
+			if (isSaveIconPresent) {
+				nextVideo.click();
+			}
 		}
+		videoSeller = sellerName.getText();
+		sampleDekhe.click();
+		System.out.println("VideoFeed Save Icon Checked ✔");
+
 		return videoSeller;
+
 	}
 
+	// Video Save Check
 	public void VideoSaveCheck() {
 		By saveIcon = By.id("com.sot.bizup.debug:id/ivSavedSeller");
 		boolean isSaveIconPresent = driver.findElements(saveIcon).size() > 0;
 
-		if (isSaveIconPresent) {
-			System.out.println("Video Save Icon Present ✔");
-			Back();
+		if (sampleDekhe.isDisplayed()) {
+			System.out.println("Landed on VideoFeed Page ✔");
+			if (isSaveIconPresent) {
+				System.out.println("Video Save Icon Present ✔");
+				Back();
+			} else {
+				System.out.println("Video Save Icon not Present ❌");
+			}
 		} else {
-			System.out.println("Video Save Icon not Present ❌");
+			System.out.println("Not landed on VideoFeed Page ❌");
 		}
 	}
 
@@ -165,17 +190,17 @@ public class VideoFeedObj extends AndroidUtils {
 			Assert.fail("Reset Message is not Displayed ❌");
 		}
 	}
-	
-	//Seller Recommendation 
+
+	// Seller Recommendation
 	public void RecomProdEnq(int num) throws InterruptedException {
 		for (int i = 0; i <= num; i++) {
-		    SampleDekhe();
-		    CatalogEnquiry();
-		    Back();
-		    Back();
-		    NextVideo();
+			SampleDekhe();
+			CatalogEnquiry();
+			Back();
+			Back();
+			NextVideo();
 		}
-		
+
 	}
 
 }

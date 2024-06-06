@@ -17,12 +17,12 @@ public class Filters extends Base {
 	@Test
 	public void HomeReset() throws InterruptedException {
 		HomeObj home = new HomeObj(driver);
-		
+
 		System.out.println("✨✨✨------- Home Reset Flow start ------✨✨✨");
 
 		// ---------- Product reset message check
 		home.ClearFilters();
-		
+
 		home.GenderFilter("Men");
 
 		home.ProductSelect("Saree");
@@ -55,24 +55,22 @@ public class Filters extends Base {
 		VideoFeedObj video = new VideoFeedObj(driver);
 
 		System.out.println("✨✨✨------- Video Reset Flow start -------✨✨✨");
-		
+
 		video.HomeFeed();
 
 		// ---------- Product reset message check
 		video.ClearFilters();
-		
+
 		video.PriceSelect("100 and below");
 
-		video.ProductSelect("Men suits");
+		video.ProductSelect("Men suits", "मैन सूट");
 
 		video.ResetMsg();
 
 		// ---------- Price reset mesage check
 		video.ClearFilters();
-		
-		video.ProductSelect("Gowns");
 
-		video.CitySelect(2);
+		video.ProductSelect("Men suits", "मैन सूट");
 
 		video.PriceSelect("100 and below");
 
@@ -81,12 +79,12 @@ public class Filters extends Base {
 		// ----------- City reset message check
 		video.ClearFilters();
 
-		video.ProductSelect("Saree");
+		video.ProductSelect("Saree", "साड़ी");
 
 		video.CitySelect(2);
 
 		video.ResetMsg();
-		
+
 		System.out.println("✨✨✨------- Video Reset Flow checked ✅ ------✨✨✨");
 
 	}
